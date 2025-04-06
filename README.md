@@ -54,9 +54,11 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 
 ### プロジェクトマネージャー向け書籍
 
-**準備中**
+**マジメ（本としての面白さはほとんどありません）**
 
-まじめなPM書籍を掲載する予定ですが、とりあえず緩めの書籍ならすぐ共有できるのでこちらのリンクを載せます。
+- [プロジェクトマネージャー入門:ITSSレベル3への第一歩](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/PMLv3Introduction/pm-level3-guidebook.pdf)
+- [プロジェクトマネジメント入門～ITSS レベル3を目指す人のために～](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/PMLv3Guide/pm-guidebook-level3.pdf)
+- [実践プロジェクトマネジメント - ITSSレベル4への道](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/PMLv4Guide/pm-guidebook-level4.pdf)
 
 **ゆるめ**
 
