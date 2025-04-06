@@ -55,6 +55,10 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [はじめてのPython：つまずかないプログラミング入門](https://github.com/t2k2pp/try/blob/main/Python%20Learn%20Claude.md)
 - [聖域なきCI/CDの社内導入](https://github.com/t2k2pp/CICDBook?tab=readme-ov-file)
 
+**ゆるめ**
+
+- [ソースコードのないプログラミングの本](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Program/programming-book.md)
+
 ---
 
 ### プロジェクトマネージャー向け書籍
@@ -76,6 +80,11 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 
 - [嫁から学ぶプロジェクトマネジメント](https://github.com/t2k2pp/MassProducePMKnowledge/blob/main/13.%E3%81%8A%E3%81%99%E3%81%99%E3%82%81_%E5%AB%81%E3%81%8B%E3%82%89%E5%AD%A6%E3%81%B6%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%83%9E%E3%83%8D%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88/book-manuscript.pdf)
 - [ソロでも学べるプロジェクトマネジメント](https://github.com/t2k2pp/MassProducePMKnowledge/blob/main/13.%E3%81%8A%E3%81%99%E3%81%99%E3%82%81_%E5%AB%81%E3%81%8B%E3%82%89%E5%AD%A6%E3%81%B6%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%83%9E%E3%83%8D%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88/solo-pm-book.pdf)
+- [ドラッカーから学ぶマネジメント](https://github.com/t2k2pp/MassProducePMKnowledge/blob/main/03.%E3%83%89%E3%83%A9%E3%83%83%E3%82%AB%E3%83%BC%E3%81%8B%E3%82%89%E5%AD%A6%E3%81%B6%E3%83%9E%E3%83%8D%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88/drucker-management-book.md)
+- [PMBOKを3賢者と学ぶ～これからのマネジメント～](https://github.com/t2k2pp/MassProducePMKnowledge/blob/main/12.PMBOK%203%E8%B3%A2%E8%80%85/pmbok-book.md)
+- [PMBOKを3賢者と学ぶ～これからのIT企業のプロジェクトマネジメント～](https://github.com/t2k2pp/MassProducePMKnowledge/blob/main/10.PMBOK_%E3%82%A2%E3%83%8A%E3%82%B6%E3%83%BC3%E8%B3%A2%E8%80%85/pmbok-book.md)※アナザー版
+
+  
 
 ---
 
