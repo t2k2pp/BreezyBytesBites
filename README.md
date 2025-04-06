@@ -36,6 +36,9 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 
 - [抵抗勢力を黙らせた上で信者にする生成AIの社内導入](https://github.com/t2k2pp/AI_Adoption_Book/blob/main/ai-adoption-book-all.pdf)
 - [『それってレガシープロンプト：生成AIとの対話を再考する』](https://github.com/t2k2pp/NewPrompt/blob/main/legacy-prompts-book%20(%E3%81%BE%E3%81%A8%E3%82%81%E7%89%88).md)(一部エラーあり)
+- [生成AIで本を作成するためのクックブック](https://github.com/t2k2pp/BookBuilder/blob/main/ai-book-cookbook.md)
+- [Claudeを活用した書籍制作ワークフロー](https://github.com/t2k2pp/BookBuilder/blob/main/claude-book-creation-workflow.md)
+- [ゆる書籍生成：シンプルプロンプトで作る質の高い本](https://github.com/t2k2pp/BookBuilder/blob/main/relaxed-book-creation.md)
 
 ---
 
