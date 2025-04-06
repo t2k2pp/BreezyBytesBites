@@ -60,6 +60,13 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [プロジェクトマネジメント入門～ITSS レベル3を目指す人のために～](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/PMLv3Guide/pm-guidebook-level3.pdf)
 - [実践プロジェクトマネジメント - ITSSレベル4への道](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/PMLv4Guide/pm-guidebook-level4.pdf)
 
+**シミュレーション**
+
+- [みるみる上達する会話力。リアルに体感お客様折衝](https://github.com/t2k2pp/PMSimulator/blob/main/improved-sier-negotiation-book.md)
+- [生成AIを活用した動的選択式シミュレーション実装ガイド](https://github.com/t2k2pp/PMSimulator/blob/main/dynamic-choice-simulation-guide.md)
+- [挑戦と成長のためのPMシミュレーション - 社内編](https://github.com/t2k2pp/PMSimulator/blob/main/pm-simulation-internal.md)
+- [挑戦と成長のためのPMシミュレーション - お客様編](https://github.com/t2k2pp/PMSimulator/blob/main/pm-simulation-revised.md)
+
 **ゆるめ**
 
 - [嫁から学ぶプロジェクトマネジメント](https://github.com/t2k2pp/MassProducePMKnowledge/blob/main/13.%E3%81%8A%E3%81%99%E3%81%99%E3%82%81_%E5%AB%81%E3%81%8B%E3%82%89%E5%AD%A6%E3%81%B6%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%83%9E%E3%83%8D%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88/book-manuscript.pdf)
