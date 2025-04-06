@@ -1,7 +1,6 @@
 # BreezyBytesBites
 
-
-![ChatGPT Image 2025年4月6日 12_14_56](https://github.com/user-attachments/assets/373c25d0-8cd3-49e5-b390-b3ac0119ea90)
+![BBB](https://github.com/user-attachments/assets/4f7b6f02-f00f-4da8-959e-e1420457ef89)
 
 ## 概要
 「Breezy Bytes Bites」へようこそ！ このサイトは、生成AIを活用して作られた書籍を公開します。
