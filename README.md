@@ -58,6 +58,7 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 **ゆるめ**
 
 - [ソースコードのないプログラミングの本](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Program/programming-book.md)
+- [PythonもR言語もないデータサイエンス・AIの本](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/AI/datascience-ai-book.md)
 
 ---
 
