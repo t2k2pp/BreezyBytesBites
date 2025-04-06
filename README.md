@@ -32,11 +32,12 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 
 ## 目次
 
-
 ### 生成AI関連書籍
 
 - [抵抗勢力を黙らせた上で信者にする生成AIの社内導入](https://github.com/t2k2pp/AI_Adoption_Book/blob/main/ai-adoption-book-all.pdf)
 - [『それってレガシープロンプト：生成AIとの対話を再考する』](https://github.com/t2k2pp/NewPrompt/blob/main/legacy-prompts-book%20(%E3%81%BE%E3%81%A8%E3%82%81%E7%89%88).md)(一部エラーあり)
+
+---
 
 ###  開発者向け書籍
 
@@ -49,6 +50,7 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [はじめてのPython：つまずかないプログラミング入門](https://github.com/t2k2pp/try/blob/main/Python%20Learn%20Claude.md)
 - [聖域なきCI/CDの社内導入](https://github.com/t2k2pp/CICDBook?tab=readme-ov-file)
 
+---
 
 ### プロジェクトマネージャー向け書籍
 
@@ -61,14 +63,18 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [嫁から学ぶプロジェクトマネジメント](https://github.com/t2k2pp/MassProducePMKnowledge/blob/main/13.%E3%81%8A%E3%81%99%E3%81%99%E3%82%81_%E5%AB%81%E3%81%8B%E3%82%89%E5%AD%A6%E3%81%B6%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%83%9E%E3%83%8D%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88/book-manuscript.pdf)
 - [ソロでも学べるプロジェクトマネジメント](https://github.com/t2k2pp/MassProducePMKnowledge/blob/main/13.%E3%81%8A%E3%81%99%E3%81%99%E3%82%81_%E5%AB%81%E3%81%8B%E3%82%89%E5%AD%A6%E3%81%B6%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%83%9E%E3%83%8D%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88/solo-pm-book.pdf)
 
+---
 
 ### その他ビジネス書籍
 
-**ファシリテータ本**
+**ファシリテータ3部作**
 
 - [ファシリテーターに俺はなる！](https://github.com/t2k2pp/facilitator_book/blob/main/facilitator-book-2.md)
 - [あなたのファシリテーションは間違っている！](https://github.com/t2k2pp/facilitator_book/blob/main/facilitator-book-1.md)
 - [後悔だらけのファシリテーション](https://github.com/t2k2pp/facilitator_book/blob/main/facilitator-book-3.md)
+
+**その他ファシリテータ本**
+
 - [ラノベから学ぶファシリテーションの本質](https://github.com/t2k2pp/facilitator_book/blob/main/light-novel-facilitation-book.md)
 
 **その他** 
@@ -77,6 +83,8 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [桜井政博に学ぶ ビジネスアプリケーション開発の極意](https://github.com/t2k2pp/leanyoutube/blob/main/sakurai-business-app-book.md#%E6%A1%9C%E4%BA%95%E6%94%BF%E5%8D%9A%E3%81%AB%E5%AD%A6%E3%81%B6-%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E9%96%8B%E7%99%BA%E3%81%AE%E6%A5%B5%E6%84%8F)
 - [ビジネスコミュニケーション上達の手引き](https://github.com/t2k2pp/RaisingMyself/blob/main/Communication/05/business-communication-guide.md)
 - [一生懸命中級になるビジネスパーソンの教育指導](https://github.com/t2k2pp/RaisingMyself/blob/main/teaching/02/business-education-book2.md)
+
+---
 
 ### 趣味・娯楽書籍
 
