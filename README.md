@@ -39,6 +39,8 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [生成AIで本を作成するためのクックブック](https://github.com/t2k2pp/BookBuilder/blob/main/ai-book-cookbook.md)
 - [Claudeを活用した書籍制作ワークフロー](https://github.com/t2k2pp/BookBuilder/blob/main/claude-book-creation-workflow.md)
 - [ゆる書籍生成：シンプルプロンプトで作る質の高い本](https://github.com/t2k2pp/BookBuilder/blob/main/relaxed-book-creation.md)
+- [Claude 3.7を活用した技術書作成のための秘伝のプロンプト設計ガイド](https://github.com/t2k2pp/BookBuilder/blob/main/prompt/prompt-engineering-book.md)
+- [Microsoft 365 Copilot を活用した技術書作成のための秘伝のプロンプト設計ガイド](https://github.com/t2k2pp/BookBuilder/blob/main/prompt/m365-copilot-guide.md)
 
 ---
 
@@ -91,7 +93,8 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 
 **その他** 
 
-- [なぜなぜ分析完全マスターガイド：対象の選び方と個人・チーム実践法](https://github.com/t2k2pp/nazenazeanalyze/blob/main/comprehensive-why-analysis-guide.md)
+- [小さな習慣が人生を変える：続けられる習慣術の科学と実践](https://github.com/t2k2pp/BookBuilder/blob/main/SampleBooks/Claude3.7/habit-book.md)
+-  [なぜなぜ分析完全マスターガイド：対象の選び方と個人・チーム実践法](https://github.com/t2k2pp/nazenazeanalyze/blob/main/comprehensive-why-analysis-guide.md)
 - [桜井政博に学ぶ ビジネスアプリケーション開発の極意](https://github.com/t2k2pp/leanyoutube/blob/main/sakurai-business-app-book.md#%E6%A1%9C%E4%BA%95%E6%94%BF%E5%8D%9A%E3%81%AB%E5%AD%A6%E3%81%B6-%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E9%96%8B%E7%99%BA%E3%81%AE%E6%A5%B5%E6%84%8F)
 - [ビジネスコミュニケーション上達の手引き](https://github.com/t2k2pp/RaisingMyself/blob/main/Communication/05/business-communication-guide.md)
 - [一生懸命中級になるビジネスパーソンの教育指導](https://github.com/t2k2pp/RaisingMyself/blob/main/teaching/02/business-education-book2.md)
