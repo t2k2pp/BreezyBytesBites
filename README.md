@@ -41,6 +41,7 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [ゆる書籍生成：シンプルプロンプトで作る質の高い本](https://github.com/t2k2pp/BookBuilder/blob/main/relaxed-book-creation.md)
 - [Claude 3.7を活用した技術書作成のための秘伝のプロンプト設計ガイド](https://github.com/t2k2pp/BookBuilder/blob/main/prompt/prompt-engineering-book.md)
 - [Microsoft 365 Copilot を活用した技術書作成のための秘伝のプロンプト設計ガイド](https://github.com/t2k2pp/BookBuilder/blob/main/prompt/m365-copilot-guide.md)
+- [パッとみてグッとわかるClaude](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Claude/claude-manual.pdf)...2025/04/08 add
 
 ---
 
