@@ -108,6 +108,7 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [桜井政博に学ぶ ビジネスアプリケーション開発の極意](https://github.com/t2k2pp/leanyoutube/blob/main/sakurai-business-app-book.md#%E6%A1%9C%E4%BA%95%E6%94%BF%E5%8D%9A%E3%81%AB%E5%AD%A6%E3%81%B6-%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E9%96%8B%E7%99%BA%E3%81%AE%E6%A5%B5%E6%84%8F)
 - [ビジネスコミュニケーション上達の手引き](https://github.com/t2k2pp/RaisingMyself/blob/main/Communication/05/business-communication-guide.md)
 - [一生懸命中級になるビジネスパーソンの教育指導](https://github.com/t2k2pp/RaisingMyself/blob/main/teaching/02/business-education-book2.md)
+- [贅肉だらけの文章はだめだ！今直ぐダイエットすべし！](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/BizWritting/business-writing-book.pdf) ...2025/04/08 add
 
 ---
 
