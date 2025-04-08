@@ -55,6 +55,7 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [ISO9000からはじめる開発品質](https://github.com/t2k2pp/DevelopmentQualityControl/blob/main/Books/ISO9000%E3%81%8B%E3%82%89%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B%E9%96%8B%E7%99%BA%E5%93%81%E8%B3%AA.pdf)
 - [はじめてのPython：つまずかないプログラミング入門](https://github.com/t2k2pp/try/blob/main/Python%20Learn%20Claude.md)
 - [聖域なきCI/CDの社内導入](https://github.com/t2k2pp/CICDBook?tab=readme-ov-file)
+- [C#入門: 初心者から実践エンジニアへの第一歩](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/CSharp/csharp-beginner-book.pdf)...2025/04/08 add
 
 **ゆるめ**
 
