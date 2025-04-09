@@ -59,6 +59,7 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [聖域なきCI/CDの社内導入](https://github.com/t2k2pp/CICDBook?tab=readme-ov-file)
 - [C#入門: 初心者から実践エンジニアへの第一歩](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/CSharp/csharp-beginner-book.pdf)...2025/04/08 add
 - [Ruby入門:基礎から実践まで](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Ruby/ruby-beginner-book.pdf)...2025/04/09 add
+- [Excel & Power BI データ変換マスターガイド](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/PowerQuery/powerbook.pdf)...2025/04/10 add
 
 **ゆるめ**
 
