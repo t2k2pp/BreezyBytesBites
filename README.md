@@ -42,6 +42,8 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [Claude 3.7を活用した技術書作成のための秘伝のプロンプト設計ガイド](https://github.com/t2k2pp/BookBuilder/blob/main/prompt/prompt-engineering-book.md)
 - [Microsoft 365 Copilot を活用した技術書作成のための秘伝のプロンプト設計ガイド](https://github.com/t2k2pp/BookBuilder/blob/main/prompt/m365-copilot-guide.md)
 - [パッとみてグッとわかるClaude](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Claude/claude-manual.pdf)...2025/04/08 add
+- [生成AI時代のMCPプロトコル実践ガイド](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/MCP/02.mcp-guide-book.pdf)...2025/04/09 add
+- [いちばんやさしいClaude Desktopで使うMCP](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/MCP/01.claude-mcp-book.pdf)画像差し替え予定...2025/04/09 add
 
 ---
 
@@ -56,6 +58,7 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [はじめてのPython：つまずかないプログラミング入門](https://github.com/t2k2pp/try/blob/main/Python%20Learn%20Claude.md)
 - [聖域なきCI/CDの社内導入](https://github.com/t2k2pp/CICDBook?tab=readme-ov-file)
 - [C#入門: 初心者から実践エンジニアへの第一歩](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/CSharp/csharp-beginner-book.pdf)...2025/04/08 add
+- [Ruby入門:基礎から実践まで](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Ruby/ruby-beginner-book.pdf)...2025/04/09 add
 
 **ゆるめ**
 
