@@ -75,6 +75,9 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [プロジェクトマネージャー入門:ITSSレベル3への第一歩](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/PMLv3Introduction/pm-level3-guidebook.pdf)
 - [プロジェクトマネジメント入門～ITSS レベル3を目指す人のために～](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/PMLv3Guide/pm-guidebook-level3.pdf)
 - [実践プロジェクトマネジメント - ITSSレベル4への道](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/PMLv4Guide/pm-guidebook-level4.pdf)
+- [楽するPM業務プロンプト 初版](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/PMPrompt/easy-pm-prompts-book.pdf)...2025/04/11
+- [楽するPM業務プロンプト with Sample](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/PMPrompt/easy-pm-prompts-book-with-samples.pdf)...2025/04/11
+- [楽するPM業務プロンプト 改訂版](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/PMPrompt/easy-pm-prompts-book-final.pdf)...2025/04/11
 
 **シミュレーション**
 
