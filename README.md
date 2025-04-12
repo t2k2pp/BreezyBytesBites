@@ -82,7 +82,7 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [IPAのプロジェクトマネージャ試験から学びなおすPM業務](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/IPALearn/IPA_Learn_Claude_3_7.pdf)...2025/04/12 Claude 3.7
 - [IPAのプロジェクトマネージャ試験から学びなおすPM業務](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/IPALearn/IPA_Learn_Gemini_2_5.pdf)...2025/04/12 Gemini 2.5 Pro
 - [マイクロマネジメントしない・させない・やらせない](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/MicroManagement/micromanagement-book_claude37.pdf)...2025/04/12 Claude 3.7
-- [マイクロマネジメントしない・させない・やらせない](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/MicroManagement/micromanagement-book_claude37.pdf)...2025/04/12 Gemini 2.5 Pro
+- [マイクロマネジメントしない・させない・やらせない](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/MicroManagement/micromanagement_book_gemini25.pdf)...2025/04/12 Gemini 2.5 Pro
 
 **シミュレーション**
 
