@@ -78,6 +78,9 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [楽するPM業務プロンプト 初版](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/PMPrompt/easy-pm-prompts-book.pdf)...2025/04/11
 - [楽するPM業務プロンプト with Sample](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/PMPrompt/easy-pm-prompts-book-with-samples.pdf)...2025/04/11
 - [楽するPM業務プロンプト 改訂版](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/PMPrompt/easy-pm-prompts-book-final.pdf)...2025/04/11
+- [プロジェクトマネージャ試験 生成AIによる完全対策テキスト](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/PMExamText/project-manager-book.pdf)...2025/04/12 Claude 3.7
+- [IPAのプロジェクトマネージャ試験から学びなおすPM業務](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/IPALearn/IPA_Learn_Claude_3_7.pdf)...2025/04/12 Claude 3.7
+- [IPAのプロジェクトマネージャ試験から学びなおすPM業務](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/IPALearn/IPA_Learn_Gemini_2_5.pdf)...2025/04/12 Gemini 2.5 Pro
 
 **シミュレーション**
 
