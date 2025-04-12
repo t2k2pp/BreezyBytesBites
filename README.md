@@ -81,6 +81,7 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [プロジェクトマネージャ試験 生成AIによる完全対策テキスト](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/PMExamText/project-manager-book.pdf)...2025/04/12 Claude 3.7
 - [IPAのプロジェクトマネージャ試験から学びなおすPM業務](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/IPALearn/IPA_Learn_Claude_3_7.pdf)...2025/04/12 Claude 3.7
 - [IPAのプロジェクトマネージャ試験から学びなおすPM業務](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/IPALearn/IPA_Learn_Gemini_2_5.pdf)...2025/04/12 Gemini 2.5 Pro
+- [マイクロマネジメントしない・させない・やらせない](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/MicroManagement/micromanagement-book.pdf)...2025/04/12 Claude 3.7
 
 **シミュレーション**
 
