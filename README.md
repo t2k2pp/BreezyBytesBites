@@ -84,8 +84,8 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [マイクロマネジメントしない・させない・やらせない](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/MicroManagement/micromanagement-book_claude37_normal.pdf)...2025/04/12 Claude 3.7 (Normal)
 - [マイクロマネジメントしない・させない・やらせない](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/MicroManagement/micromanagement-book_claude37.pdf)...2025/04/12 Claude 3.7
 - [マイクロマネジメントしない・させない・やらせない](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/MicroManagement/micromanagement_book_gemini25.pdf)...2025/04/12 Gemini 2.5 Pro
-- [ステップで覚えるPM入門 基礎知識編](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/%E3%82%B9%E3%83%86%E3%83%83%E3%83%97%E3%82%A2%E3%83%83%E3%83%97/%E3%82%B9%E3%83%86%E3%83%83%E3%83%97%E3%81%A7%E8%A6%9A%E3%81%88%E3%82%8BPM%E5%85%A5%E9%96%80%20%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98%E7%B7%A8.pdf)
-- [ステップで覚えるPM入門 実践編](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/%E3%82%B9%E3%83%86%E3%83%83%E3%83%97%E3%82%A2%E3%83%83%E3%83%97/%E3%82%B9%E3%83%86%E3%83%83%E3%83%97%E3%81%A7%E8%A6%9A%E3%81%88%E3%82%8BPM%E5%85%A5%E9%96%80%20%E5%AE%9F%E8%B7%B5%E7%B7%A8.pdf)
+- [ステップで覚えるPM入門 基礎知識編](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/%E3%82%B9%E3%83%86%E3%83%83%E3%83%97%E3%82%A2%E3%83%83%E3%83%97/%E3%82%B9%E3%83%86%E3%83%83%E3%83%97%E3%81%A7%E8%A6%9A%E3%81%88%E3%82%8BPM%E5%85%A5%E9%96%80%20%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98%E7%B7%A8.pdf)...2025/04/14 Claude 3.7
+- [ステップで覚えるPM入門 実践編](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/%E3%82%B9%E3%83%86%E3%83%83%E3%83%97%E3%82%A2%E3%83%83%E3%83%97/%E3%82%B9%E3%83%86%E3%83%83%E3%83%97%E3%81%A7%E8%A6%9A%E3%81%88%E3%82%8BPM%E5%85%A5%E9%96%80%20%E5%AE%9F%E8%B7%B5%E7%B7%A8.pdf)...2025/04/14 Claude 3.7
 
 **シミュレーション**
 
