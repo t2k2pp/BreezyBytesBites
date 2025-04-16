@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>データで語れ - グラフィックレコーディング</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Yomogi&family=Zen+Kurenaido&display=swap');
+    
+    :root {
+      --color-1: #593C47;
+      --color-2: #F2E63D;
+      --color-3: #F2C53D;
+      --color-4: #F25C05;
+      --color-5: #F24405;
+      --text-dark: #334155;
+      --heading-color: #1e40af;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Zen Kurenaido', sans-serif;
+      background-color: #f8f9fa;
+      color: var(--text-dark);
+      line-height: 1.4;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--color-1), var(--color-5));
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .title {
+      font-family: 'Yomogi', cursive;
+      font-size: 32px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      background: linear-gradient(to right, var(--color-2), var(--color-3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      padding: 5px 15px;
+      position: relative;
+    }
+    
+    .title::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--color-3);
+      border-radius: 2px;
+    }
+    
+    .date-source {
+      font-family: 'Kaisei Decol', serif;
+      font-size: 14px;
+      color: white;
+      text-align: right;
+    }
+    
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+    
+    .column {
+      width: 33.33%;
+      padding: 10px;
+    }
+    
+    .card {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 2px solid transparent;
+      border-image: linear-gradient(45deg, var(--color-2), var(--color-4)) 1;
+      position: relative;
+    }
+    
+    .section-title {
+      font-family: 'Yomogi', cursive;
+      font-size: 18px;
+      color: var(--heading-color);
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 25px;
+    }
+    
+    .section-title::before {
+      content: "✏️";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    
+    .story-title::before {
+      content: "📝";
+    }
+    
+    .point-title::before {
+      content: "💡";
+    }
+    
+    .prep-title::before {
+      content: "🔍";
+    }
+    
+    .data-title::before {
+      content: "📊";
+    }
+    
+    p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    
+    .highlight {
+      background: linear-gradient(transparent 60%, var(--color-2) 60%);
+      font-weight: bold;
+    }
+    
+    .speech-bubble {
+      position: relative;
+      background: #f0f4f8;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 15px 0;
+      font-family: 'Kaisei Decol', serif;
+    }
+    
+    .speech-bubble::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 20px;
+      border-width: 10px;
+      border-style: solid;
+      border-color: #f0f4f8 transparent transparent transparent;
+    }
+    
+    .character {
+      font-weight: bold;
+      color: var(--color-5);
+    }
+    
+    .arrow {
+      position: relative;
+      height: 30px;
+      width: 100%;
+      text-align: center;
+      margin: 15px 0;
+    }
+    
+    .arrow::before {
+      content: "";
+      position: absolute;
+      left: 25%;
+      top: 50%;
+      width: 50%;
+      height: 2px;
+      background: var(--color-4);
+      transform: translateY(-50%);
+    }
+    
+    .arrow::after {
+      content: "";
+      position: absolute;
+      right: 25%;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      border-top: 2px solid var(--color-4);
+      border-right: 2px solid var(--color-4);
+      transform: translateY(-50%) rotate(45deg);
+    }
+    
+    .data-box {
+      border: 2px dashed var(--color-3);
+      padding: 10px;
+      margin: 10px 0;
+      background: rgba(242, 196, 60, 0.1);
+      border-radius: 8px;
+    }
+    
+    .prep-step {
+      margin: 10px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    
+    .prep-step::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--color-4);
+      font-weight: bold;
+    }
+    
+    .prep-letter {
+      font-family: 'Kaisei Decol', serif;
+      font-size: 20px;
+      font-weight: bold;
+      color: var(--color-1);
+      margin-right: 5px;
+    }
+    
+    .hand-drawn-box {
+      border: 3px solid var(--color-5);
+      border-radius: 10px;
+      padding: 10px;
+      margin: 15px 0;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hand-drawn-box::before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border: 2px solid var(--color-1);
+      border-radius: 15px;
+      z-index: -1;
+    }
+    
+    .conclusion {
+      font-family: 'Yomogi', cursive;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      margin: 20px 0;
+      color: var(--color-1);
+      padding: 10px;
+      background: linear-gradient(transparent 80%, var(--color-2) 80%);
+      display: inline-block;
+    }
+    
+    .conclusion-box {
+      text-align: center;
+      padding: 20px;
+    }
+    
+    footer {
+      background: var(--color-1);
+      color: white;
+      padding: 10px 20px;
+      font-size: 12px;
+      text-align: center;
+    }
+    
+    @media (max-width: 768px) {
+      .column {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="title">データで語れ</h1>
+      <div class="date-source">2025年4月16日</div>
+    </header>
+    
+    <div class="content">
+      <div class="column">
+        <div class="card">
+          <h2 class="section-title story-title">ストーリー導入</h2>
+          <p><span class="character">高橋雄二</span>: 入社5年目のエンジニア、初めてのPM</p>
+          <p>社内向け<span class="highlight">文書管理システム</span>の導入プロジェクトリーダー</p>
+          <p>経営会議で予算増額を申請することに...</p>
+          
+          <div class="speech-bubble">
+            「よし、これで完璧だ」
+          </div>
+          
+          <p>システムの魅力を伝えるための<span class="highlight">カラフルな図と熱意あふれる文章</span>の資料を準備</p>
+        </div>
+        
+        <div class="card">
+          <h2 class="section-title">第一回経営会議</h2>
+          <div class="speech-bubble">
+            <span class="character">財務部長：</span>「追加予算が必要な理由を聞かせてくれ」
+          </div>
+          
+          <div class="speech-bubble">
+            <span class="character">高橋：</span>「このシステムは業務効率を劇的に向上させる画期的なものです！直感的なインターフェースで誰でも簡単に使えて...」
+          </div>
+          
+          <div class="arrow"></div>
+          
+          <div class="speech-bubble">
+            <span class="character">経営陣：</span>「具体的な数字は？」<br>
+            「現行システムとの比較データは？」<br>
+            「投資対効果の試算は？」
+          </div>
+          
+          <p class="highlight">結果：再検討を指示される</p>
+        </div>
+      </div>
+      
+      <div class="column">
+        <div class="card">
+          <h2 class="section-title point-title">転機のアドバイス</h2>
+          <div class="speech-bubble">
+            <span class="character">先輩PM佐藤：</span>「経営層に提案するときは<span class="highlight">『データで語れ』</span>だよ。感覚や情熱は大事だけど、経営判断には客観的な数字が必要なんだ」
+          </div>
+          
+          <div class="hand-drawn-box">
+            <h3 class="section-title prep-title">PREP法の紹介</h3>
+            <div class="prep-step"><span class="prep-letter">P</span>oint（要点）- 最初に結論を</div>
+            <div class="prep-step"><span class="prep-letter">R</span>eason（理由）- なぜそう言えるのか</div>
+            <div class="prep-step"><span class="prep-letter">E</span>xample（例示）- 具体例や数字</div>
+            <div class="prep-step"><span class="prep-letter">P</span>oint（要点の再確認）- 結論の繰り返し</div>
+          </div>
+          
+          <p>高橋は<span class="highlight">徹夜で資料を作り直した</span></p>
+          <div class="data-box">
+            <p>✅ 現行システムの問題点を数値化</p>
+            <p>✅ 新システム導入による業務時間短縮率</p>
+            <p>✅ 文書検索時間の比較データ</p>
+            <p>✅ 投資回収期間の試算</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h2 class="section-title data-title">データ駆動の説明</h2>
+          <p>データで裏付けられた説明の例：</p>
+          
+          <div class="data-box">
+            <p>⚫ セキュリティインシデント：<br>月平均<span class="highlight">12件</span></p>
+            <p>⚫ 対応時間：<br>年間<span class="highlight">約850時間</span></p>
+            <p>⚫ 顧客データ検索時間：<br>現行<span class="highlight">4.5分</span> → 新システム<span class="highlight">1.2分</span></p>
+            <p>⚫ 効率化効果：<br>年間<span class="highlight">2,300万円</span>相当</p>
+            <p>⚫ 投資回収期間：<br><span class="highlight">約3ヶ月</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="column">
+        <div class="card">
+          <h2 class="section-title">第二回経営会議</h2>
+          <p><span class="highlight">PREP法</span>に沿った高橋のプレゼン：</p>
+          
+          <div class="speech-bubble">
+            <span class="character">高橋：</span>「<span class="highlight">結論から</span>申し上げますと、550万円の追加予算をいただきたいと思います。これにより、全社員の文書作業時間を平均20%削減し、年間約2,300万円の人件費相当の効率化が見込めます」
+          </div>
+          
+          <div class="arrow"></div>
+          
+          <div class="speech-bubble">
+            <span class="character">高橋：</span>「追加予算が<span class="highlight">必要な理由</span>は、セキュリティ機能の強化と部門別カスタマイズ機能の実装です...」
+          </div>
+          
+          <div class="arrow"></div>
+          
+          <div class="speech-bubble">
+            <span class="character">高橋：</span>「<span class="highlight">例えば</span>営業部門では、顧客データの検索に一件あたり平均4.5分かかっていますが...」
+          </div>
+          
+          <div class="arrow"></div>
+          
+          <div class="speech-bubble">
+            <span class="character">高橋：</span>「<span class="highlight">繰り返しになりますが</span>、550万円の追加投資により年間2,300万円相当の効率化が見込め...」
+          </div>
+        </div>
+        
+        <div class="card">
+          <h2 class="section-title">結果</h2>
+          <div class="speech-bubble">
+            <span class="character">CEO：</span>「分かりやすい説明だった。追加予算を承認しよう」
+          </div>
+          
+          <div class="speech-bubble">
+            <span class="character">佐藤：</span>「見事だったぞ。データで語るようになったな」
+          </div>
+          
+          <div class="speech-bubble">
+            <span class="character">高橋：</span>「元々のプレゼン資料にもデータは入れていたんです。ただ、後半に小さく書いただけで...」
+          </div>
+          
+          <div class="speech-bubble">
+            <span class="character">佐藤：</span>「それじゃあ落語と同じだ。オチは最後じゃなくて、最初に言わなきゃ」
+          </div>
+          
+          <div class="speech-bubble">
+            <span class="character">高橋：</span>「PMの仕事は落語とは逆なんですね。オチ（結論）から先に言って、それからネタ（根拠）を披露する」
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="conclusion-box">
+      <div class="conclusion">データで語れ</div>
+      <div class="hand-drawn-box">
+        <h2 class="section-title point-title">学べるポイント</h2>
+        <p>1. 経営層への説明は<span class="highlight">PREP法</span>が効果的</p>
+        <p>2. <span class="highlight">主観的な熱意</span>だけでなく<span class="highlight">客観的な数値データ</span>が重要</p>
+        <p>3. プロジェクトの価値を<span class="highlight">定量的</span>に示す</p>
+        <p>4. 結論（オチ）は<span class="highlight">最初</span>に伝える</p>
+        <p>5. ビジネスインパクトを<span class="highlight">明確</span>に伝える</p>
+      </div>
+    </div>
+    
+    <footer>
+      出典: データで語れ (C00001_データで語れ.md) - グラフィックレコーディング風インフォグラフィック
+    </footer>
+  </div>
+</body>
+</html>

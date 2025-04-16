@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMBOK第6版と第7版の融合：プロジェクトマネジメントガイド</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Yomogi&family=Zen+Kurenaido&display=swap');
+    
+    :root {
+        --color-1: #593C47;
+        --color-2: #F2E63D;
+        --color-3: #F2C53D;
+        --color-4: #F25C05;
+        --color-5: #F24405;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Zen Kurenaido', sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+        border-bottom: 3px dotted var(--color-3);
+    }
+    
+    .header h1 {
+        font-family: 'Kaisei Decol', serif;
+        font-size: 32px;
+        font-weight: bold;
+        background: linear-gradient(45deg, var(--color-1), var(--color-5));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    .header .date {
+        font-family: 'Yomogi', cursive;
+        color: #475569;
+        font-size: 16px;
+    }
+    
+    .content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+    
+    .section {
+        background-color: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background: linear-gradient(90deg, var(--color-2), var(--color-4));
+    }
+    
+    .section h2 {
+        font-family: 'Kaisei Decol', serif;
+        font-size: 18px;
+        color: #1e40af;
+        margin-bottom: 15px;
+        padding-bottom: 8px;
+        border-bottom: 2px dashed var(--color-3);
+        display: flex;
+        align-items: center;
+    }
+    
+    .section h2 i {
+        margin-right: 8px;
+        color: var(--color-4);
+    }
+    
+    .section p {
+        font-size: 14px;
+        color: #334155;
+        margin-bottom: 12px;
+    }
+    
+    .highlight {
+        background: linear-gradient(transparent 60%, var(--color-2) 60%);
+        font-weight: bold;
+    }
+    
+    .icon {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        text-align: center;
+        line-height: 24px;
+        background-color: var(--color-3);
+        color: var(--color-1);
+        border-radius: 50%;
+        margin-right: 8px;
+    }
+    
+    .bubble {
+        background-color: #f8f9fa;
+        border: 2px solid var(--color-3);
+        border-radius: 15px;
+        padding: 12px;
+        margin: 10px 0;
+        position: relative;
+    }
+    
+    .bubble::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        border-width: 0 10px 10px;
+        border-style: solid;
+        border-color: var(--color-3) transparent;
+    }
+    
+    .bubble::after {
+        content: '';
+        position: absolute;
+        top: -7px;
+        left: 22px;
+        border-width: 0 8px 8px;
+        border-style: solid;
+        border-color: #f8f9fa transparent;
+    }
+    
+    .process-card {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid var(--color-3);
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    .process-card h3 {
+        font-size: 16px;
+        color: var(--color-5);
+        margin-bottom: 5px;
+        border-bottom: 1px dotted var(--color-3);
+        padding-bottom: 3px;
+    }
+    
+    .process-card ul {
+        padding-left: 25px;
+        margin-top: 5px;
+    }
+    
+    .process-card li {
+        font-size: 13px;
+        margin-bottom: 3px;
+    }
+    
+    .arrow {
+        display: flex;
+        justify-content: center;
+        margin: 15px 0;
+    }
+    
+    .arrow svg {
+        width: 40px;
+        fill: var(--color-4);
+    }
+    
+    .comparison {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin: 15px 0;
+    }
+    
+    .comparison-item {
+        background-color: #f0f4f8;
+        border-radius: 8px;
+        padding: 10px;
+        border-left: 4px solid;
+    }
+    
+    .comparison-item.pmbok6 {
+        border-left-color: var(--color-3);
+    }
+    
+    .comparison-item.pmbok7 {
+        border-left-color: var(--color-5);
+    }
+    
+    .comparison-item h4 {
+        font-size: 14px;
+        margin-bottom: 5px;
+        color: var(--color-1);
+    }
+    
+    .checklist {
+        margin-left: 5px;
+    }
+    
+    .checklist li {
+        list-style-type: none;
+        position: relative;
+        padding-left: 22px;
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
+    
+    .checklist li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--color-4);
+        font-weight: bold;
+    }
+    
+    .banner {
+        background: linear-gradient(45deg, var(--color-3), var(--color-4));
+        color: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        display: inline-block;
+        margin: 10px 0;
+        font-weight: bold;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .itss-levels {
+        display: flex;
+        flex-direction: column;
+        margin: 15px 0;
+        gap: 8px;
+    }
+    
+    .itss-level {
+        display: flex;
+        align-items: center;
+        padding: 8px;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+        border-left: 4px solid;
+    }
+    
+    .itss-level.level3 {
+        border-left-color: #4ade80;
+    }
+    
+    .itss-level.level4 {
+        border-left-color: #60a5fa;
+    }
+    
+    .itss-level.level5 {
+        border-left-color: #a78bfa;
+    }
+    
+    .itss-level.level6 {
+        border-left-color: #f43f5e;
+    }
+    
+    .itss-level.level7 {
+        border-left-color: #8b5cf6;
+    }
+    
+    .itss-level span {
+        font-weight: bold;
+        margin-right: 10px;
+        font-size: 14px;
+    }
+    
+    .itss-level p {
+        margin: 0;
+        font-size: 13px;
+    }
+    
+    .footer {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 14px;
+        color: #64748b;
+        padding-top: 15px;
+        border-top: 1px dotted var(--color-3);
+    }
+    
+    @media (max-width: 900px) {
+        .content {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width: 600px) {
+        .content {
+            grid-template-columns: 1fr;
+        }
+        
+        .header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .header .date {
+            margin-top: 10px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>PMBOK第6版と第7版の融合: プロジェクトマネジメントガイド</h1>
+            <div class="date">2025年4月作成 📌</div>
+        </div>
+        
+        <div class="content">
+            <!-- セクション1: PMBOK概要 -->
+            <div class="section">
+                <h2><i>📚</i> PMBOKとは</h2>
+                <p>プロジェクトマネジメント知識体系ガイド（PMBOK® Guide）は、PMI（Project Management Institute）が発行する国際的に認知されたプロジェクトマネジメントの標準です。</p>
+                
+                <div class="bubble">
+                    <p><span class="highlight">プロジェクトとは？</span>「独自の製品、サービス、または成果を創出するために実施される有期性の業務」</p>
+                </div>
+                
+                <div class="comparison">
+                    <div class="comparison-item pmbok6">
+                        <h4>PMBOK第6版 (2017)</h4>
+                        <p>プロセス中心のアプローチ</p>
+                        <p>49プロセス</p>
+                        <p>10知識エリア</p>
+                    </div>
+                    <div class="comparison-item pmbok7">
+                        <h4>PMBOK第7版 (2021)</h4>
+                        <p>価値創出中心のアプローチ</p>
+                        <p>12の原則</p>
+                        <p>8パフォーマンスドメイン</p>
+                    </div>
+                </div>
+                
+                <p>本ガイドは<span class="highlight">両方のエッセンスを取り入れ</span>、日本のIT業界の実情に合わせて再構成した実践的なガイドブックです。</p>
+            </div>
+            
+            <!-- セクション2: プロジェクトの特徴 -->
+            <div class="section">
+                <h2><i>🎯</i> プロジェクトの特徴</h2>
+                
+                <ul class="checklist">
+                    <li><strong>有期性（Temporary）</strong>：明確な開始と終了がある</li>
+                    <li><strong>独自性（Unique）</strong>：同じものを繰り返し作るのではなく、独自の成果物を生み出す</li>
+                    <li><strong>段階的詳細化</strong>：徐々に詳細が明らかになり、計画が精緻化される</li>
+                    <li><strong>リソース制約</strong>：時間、予算、人員などのリソースに制約がある</li>
+                </ul>
+                
+                <div class="banner">
+                    トリプルコンストレイント
+                </div>
+                
+                <p>プロジェクトの成功には、以下の制約条件のバランスが重要：</p>
+                
+                <div class="process-card">
+                    <h3>📐 スコープ</h3>
+                    <p>プロジェクトで実現すべき製品・サービス・成果とそれを生み出すために必要な作業</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>⏱️ スケジュール</h3>
+                    <p>プロジェクト完了までの時間的制約</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>💰 コスト</h3>
+                    <p>プロジェクト実施に必要な予算的制約</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>✨ 品質</h3>
+                    <p>要求事項や仕様を満たす度合い（第4の制約として扱われることもある）</p>
+                </div>
+            </div>
+            
+            <!-- セクション3: 5つのプロセスグループ（PMBOK第6版） -->
+            <div class="section">
+                <h2><i>🔄</i> 5つのプロセスグループ (PMBOK第6版)</h2>
+                
+                <div class="process-card">
+                    <h3>1. 立ち上げ（Initiating）</h3>
+                    <p>プロジェクトの開始を正式に承認するプロセス</p>
+                    <ul>
+                        <li>プロジェクト憲章の作成</li>
+                        <li>ステークホルダーの特定</li>
+                    </ul>
+                </div>
+                
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/>
+                    </svg>
+                </div>
+                
+                <div class="process-card">
+                    <h3>2. 計画（Planning）</h3>
+                    <p>プロジェクトのスコープを定義し、目標を精緻化するプロセス</p>
+                    <ul>
+                        <li>プロジェクト計画書の作成</li>
+                        <li>WBSの作成</li>
+                        <li>スケジュール、コスト計画</li>
+                    </ul>
+                </div>
+                
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/>
+                    </svg>
+                </div>
+                
+                <div class="process-card">
+                    <h3>3. 実行（Executing）</h3>
+                    <p>プロジェクト計画に沿って作業を実施するプロセス</p>
+                    <ul>
+                        <li>チームの指揮・マネジメント</li>
+                        <li>品質保証、調達、ステークホルダーマネジメント</li>
+                    </ul>
+                </div>
+                
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/>
+                    </svg>
+                </div>
+                
+                <div class="process-card">
+                    <h3>4. 監視・コントロール（Monitoring & Controlling）</h3>
+                    <p>進捗を追跡し、必要に応じて是正措置を講じるプロセス</p>
+                    <ul>
+                        <li>パフォーマンス測定</li>
+                        <li>変更管理</li>
+                        <li>リスク監視</li>
+                    </ul>
+                </div>
+                
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/>
+                    </svg>
+                </div>
+                
+                <div class="process-card">
+                    <h3>5. 終結（Closing）</h3>
+                    <p>プロジェクトを正式に完了するプロセス</p>
+                    <ul>
+                        <li>成果物の最終承認</li>
+                        <li>教訓の記録</li>
+                        <li>リソースの解放</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- セクション4: 10の知識エリア（PMBOK第6版） -->
+            <div class="section">
+                <h2><i>📋</i> 10の知識エリア (PMBOK第6版)</h2>
+                
+                <div class="process-card">
+                    <h3>1. プロジェクト統合マネジメント</h3>
+                    <p>プロジェクト全体の調整と統合</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>2. プロジェクトスコープマネジメント</h3>
+                    <p>必要な作業の定義と管理</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>3. プロジェクトスケジュールマネジメント</h3>
+                    <p>プロジェクトの時間管理</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>4. プロジェクトコストマネジメント</h3>
+                    <p>予算の計画と管理</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>5. プロジェクト品質マネジメント</h3>
+                    <p>品質要件の計画と確保</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>6. プロジェクト資源マネジメント</h3>
+                    <p>人的・物的資源の管理</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>7. プロジェクトコミュニケーションマネジメント</h3>
+                    <p>情報の生成・収集・配布</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>8. プロジェクトリスクマネジメント</h3>
+                    <p>リスクの特定と対応</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>9. プロジェクト調達マネジメント</h3>
+                    <p>外部からの製品・サービスの調達</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>10. プロジェクトステークホルダーマネジメント</h3>
+                    <p>利害関係者の特定と管理</p>
+                </div>
+            </div>
+            
+            <!-- セクション5: 12の原則（PMBOK第7版） -->
+            <div class="section">
+                <h2><i>🧭</i> 12の原則 (PMBOK第7版)</h2>
+                
+                <div class="process-card">
+                    <h3>1. スチュワードシップ</h3>
+                    <p>責任ある管理と倫理的行動</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>2. チーム</h3>
+                    <p>協力的なプロジェクトチーム</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>3. ステークホルダー</h3>
+                    <p>効果的な関与</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>4. 価値</h3>
+                    <p>価値の創出に注力</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>5. システム思考</h3>
+                    <p>全体的な視点でアプローチ</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>6. リーダーシップ</h3>
+                    <p>適応型のリーダーシップスタイル</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>7. テーラリング</h3>
+                    <p>プロジェクトへの適合</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>8. 品質</h3>
+                    <p>品質を組み込む</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>9. 複雑性</h3>
+                    <p>複雑さへの対応</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>10. リスク</h3>
+                    <p>リスクへの対応</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>11. 適応性と回復力</h3>
+                    <p>変化への対応と回復力</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>12. 変化管理</h3>
+                    <p>将来に備えた変化の促進</p>
+                </div>
+            </div>
+            
+            <!-- セクション6: 8つのパフォーマンスドメイン（PMBOK第7版） -->
+            <div class="section">
+                <h2><i>🌐</i> 8つのパフォーマンスドメイン (PMBOK第7版)</h2>
+                
+                <div class="process-card">
+                    <h3>1. ステークホルダー</h3>
+                    <p>ステークホルダーとの関係構築と維持</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>2. チーム</h3>
+                    <p>チームの開発と管理</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>3. 開発アプローチとライフサイクル</h3>
+                    <p>適切な開発手法の選択と実装</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>4. 計画</h3>
+                    <p>プロジェクト作業の計画と管理</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>5. プロジェクト作業</h3>
+                    <p>作業の調整と実行</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>6. デリバリー</h3>
+                    <p>成果物の提供と移行</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>7. 測定</h3>
+                    <p>進捗の測定と修正</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>8. 不確実性</h3>
+                    <p>リスクと不確実性への対応</p>
+                </div>
+            </div>
+            
+            <!-- セクション7: 統合的アプローチ -->
+            <div class="section">
+                <h2><i>🔄</i> 統合的アプローチ</h2>
+                
+                <p>PMBOK第6版と第7版は、一見すると大きく異なるアプローチを採用しているように見えますが、実際には補完的な関係にあります。</p>
+                
+                <div class="process-card">
+                    <h3>プロセスと成果の両立</h3>
+                    <p>• 第6版：「どのように行うか」（プロセス）</p>
+                    <p>• 第7版：「何を達成すべきか」（成果）</p>
+                    <p>→ <span class="highlight">手段と目的のバランス</span>を取ることが重要</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>テーラリングの重視</h3>
+                    <p>第7版で強調されているテーラリング（カスタマイズ）を適用し、第6版のプロセスを状況に応じて選択・調整する</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>価値創出の視点</h3>
+                    <p>第7版の「価値創出」の原則を念頭に置きながら、第6版のプロセスを実行する</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>システム思考の適用</h3>
+                    <p>第7版で強調される「システム思考」を適用して、第6版の知識エリア間の相互関連性を理解する</p>
+                </div>
+            </div>
+            
+            <!-- セクション8: ITSSとプロジェクトマネジメントの -->
+            <div class="section">
+                <h2><i>👥</i> ITSSとプロジェクトマネジメント</h2>
+                
+                <div class="itss-levels">
+                    <div class="itss-level level3">
+                        <span>レベル3</span>
+                        <p>リーダー級：小規模プロジェクト管理、サブプロジェクトリード</p>
+                    </div>
+                    
+                    <div class="itss-level level4">
+                        <span>レベル4</span>
+                        <p>主任級：中小規模プロジェクト管理、チームリード</p>
+                    </div>
+                    
+                    <div class="itss-level level5">
+                        <span>レベル5</span>
+                        <p>課長級：中規模プロジェクト管理、複数小規模プロジェクト統括</p>
+                    </div>
+                    <div class="itss-level level6">
+                        <span>レベル6</span>
+                        <p>次長・部長級：大規模プロジェクト管理、複数中規模プロジェクト統括</p>
+                    </div>
+                    
+                    <div class="itss-level level7">
+                        <span>レベル7</span>
+                        <p>部長・事業部長級：全社戦略プロジェクト/複数大規模プロジェクトの統括</p>
+                    </div>
+                </div>
+                
+                <div class="process-card">
+                    <h3>レベル別のPMBOK適用範囲</h3>
+                    <p><strong>レベル3:</strong> 統合、スコープ、スケジュール、コミュニケーション重視</p>
+                    <p><strong>レベル4:</strong> 上記に加え、コスト、品質、資源、リスク</p>
+                    <p><strong>レベル5:</strong> 全知識エリア</p>
+                    <p><strong>レベル6〜7:</strong> PMBOK全体に加え、プログラム・ポートフォリオマネジメント</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>レベル別のアクションアイテム例</h3>
+                    <p><strong>レベル3:</strong> 小規模プロジェクトの計画と実行、チームメンバーとのコミュニケーション</p>
+                    <p><strong>レベル4:</strong> 中小規模プロジェクトの包括的管理、リスク対応、変更管理</p>
+                    <p><strong>レベル5:</strong> 複数チーム調整、部門内プロセス改善、メンタリング</p>
+                    <p><strong>レベル6〜7:</strong> 組織的PM能力向上、戦略的プロジェクト選定、ガバナンス体制構築</p>
+                </div>
+                
+                <div class="bubble">
+                    <p><span class="highlight">日本のSIerにおけるキャリアパス</span></p>
+                    <p>日本のSIer企業では、ITSSレベルとプロジェクトマネジメント能力が昇進や役職と密接に関連しています。特にレベル4以上では、技術スキルとマネジメントスキルの両方が求められます。</p>
+                </div>
+            </div>
+
+            <!-- セクション9: 開発アプローチ -->
+            <div class="section">
+                <h2><i>🛠️</i> 開発アプローチ</h2>
+                
+                <p>プロジェクトの開発アプローチは、大きく「予測型（Predictive）」と「適応型（Adaptive）」に分類できます。PMBOK第7版では、「開発アプローチとライフサイクル」パフォーマンスドメインとして重視されています。</p>
+                
+                <div class="comparison">
+                    <div class="comparison-item pmbok6">
+                        <h4>予測型アプローチ（ウォーターフォール型）</h4>
+                        <ul>
+                            <li>初期段階で詳細計画</li>
+                            <li>順次進行（シーケンシャル）</li>
+                            <li>事前に詳細定義</li>
+                            <li>変更対応力は低い</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item pmbok7">
+                        <h4>適応型アプローチ（アジャイル型）</h4>
+                        <ul>
+                            <li>短いイテレーションで開発</li>
+                            <li>定期的なフィードバック</li>
+                            <li>直近のみ詳細計画</li>
+                            <li>変更対応力が高い</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="process-card">
+                    <h3>ハイブリッドアプローチ</h3>
+                    <p>実際のプロジェクトでは、予測型と適応型のアプローチを組み合わせた「ハイブリッドアプローチ」がよく採用されます。</p>
+                    <p>例：要件定義と基本設計は予測型、開発と単体テストは適応型、結合テスト以降は再び予測型</p>
+                </div>
+                
+                <div class="bubble">
+                    <p><span class="highlight">アプローチ選択の基準</span></p>
+                    <ul>
+                        <li>要件の明確さと安定性</li>
+                        <li>プロジェクトの複雑性</li>
+                        <li>チームの経験と能力</li>
+                        <li>組織文化と顧客の期待</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- セクション10: プロジェクト組織 -->
+            <div class="section">
+                <h2><i>👥</i> プロジェクト組織構造</h2>
+                
+                <p>プロジェクト組織とは、プロジェクトを円滑に進めるために編成される組織構造のことです。適切な組織構造は、効率的なコミュニケーション、明確な役割と責任の定義を実現します。</p>
+                
+                <div class="process-card">
+                    <h3>機能型組織（Functional）</h3>
+                    <p>既存の機能部門（開発、営業、マーケティングなど）の中でプロジェクトを実施</p>
+                    <ul>
+                        <li>専門性は高いが部門間連携が難しい</li>
+                        <li>PMの権限は限定的</li>
+                    </ul>
+                </div>
+                
+                <div class="process-card">
+                    <h3>プロジェクト型組織（Projectized）</h3>
+                    <p>プロジェクト専任のチームを編成</p>
+                    <ul>
+                        <li>PMの権限が強い</li>
+                        <li>柔軟性と対応力は高いがリソース効率性が低下する可能性</li>
+                    </ul>
+                </div>
+                
+                <div class="process-card">
+                    <h3>マトリックス型組織（Matrix）</h3>
+                    <p>機能型とプロジェクト型の中間的組織構造</p>
+                    <ul>
+                        <li>弱マトリックス：機能マネージャーの権限が強い</li>
+                        <li>均衡マトリックス：権限バランスが取れている</li>
+                        <li>強マトリックス：PMの権限が比較的強い</li>
+                    </ul>
+                </div>
+                
+                <div class="bubble">
+                    <p><span class="highlight">日本のSIerでは？</span></p>
+                    <p>日本のSIer企業では、「強マトリックス」型が多く、PMが比較的強い権限を持ちながらも、技術部門からの専門的サポートを受ける体制となっています。また、多重下請け構造も特徴的です。</p>
+                </div>
+            </div>
+            
+            <!-- セクション11: プロジェクト成功要因 -->
+            <div class="section">
+                <h2><i>🏆</i> プロジェクト成功要因</h2>
+                
+                <p>プロジェクトの成功は、従来は「予算内」「納期内」「要求された品質での」プロジェクト完了と定義されていましたが、現在ではより広い視点で評価されます。</p>
+                
+                <div class="process-card">
+                    <h3>現代的な成功の判断基準</h3>
+                    <ul>
+                        <li>ビジネス目標の達成</li>
+                        <li>ステークホルダー満足度</li>
+                        <li>チームの成長</li>
+                        <li>持続可能性</li>
+                        <li>組織学習への貢献</li>
+                    </ul>
+                </div>
+                
+                <div class="banner">
+                    プロジェクト成功のためのCSF
+                </div>
+                
+                <ul class="checklist">
+                    <li><strong>明確な目標とスコープ</strong>：プロジェクトの目的と範囲が明確に定義されている</li>
+                    <li><strong>経営層のサポート</strong>：上層部からの継続的な支援と関与</li>
+                    <li><strong>効果的なステークホルダーマネジメント</strong>：関係者との適切なコミュニケーションと期待値管理</li>
+                    <li><strong>有能なプロジェクトマネージャー</strong>：適切なスキルと経験を持つPMのリーダーシップ</li>
+                    <li><strong>適切なチーム構成</strong>：必要なスキルと経験を持つメンバーによるチーム</li>
+                    <li><strong>現実的な計画とスケジュール</strong>：達成可能で現実的な計画</li>
+                    <li><strong>効果的なコミュニケーション</strong>：チーム内外での適切な情報共有</li>
+                    <li><strong>適切なリスク管理</strong>：リスクの早期特定と対応</li>
+                </ul>
+                
+                <div class="bubble">
+                    <p><span class="highlight">日本のSIプロジェクトで特に重要な要因</span></p>
+                    <ul>
+                        <li>要件の明確化と合意</li>
+                        <li>品質に対する高い意識</li>
+                        <li>多層構造の効果的な管理</li>
+                        <li>暗黙知の形式知化</li>
+                        <li>丁寧な顧客対応</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- セクション12: プロジェクトフェーズとゲート -->
+            <div class="section">
+                <h2><i>🚪</i> プロジェクトフェーズとゲート</h2>
+                
+                <p>プロジェクトフェーズとは、プロジェクトライフサイクルをより細分化した段階で、各フェーズは特定の成果物の完成を目指します。フェーズの終わりには「ゲート」が設けられ、次のフェーズに進むか否かの意思決定が行われます。</p>
+                
+                <div class="process-card">
+                    <h3>システム開発のフェーズ例（ウォーターフォール）</h3>
+                    <ol>
+                        <li>要件定義フェーズ</li>
+                        <li>基本設計フェーズ</li>
+                        <li>詳細設計フェーズ</li>
+                        <li>プログラミングフェーズ</li>
+                        <li>単体テストフェーズ</li>
+                        <li>結合テストフェーズ</li>
+                        <li>システムテストフェーズ</li>
+                        <li>受入テストフェーズ</li>
+                        <li>移行フェーズ</li>
+                        <li>運用・保守フェーズ</li>
+                    </ol>
+                </div>
+                
+                <div class="process-card">
+                    <h3>フェーズゲートの役割</h3>
+                    <ul>
+                        <li>ステータス確認：フェーズの成果物が完成しているか</li>
+                        <li>品質確認：成果物が品質基準を満たしているか</li>
+                        <li>リスク評価：次フェーズに影響するリスクは何か</li>
+                        <li>進捗判断：次フェーズに進むか、修正を行うか、プロジェクトを終了するか</li>
+                    </ul>
+                </div>
+                
+                <div class="process-card">
+                    <h3>フェーズ関係のタイプ</h3>
+                    <ul>
+                        <li><strong>シーケンシャル（順次）</strong>：前のフェーズが完全に終了してから次のフェーズを開始</li>
+                        <li><strong>オーバーラップ（重複）</strong>：前のフェーズが完全に終了する前に次のフェーズを開始</li>
+                        <li><strong>反復的（イテレーティブ）</strong>：各フェーズを繰り返し実施して徐々に製品を改良</li>
+                        <li><strong>インクリメンタル（段階的）</strong>：製品を小さな部分に分割し、段階的に完成</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- セクション13: リスクマネジメント -->
+            <div class="section">
+                <h2><i>⚠️</i> リスクマネジメント</h2>
+                
+                <p>リスクマネジメントとは、プロジェクトに影響を与える可能性のある不確実性を特定、分析、対応するプロセスです。</p>
+                
+                <div class="bubble">
+                    <p><span class="highlight">リスクとは？</span></p>
+                    <p>プロジェクト目標に対して不確実な影響を与える事象または状況</p>
+                    <p>ポジティブリスク（機会）とネガティブリスク（脅威）の両面がある</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>リスクマネジメントのプロセス</h3>
+                    <ol>
+                        <li><strong>リスクマネジメント計画</strong>：リスク管理活動の計画方法の定義</li>
+                        <li><strong>リスクの特定</strong>：個別プロジェクトリスクと全体プロジェクトリスクの特定</li>
+                        <li><strong>定性的リスク分析</strong>：確率と影響の評価、優先順位付け</li>
+                        <li><strong>定量的リスク分析</strong>：リスクの数値的分析、モデリング</li>
+                        <li><strong>リスク対応計画</strong>：リスク対応戦略の選択と計画策定</li>
+                        <li><strong>リスク対応の実施</strong>：計画された対応策の実行</li>
+                        <li><strong>リスクの監視</strong>：リスク状況の継続的評価と新たなリスクの特定</li>
+                    </ol>
+                </div>
+                
+                <div class="comparison">
+                    <div class="comparison-item pmbok6">
+                        <h4>ネガティブリスク対応</h4>
+                        <ul>
+                            <li>回避（Avoid）</li>
+                            <li>転嫁（Transfer）</li>
+                            <li>軽減（Mitigate）</li>
+                            <li>受容（Accept）</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item pmbok7">
+                        <h4>ポジティブリスク対応</h4>
+                        <ul>
+                            <li>活用（Exploit）</li>
+                            <li>共有（Share）</li>
+                            <li>強化（Enhance）</li>
+                            <li>受容（Accept）</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="process-card">
+                    <h3>第7版における「不確実性」への対応</h3>
+                    <p>PMBOK第7版では、より広い視点で「不確実性」パフォーマンスドメインとして扱い、以下の要素が強調されています：</p>
+                    <ul>
+                        <li>曖昧性への対応</li>
+                        <li>複雑性の管理</li>
+                        <li>ボラティリティ（変動性）への対応</li>
+                        <li>レジリエンス（回復力）の構築</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- セクション14: ステークホルダーマネジメント -->
+            <div class="section">
+                <h2><i>👪</i> ステークホルダーマネジメント</h2>
+                
+                <p>ステークホルダーマネジメントとは、プロジェクトに影響を与える、または影響を受ける個人やグループを特定し、分析し、関与させるプロセスです。</p>
+                
+                <div class="process-card">
+                    <h3>ステークホルダーマネジメントのプロセス</h3>
+                    <ol>
+                        <li><strong>ステークホルダーの特定</strong>：ステークホルダーの情報収集と初期分析</li>
+                        <li><strong>ステークホルダーエンゲージメント計画の策定</strong>：エンゲージメント戦略の開発</li>
+                        <li><strong>ステークホルダーエンゲージメントのマネジメント</strong>：関係構築と期待調整</li>
+                        <li><strong>ステークホルダーエンゲージメントの監視</strong>：関係と関与レベルの評価と調整</li>
+                    </ol>
+                </div>
+                
+                <div class="process-card">
+                    <h3>ステークホルダー分析の手法</h3>
+                    <ul>
+                        <li><strong>影響力/関心マトリックス</strong>：影響力と関心レベルに基づく4象限マッピング</li>
+                        <li><strong>サリエンス（顕著性）モデル</strong>：権力、正当性、緊急性に基づく分析</li>
+                        <li><strong>ステークホルダーエンゲージメントアセスメントマトリックス</strong>：現在と期待される関与レベルの分析</li>
+                    </ul>
+                </div>
+                
+                <div class="process-card">
+                    <h3>関与レベル</h3>
+                    <ul>
+                        <li><strong>未認識（Unaware）</strong>：プロジェクトについて知らない</li>
+                        <li><strong>抵抗的（Resistant）</strong>：プロジェクトの変化に抵抗する</li>
+                        <li><strong>中立的（Neutral）</strong>：プロジェクトに対して無関心または待観的</li>
+                        <li><strong>支持的（Supportive）</strong>：プロジェクトの成功を支援する</li>
+                        <li><strong>主導的（Leading）</strong>：積極的に関与し推進する</li>
+                    </ul>
+                </div>
+                
+                <div class="bubble">
+                    <p><span class="highlight">日本のSIプロジェクトでの特徴</span></p>
+                    <ul>
+                        <li>階層構造と意思決定</li>
+                        <li>関係性重視</li>
+                        <li>暗黙知と阿吽の呼吸</li>
+                        <li>集団調和と対立回避</li>
+                        <li>「根回し」文化</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- セクション15: プロジェクトマネジメントの発展 -->
+            <div class="section">
+                <h2><i>🚀</i> プロジェクトマネジメントの発展</h2>
+                
+                <div class="process-card">
+                    <h3>プログラムマネジメント</h3>
+                    <p>プログラムマネジメントとは、相互に関連する複数のプロジェクトやプログラム要素を調整し、全体最適化することにより、個々のプロジェクトが単独では達成できない便益を実現するためのマネジメント手法です。</p>
+                    <p>プロジェクトが「個別の成果物作成」に焦点を当てるのに対し、プログラムは「便益の実現」に焦点を当てます。</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>ポートフォリオマネジメント</h3>
+                    <p>ポートフォリオマネジメントとは、組織の戦略目標を達成するために、プロジェクト、プログラム、およびその他の関連する作業を識別、優先順位付け、認可、管理、コントロールするためのマネジメント手法です。</p>
+                    <p>主な目的：</p>
+                    <ul>
+                        <li>戦略的整合性の確保</li>
+                        <li>資源の最適配分</li>
+                        <li>投資価値の最大化</li>
+                        <li>バランスのとれたプロジェクトミックス</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison">
+                    <div class="comparison-item pmbok6">
+                        <h4>プロジェクト</h4>
+                        <p>「正しく行う」</p>
+                        <p>特定の成果物の作成</p>
+                        <p>PMが主導</p>
+                    </div>
+                    <div class="comparison-item pmbok7">
+                        <h4>ポートフォリオ</h4>
+                        <p>「正しいことを行う」</p>
+                        <p>戦略実現と価値最大化</p>
+                        <p>経営層が主導</p>
+                    </div>
+                </div>
+                
+                <div class="process-card">
+                    <h3>PMO（プロジェクトマネジメントオフィス）</h3>
+                    <p>組織内のプロジェクトマネジメント関連活動を標準化し、効率化するための組織的構造です。</p>
+                    <p>主な機能：</p>
+                    <ul>
+                        <li>標準とプロセスの開発と維持</li>
+                        <li>プロジェクト/プログラムの統合管理</li>
+                        <li>リソース最適化の支援</li>
+                        <li>PM能力開発とメンタリング</li>
+                        <li>戦略的プロジェクト選定支援</li>
+                    </ul>
+                </div>
+                
+                <div class="process-card">
+                    <h3>これからのプロジェクトマネジメント</h3>
+                    <p>プロジェクトマネジメントは、ビジネス環境と技術の変化に応じて進化し続けています。今後のトレンドには以下が含まれます：</p>
+                    <ul>
+                        <li>適応型アプローチの拡大</li>
+                        <li>AIと自動化の活用</li>
+                        <li>リモート/バーチャルチームの標準化</li>
+                        <li>持続可能性と社会的責任の統合</li>
+                        <li>戦略実現と価値創出の重視</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- セクション16: 発展的トピック - プログラムとポートフォリオ -->
+            <div class="section">
+                <h2><i>🚀</i> プロジェクトマネジメントの発展</h2>
+                
+                <div class="process-card">
+                    <h3>プログラムマネジメント</h3>
+                    <p>プログラムマネジメントとは、相互に関連する複数のプロジェクトやプログラム要素を調整し、全体最適化することにより、個々のプロジェクトが単独では達成できない便益を実現するためのマネジメント手法です。</p>
+                    <p>プロジェクトが「個別の成果物作成」に焦点を当てるのに対し、プログラムは「便益実現」に焦点を当てます。</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>ポートフォリオマネジメント</h3>
+                    <p>ポートフォリオマネジメントとは、組織の戦略目標を達成するために、プロジェクト、プログラム、およびその他の関連する作業を識別、優先順位付け、認可、管理、コントロールするためのマネジメント手法です。</p>
+                    <p>ポートフォリオは「戦略目標の実現と価値最大化」に焦点を当てます。</p>
+                </div>
+                
+                <div class="comparison">
+                    <div class="comparison-item pmbok6">
+                        <h4>プロジェクト</h4>
+                        <p>成果物の提供</p>
+                        <p>「正しく行う」</p>
+                    </div>
+                    <div class="comparison-item pmbok7">
+                        <h4>プログラム</h4>
+                        <p>便益の実現</p>
+                        <p>「正しいことを正しく行う」</p>
+                    </div>
+                </div>
+                
+                <div class="comparison">
+                    <div class="comparison-item pmbok6">
+                        <h4>プログラム</h4>
+                        <p>便益の実現</p>
+                        <p>相互関連するプロジェクト群</p>
+                    </div>
+                    <div class="comparison-item pmbok7">
+                        <h4>ポートフォリオ</h4>
+                        <p>戦略的整合性と投資価値</p>
+                        <p>「正しいことを行う」</p>
+                    </div>
+                </div>
+                
+                <div class="bubble">
+                    <p><span class="highlight">発展段階</span></p>
+                    <p>ITSSレベル6〜7（部長級以上）では、プログラムマネジメントやポートフォリオマネジメントのスキルが重要となります。組織全体のプロジェクト管理プロセスとガバナンスの確立・改善が求められます。</p>
+                </div>
+            </div>
+            
+            <!-- セクション17: ITSSレベル別の役割と責任 -->
+            <div class="section">
+                <h2><i>📊</i> ITSSレベル別のPM役割</h2>
+                
+                <p>ITスキル標準（ITSS）のレベルに応じて、プロジェクトマネージャーの役割と責任範囲が異なります。</p>
+                
+                <div class="itss-levels">
+                    <div class="itss-level level3">
+                        <span>レベル3</span>
+                        <p>リーダー級：小規模プロジェクト管理、サブプロジェクトリード</p>
+                    </div>
+                    
+                    <div class="itss-level level4">
+                        <span>レベル4</span>
+                        <p>主任級：中小規模プロジェクト管理、チームリード</p>
+                    </div>
+                    
+                    <div class="itss-level level5">
+                        <span>レベル5</span>
+                        <p>課長級：中規模プロジェクト管理、複数小規模プロジェクト統括</p>
+                    </div>
+                    
+                    <div class="itss-level level6">
+                        <span>レベル6</span>
+                        <p>次長・部長級：大規模プロジェクト管理、複数中規模プロジェクト統括</p>
+                    </div>
+                    
+                    <div class="itss-level level7">
+                        <span>レベル7</span>
+                        <p>部長・事業部長級：複数大規模プロジェクトの統括、全社プログラム管理</p>
+                    </div>
+                </div>
+                
+                <div class="process-card">
+                    <h3>ITSSレベル別の適用範囲</h3>
+                    <p>各ITSSレベルにおいて、PMBOKの知識エリアとプロセスグループをどの程度理解し適用すべきかの目安：</p>
+                    
+                    <h4>レベル3（リーダー級）:</h4>
+                    <ul>
+                        <li>重点知識エリア：統合、スコープ、スケジュール、コミュニケーション</li>
+                        <li>重点プロセスグループ：計画、実行</li>
+                    </ul>
+                    
+                    <h4>レベル4（主任級）:</h4>
+                    <ul>
+                        <li>重点知識エリア：統合、スコープ、スケジュール、コスト、品質、資源、コミュニケーション、リスク</li>
+                        <li>重点プロセスグループ：立ち上げ、計画、実行、監視・コントロール</li>
+                    </ul>
+                    
+                    <h4>レベル5〜7（課長級以上）:</h4>
+                    <ul>
+                        <li>全知識エリア、全プロセスグループ</li>
+                        <li>さらにプログラムマネジメント、ポートフォリオマネジメント、組織的プロジェクトマネジメント</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- セクション18: 日本のSI業界特有の課題 -->
+            <div class="section">
+                <h2><i>🗾</i> 日本のSI業界特有の課題</h2>
+                
+                <p>日本のSI業界では、PMBOKの適用にあたり、特有の課題や考慮点があります。</p>
+                
+                <div class="process-card">
+                    <h3>多重下請け構造</h3>
+                    <ul>
+                        <li>元請け・一次下請け・二次下請けなどの階層構造</li>
+                        <li>責任と権限の階層的分布</li>
+                        <li>階層間のコミュニケーション複雑性</li>
+                    </ul>
+                </div>
+                
+                <div class="process-card">
+                    <h3>品質重視の文化</h3>
+                    <ul>
+                        <li>高品質志向</li>
+                        <li>詳細なレビューとテスト</li>
+                        <li>「作り込む品質」の概念</li>
+                        <li>ゼロ欠陥を目指す姿勢</li>
+                    </ul>
+                </div>
+                
+                <div class="process-card">
+                    <h3>コミュニケーション文化</h3>
+                    <ul>
+                        <li>「阿吽の呼吸」的な暗黙のコミュニケーション</li>
+                        <li>高コンテキスト文化</li>
+                        <li>「根回し」と事前調整の重視</li>
+                        <li>集団的意思決定</li>
+                    </ul>
+                </div>
+                
+                <div class="process-card">
+                    <h3>課題への対応</h3>
+                    <ul>
+                        <li>明示的なコミュニケーションの促進</li>
+                        <li>文書化と形式知化の重視</li>
+                        <li>適切なテーラリングと適応</li>
+                        <li>階層を超えた直接コミュニケーションの機会創出</li>
+                        <li>柔軟性と適応性の文化醸成</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- セクション19: アジャイルとハイブリッドアプローチ -->
+            <div class="section">
+                <h2><i>🔄</i> アジャイルとハイブリッドアプローチ</h2>
+                
+                <p>PMBOK第7版では、予測型だけでなく適応型やハイブリッド型の開発アプローチも重視されています。特に「開発アプローチとライフサイクル」パフォーマンスドメインで強調されています。</p>
+                
+                <div class="process-card">
+                    <h3>アジャイル開発の特徴</h3>
+                    <ul>
+                        <li>反復的・漸進的アプローチ</li>
+                        <li>顧客との継続的なコラボレーション</li>
+                        <li>変化への適応</li>
+                        <li>機能する製品の早期かつ継続的な提供</li>
+                        <li>自己組織化チーム</li>
+                    </ul>
+                </div>
+                
+                <div class="process-card">
+                    <h3>ハイブリッドアプローチ</h3>
+                    <p>実際のプロジェクトでは、予測型と適応型の手法を組み合わせたハイブリッドアプローチがよく使われます：</p>
+                    <ul>
+                        <li>要件定義など上流工程は予測型</li>
+                        <li>開発工程はアジャイル型</li>
+                        <li>テストと移行は予測型</li>
+                        <li>全体フレームワークと詳細計画の組み合わせ</li>
+                    </ul>
+                </div>
+                
+                <div class="bubble">
+                    <p><span class="highlight">適切なアプローチの選択</span></p>
+                    <p>PMBOK第7版の「テーラリング」原則に基づき、プロジェクトの性質、組織文化、顧客の期待に応じて、最適なアプローチを選択・調整することが重要です。</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>適応型アプローチの日本企業への導入</h3>
+                    <ul>
+                        <li>段階的な導入と文化変革</li>
+                        <li>ハイブリッドアプローチによる橋渡し</li>
+                        <li>教育と意識改革</li>
+                        <li>成功事例の構築と共有</li>
+                        <li>顧客と協力した新しい契約・関係モデルの構築</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- セクション20: 実践へのステップ -->
+            <div class="section">
+                <h2><i>👣</i> 実践へのステップ</h2>
+                
+                <p>PMBOK第6版と第7版の知識を実践に活かすための具体的なステップをITSSレベル別に紹介します。</p>
+                
+                <div class="process-card">
+                    <h3>レベル3（リーダー級）</h3>
+                    <ul>
+                        <li>PMBOK基礎知識の習得</li>
+                        <li>小規模プロジェクトでの基本プロセス適用</li>
+                        <li>上位PMの指導の下での実践</li>
+                        <li>基本的なプロジェクト文書の作成</li>
+                        <li>コミュニケーションスキルの向上</li>
+                    </ul>
+                </div>
+                
+                <div class="process-card">
+                    <h3>レベル4（主任級）</h3>
+                    <ul>
+                        <li>PMBOK全領域の理解と実践</li>
+                        <li>中小規模プロジェクトのリード</li>
+                        <li>リスク管理と変更管理の習熟</li>
+                        <li>ステークホルダーマネジメントスキルの向上</li>
+                        <li>チームマネジメント能力の開発</li>
+                    </ul>
+                </div>
+                
+                <div class="process-card">
+                    <h3>レベル5（課長級）</h3>
+                    <ul>
+                        <li>複数プロジェクトの統括</li>
+                        <li>部門内プロセス標準の確立</li>
+                        <li>若手PMの指導・育成</li>
+                        <li>複雑な問題解決とリスク対応</li>
+                        <li>顧客・経営層との関係構築</li>
+                    </ul>
+                </div>
+                
+                <div class="process-card">
+                    <h3>レベル6〜7（部長級以上）</h3>
+                    <ul>
+                        <li>組織PMプロセスの確立と改善</li>
+                        <li>プログラム・ポートフォリオマネジメントの実践</li>
+                        <li>戦略目標とプロジェクトの整合</li>
+                        <li>組織変革の推進</li>
+                        <li>PM人材育成体制の確立</li>
+                    </ul>
+                </div>
+                
+                <div class="bubble">
+                    <p><span class="highlight">継続的な学習と実践</span></p>
+                    <p>プロジェクトマネジメントは理論と実践の両方が重要です。PMBOK知識の習得と実際のプロジェクトでの適用、振り返りと改善のサイクルを継続的に回していくことが成長への鍵となります。</p>
+                </div>
+            </div>
+            
+            <!-- セクション21: まとめ -->
+            <div class="section">
+                <h2><i>📝</i> まとめ</h2>
+                
+                <div class="process-card">
+                    <h3>PMBOK第6版と第7版の統合的理解</h3>
+                    <p>PMBOK第6版の詳細なプロセスと第7版の価値創出中心のアプローチは補完的な関係にあります。プロセス（どのように行うか）と成果（何を達成すべきか）の両方の視点を持つことで、効果的なプロジェクトマネジメントが可能になります。</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>日本のSI業界への適用</h3>
+                    <p>日本のSI業界特有の課題や文化的背景を理解し、PMBOKの知識を適切にテーラリングして適用することが重要です。多重下請け構造、品質重視の文化、暗黙のコミュニケーション文化などを考慮した適用が求められます。</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>ITSSレベルに応じた成長</h3>
+                    <p>ITSSレベルに応じて、求められるプロジェクトマネジメントのスキルと責任範囲が異なります。レベルに応じた知識習得と実践を通じて、段階的にスキルを向上させていくことが重要です。</p>
+                </div>
+                
+                <div class="process-card">
+                    <h3>価値創出と戦略的整合性</h3>
+                    <p>PMBOK第7版で強調されている「価値創出」と「戦略的整合性」の視点を取り入れ、単なるスコープ・スケジュール・コスト達成だけでなく、ビジネス価値や組織目標への貢献を意識したプロジェクトマネジメントを実践することが、これからのプロジェクトマネージャーに求められています。</p>
+                </div>
+                
+                <div class="bubble">
+                    <p><span class="highlight">最後に</span></p>
+                    <p>プロジェクトマネジメントは単なる知識やスキルではなく、継続的に学び、実践し、改善していく姿勢が重要です。このガイドが皆さんのプロジェクトマネジメント実践の一助となれば幸いです。</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>実践プロジェクトマネジメントガイド：PMBOK第6版と第7版の融合 © 2025</p>
+        </div>
+    </div>
+</body>
+</html>
