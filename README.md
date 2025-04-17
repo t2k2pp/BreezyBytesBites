@@ -118,6 +118,7 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [ファシリテーターに俺はなる！](https://github.com/t2k2pp/facilitator_book/blob/main/facilitator-book-2.md)
 - [あなたのファシリテーションは間違っている！](https://github.com/t2k2pp/facilitator_book/blob/main/facilitator-book-1.md)
 - [後悔だらけのファシリテーション](https://github.com/t2k2pp/facilitator_book/blob/main/facilitator-book-3.md)
+- [今日から始めるインフォグラフィック](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/InfoGraphic/infographic-book-outline.pdf)...2025/04/18 Claude 3.7
 
 **その他ファシリテータ本**
 
@@ -149,4 +150,17 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [身長の科学：遺伝と環境の影響についての考察](https://github.com/t2k2pp/familybooks/blob/main/%E8%BA%AB%E9%95%B7%E3%81%AE%E7%A7%91%E5%AD%A6/height-science.md)
 - [エコ茹でパスタをおいしくね♪](https://github.com/t2k2pp/familybooks/blob/main/%E9%A3%B2%E9%A3%9F/eco-pasta-book.md)
 
+
+---
+
+### DeepResearch by Gemini
+
+DeepResearchの結果をそのまま転記しています。自己責任で最終的な確認・調査はご自身で行っていただくものとし、あくまで参考としてご利用ください。
+
+- [AWS 無料体験条件と生成AI](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/AWS%20%E7%84%A1%E6%96%99%E4%BD%93%E9%A8%93%E6%9D%A1%E4%BB%B6%E3%81%A8%E7%94%9F%E6%88%90AI_.pdf)...2025/04/18
+- [Azure無料体験 条件と手順](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/Azure%E7%84%A1%E6%96%99%E4%BD%93%E9%A8%93%20%E6%9D%A1%E4%BB%B6%E3%81%A8%E6%89%8B%E9%A0%86_.pdf)...2025/04/18
+- [GCP無料体験条件と生成AI](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/GCP%E7%84%A1%E6%96%99%E4%BD%93%E9%A8%93%E6%9D%A1%E4%BB%B6%E3%81%A8%E7%94%9F%E6%88%90AI_.pdf)...2025/04/18
+- [AzureとCline設定支援](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/Azure%E3%81%A8Cline%E8%A8%AD%E5%AE%9A%E6%94%AF%E6%8F%B4_.pdf)...2025/04/18
+- [Deep Research cline 利用情報](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/Deep%20Research%20cline%20%E5%88%A9%E7%94%A8%E6%83%85%E5%A0%B1_.pdf)...2025/04/18
+- [動画分析AIサービス一覧](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/%E5%8B%95%E7%94%BB%E5%88%86%E6%9E%90AI%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E4%B8%80%E8%A6%A7_.pdf)...2025/04/18
 
