@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プロジェクトマネジメントの新アプローチ</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Quicksand:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background-color: #FFFFFF;
+      color: #2B2B2B;
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0;
+      background: #FFFFFF;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #FF4081 0%, #7C4DFF 100%);
+      padding: 25px;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header:before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%);
+      transform: rotate(30deg);
+      z-index: 1;
+    }
+    
+    h1 {
+      font-family: 'Poppins', 'Noto Sans JP', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .subheading {
+      font-family: 'Quicksand', 'Noto Sans JP', sans-serif;
+      font-size: 18px;
+      color: rgba(255,255,255,0.9);
+      font-weight: 400;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .content {
+      padding: 25px;
+    }
+    
+    .story-highlight {
+      background-color: rgba(124, 77, 255, 0.08);
+      border-left: 4px solid #7C4DFF;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .story-highlight h3 {
+      color: #7C4DFF;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    
+    .key-point {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 25px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .key-point:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: #FF4081;
+    }
+    
+    .key-point h2 {
+      color: #FF4081;
+      font-size: 22px;
+      margin-bottom: 15px;
+      font-family: 'Poppins', 'Noto Sans JP', sans-serif;
+    }
+    
+    .comparison {
+      display: flex;
+      justify-content: space-between;
+      margin: 25px 0;
+      gap: 15px;
+    }
+    
+    .comparison-item {
+      flex: 1;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    
+    .comparison-item.old {
+      background-color: rgba(43, 43, 43, 0.05);
+      border: 1px solid rgba(43, 43, 43, 0.1);
+    }
+    
+    .comparison-item.new {
+      background-color: rgba(0, 188, 212, 0.1);
+      border: 1px solid rgba(0, 188, 212, 0.2);
+    }
+    
+    .comparison-item h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    
+    .comparison-item.old h3 {
+      color: #2B2B2B;
+    }
+    
+    .comparison-item.new h3 {
+      color: #00BCD4;
+    }
+    
+    .benefits {
+      margin: 30px 0;
+    }
+    
+    .benefits h2 {
+      color: #7C4DFF;
+      font-size: 20px;
+      margin-bottom: 15px;
+      font-family: 'Poppins', 'Noto Sans JP', sans-serif;
+    }
+    
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      margin: 12px 0;
+    }
+    
+    .benefit-icon {
+      width: 30px;
+      height: 30px;
+      background-color: #FFAB00;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-weight: bold;
+    }
+    
+    .quote {
+      font-style: italic;
+      color: #00BCD4;
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      margin: 30px 0;
+      padding: 0 20px;
+      position: relative;
+    }
+    
+    .quote:before, .quote:after {
+      content: '"';
+      font-size: 40px;
+      position: absolute;
+      opacity: 0.2;
+    }
+    
+    .quote:before {
+      left: 0;
+      top: -10px;
+    }
+    
+    .quote:after {
+      right: 0;
+      bottom: -30px;
+    }
+    
+    .footer {
+      background-color: rgba(43, 43, 43, 0.03);
+      padding: 15px;
+      text-align: center;
+      font-size: 12px;
+      color: #757575;
+      border-top: 1px solid rgba(43, 43, 43, 0.1);
+    }
+    
+    .social-tags {
+      margin-top: 10px;
+      font-weight: 700;
+    }
+    
+    .social-tags span {
+      color: #7C4DFF;
+    }
+    
+    .cta {
+      background: linear-gradient(135deg, #FF4081 0%, #7C4DFF 100%);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 25px 0;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255, 64, 129, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(255, 64, 129, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>バッファの秘密を解き放つ</h1>
+      <p class="subheading">プロジェクト成功へのパラダイムシフト</p>
+    </div>
+    
+    <div class="content">
+      <div class="story-highlight">
+        <h3>あなたのチームも直面している？</h3>
+        <p>慢性的な残業、ギリギリの納期、疲弊したチーム、そして隠されたバッファ…</p>
+      </div>
+      
+      <div class="key-point">
+        <h2>クリティカルチェーン法で変わる</h2>
+        <p>クリティカルチェーン法は、従来のクリティカルパス法を拡張し、リソースの制約も考慮したプロジェクト管理手法。その中核は「隠すバッファ」から「共有するバッファ」への転換にあります。</p>
+      </div>
+      
+      <div class="comparison">
+        <div class="comparison-item old">
+          <h3>旧アプローチ</h3>
+          <p>各タスクに安全マージンを隠す</p>
+          <p>→ 結果：遅延・ストレス・残業の連鎖</p>
+        </div>
+        <div class="comparison-item new">
+          <h3>新アプローチ</h3>
+          <p>プロジェクト末尾に明示的バッファ</p>
+          <p>→ 結果：透明性・協力・モチベーション向上</p>
+        </div>
+      </div>
+      
+      <div class="quote">
+        隠すバッファより、みんなで見えるバッファの方が強い
+      </div>
+      
+      <div class="benefits">
+        <h2>メリット</h2>
+        <div class="benefit-item">
+          <div class="benefit-icon">1</div>
+          <p>挑戦的かつ現実的な目標設定によるモチベーション向上</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">2</div>
+          <p>バッファ消費率による進捗状況の可視化</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">3</div>
+          <p>早期のリスク察知と対応が可能に</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">4</div>
+          <p>チーム全体での状況共有による連携強化</p>
+        </div>
+      </div>
+      
+      <div class="cta">
+        あなたのプロジェクトにも「見えるバッファ」を！
+      </div>
+    </div>
+    
+    <div class="footer">
+      <p>© 2025 PM Innovation Lab</p>
+      <p class="social-tags">
+        <span>#プロジェクト管理</span> <span>#クリティカルチェーン</span> <span>#バッファマネジメント</span>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

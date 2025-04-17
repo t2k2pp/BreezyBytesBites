@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プロジェクト成功の鍵：心理的安全性</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Noto+Sans+JP:wght@300;700&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: #263238;
+      background-color: #FFFFFF;
+      line-height: 1.5;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 20px;
+      background: linear-gradient(135deg, rgba(0,160,255,0.1) 0%, rgba(98,0,234,0.1) 100%);
+      border-radius: 10px;
+    }
+    
+    .product-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, #00A0FF, #6200EA);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .tagline {
+      font-size: 24px;
+      font-weight: 300;
+      margin-bottom: 30px;
+    }
+    
+    .main-image {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .section {
+      margin: 60px 0;
+    }
+    
+    .section-title {
+      font-size: 18px;
+      color: #00A0FF;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .section-title::before {
+      content: "";
+      display: inline-block;
+      width: 5px;
+      height: 20px;
+      background: linear-gradient(to bottom, #00A0FF, #6200EA);
+      margin-right: 10px;
+      border-radius: 2px;
+    }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .feature-card {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .feature-icon {
+      background: linear-gradient(135deg, #00A0FF, #6200EA);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      color: white;
+      font-size: 24px;
+    }
+    
+    .feature-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    
+    .feature-desc {
+      font-size: 14px;
+    }
+    
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .comparison-card {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .comparison-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .negative-title {
+      color: #FF5252;
+    }
+    
+    .positive-title {
+      color: #00C853;
+    }
+    
+    .comparison-list {
+      list-style-type: none;
+    }
+    
+    .comparison-list li {
+      margin-bottom: 10px;
+      padding-left: 25px;
+      position: relative;
+    }
+    
+    .negative-list li::before {
+      content: "×";
+      color: #FF5252;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    
+    .positive-list li::before {
+      content: "✓";
+      color: #00C853;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    
+    .testimonials {
+      margin-top: 30px;
+    }
+    
+    .testimonial {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+      position: relative;
+    }
+    
+    .testimonial::before {
+      content: """;
+      font-size: 80px;
+      color: rgba(0,160,255,0.1);
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #eee;
+      margin-right: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #263238;
+      font-weight: bold;
+    }
+    
+    .author-info {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .author-name {
+      font-weight: 700;
+    }
+    
+    .author-role {
+      font-size: 14px;
+      color: #757575;
+    }
+    
+    .steps {
+      counter-reset: step;
+      margin-top: 30px;
+    }
+    
+    .step {
+      display: flex;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    
+    .step-number {
+      background: linear-gradient(135deg, #00A0FF, #6200EA);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 20px;
+      flex-shrink: 0;
+    }
+    
+    .step-content {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      flex-grow: 1;
+    }
+    
+    .step-title {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(0,160,255,0.1) 0%, rgba(98,0,234,0.1) 100%);
+      padding: 40px;
+      border-radius: 10px;
+      margin: 60px 0;
+    }
+    
+    .cta-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    
+    .cta-desc {
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(90deg, #00A0FF, #6200EA);
+      color: white;
+      font-weight: 700;
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,160,255,0.4);
+    }
+    
+    .quote-box {
+      background-color: rgba(0,160,255,0.05);
+      border-left: 4px solid #00A0FF;
+      padding: 20px;
+      margin: 30px 0;
+      font-style: italic;
+    }
+    
+    .key-point {
+      font-weight: 700;
+      color: #FF5252;
+    }
+    
+    @media (max-width: 768px) {
+      .comparison {
+        grid-template-columns: 1fr;
+      }
+      
+      .product-title {
+        font-size: 28px;
+      }
+      
+      .tagline {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 class="product-title">プロジェクト成功の鍵：心理的安全性</h1>
+      <p class="tagline">チームの潜在能力を引き出す環境づくり</p>
+      <img src="/api/placeholder/800/400" alt="心理的安全性のイメージ" class="main-image">
+    </div>
+    
+    <div class="section">
+      <h2 class="section-title">心理的安全性とは</h2>
+      <p>心理的安全性とは、チームメンバーが率直な意見や懸念、失敗などを安心して共有できる環境のことです。この環境があることで、問題の早期発見・解決が可能になり、チーム全体のパフォーマンスが向上します。</p>
+      
+      <div class="quote-box">
+        「<span class="key-point">心理的安全性</span>とは、チームの誰もが、自分の意見や疑問、失敗さえも安心して共有できる環境のこと」<br>
+        - プロジェクトマネージャー 鈴木一郎
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2 class="section-title">心理的安全性の重要性</h2>
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h3 class="feature-title">問題の早期発見</h3>
+          <p class="feature-desc">メンバーが懸念を早い段階で共有することで、小さな問題が大きな危機に発展する前に対処できます。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💡</div>
+          <h3 class="feature-title">創造性の向上</h3>
+          <p class="feature-desc">アイデアを否定されることを恐れず、自由に発言できる環境は、革新的なソリューションを生み出します。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤝</div>
+          <h3 class="feature-title">チームワークの強化</h3>
+          <p class="feature-desc">お互いを信頼し、尊重する関係性が築かれることで、効果的な協働が可能になります。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📈</div>
+          <h3 class="feature-title">生産性の向上</h3>
+          <p class="feature-desc">問題解決のプロセスがスムーズになり、プロジェクト全体の生産性が向上します。</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2 class="section-title">心理的安全性の低いチームと高いチームの比較</h2>
+      <div class="comparison">
+        <div class="comparison-card">
+          <h3 class="comparison-title negative-title">心理的安全性が低い場合</h3>
+          <ul class="comparison-list negative-list">
+            <li>問題が表面化しにくく、危機が深刻化する</li>
+            <li>メンバーが「言いづらさ」を感じ、沈黙する</li>
+            <li>失敗を恐れ、挑戦を避ける風土になる</li>
+            <li>責任転嫁が起こりやすくなる</li>
+            <li>本音と建前が生まれ、信頼関係が損なわれる</li>
+          </ul>
+        </div>
+        <div class="comparison-card">
+          <h3 class="comparison-title positive-title">心理的安全性が高い場合</h3>
+          <ul class="comparison-list positive-list">
+            <li>早期の問題発見と対応が可能になる</li>
+            <li>活発なコミュニケーションが生まれる</li>
+            <li>失敗から学ぶ文化が醸成される</li>
+            <li>共に解決策を探る姿勢が定着する</li>
+            <li>メンバーのモチベーションと満足度が向上する</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2 class="section-title">実際の声</h2>
+      <div class="testimonials">
+        <div class="testimonial">
+          <p class="testimonial-text">「鈴木さん、あの時、私たちを頭ごなしに怒らなかったこと、本当に感謝しています。おかげで、今は安心して仕事ができています」</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">T</div>
+            <div class="author-info">
+              <span class="author-name">田中</span>
+              <span class="author-role">プログラマー</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">「噺家にとって一番怖いのは、客席の『シーン』とした沈黙だ。プロジェクトマネージャーにとっても、それは同じなのかもしれない」</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">S</div>
+            <div class="author-info">
+              <span class="author-name">鈴木一郎</span>
+              <span class="author-role">プロジェクトマネージャー</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2 class="section-title">心理的安全性を高める5つのステップ</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3 class="step-title">リーダーシップの変革</h3>
+            <p>メンバーが安心して発言できる雰囲気を作る責任を自覚し、頭ごなしに否定しない姿勢を示しましょう。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3 class="step-title">傾聴と受容の実践</h3>
+            <p>メンバーの意見や報告には真摯に耳を傾け、まずは受け止める姿勢を示すことが大切です。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3 class="step-title">バランスの取れたフィードバック</h3>
+            <p>ポジティブなフィードバックと建設的なフィードバックをバランスよく行い、メンバーの成長を促しましょう。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3 class="step-title">失敗から学ぶ文化の醸成</h3>
+            <p>失敗を責めるのではなく、そこから学びを得る文化を作り、自らも失敗談を共有することが効果的です。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3 class="step-title">定期的な対話の機会</h3>
+            <p>1on1ミーティングやチームでの振り返りなど、メンバーの状況や意見を把握する機会を定期的に設けましょう。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="cta-section">
+      <h2 class="cta-title">あなたのチームの心理的安全性を高めませんか？</h2>
+      <p class="cta-desc">心理的安全性の高いチームは、コミュニケーションが活発になり、問題の早期発見と解決、そしてチーム全体のパフォーマンス向上につながります。今日から実践できるアクションがあります。</p>
+      <a href="#" class="cta-button">詳細を見る</a>
+    </div>
+    
+    <div class="section">
+      <h2 class="section-title">最後に</h2>
+      <p>心理的安全性は、一朝一夕で構築できるものではありません。リーダーとメンバーが共に意識し、日々の行動で実践していくことが大切です。チームの「沈黙」に気づき、それを解消する取り組みを続けることで、より強固で生産的なチームを作り上げることができるでしょう。</p>
+    </div>
+  </div>
+</body>
+</html>

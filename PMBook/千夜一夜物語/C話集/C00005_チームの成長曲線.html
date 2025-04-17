@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タックマンモデルとリーダーシップ</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&family=IBM+Plex+Sans+JP:wght@400;500;700&display=swap');
+
+        :root {
+            --primary: #102A43;
+            --secondary: #386FA4;
+            --positive: #147B74;
+            --alert: #B75D69;
+            --background: #F5F8FA;
+            --text: #1F292E;
+            --light-gray: #E6ECF1;
+            --mid-gray: #829AB1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans JP', 'Source Sans Pro', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.5;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            grid-template-rows: auto;
+            grid-template-areas:
+                "header header"
+                "key-metrics key-metrics"
+                "main sidebar"
+                "conclusion conclusion";
+            gap: 1.5rem;
+        }
+
+        header {
+            grid-area: header;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .title {
+            font-size: 24px;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        section {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--light-gray);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 16px;
+            color: var(--secondary);
+            font-weight: 600;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        p {
+            font-size: 14px;
+            margin-bottom: 0.75rem;
+        }
+
+        .key-metrics {
+            grid-area: key-metrics;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .metric-card {
+            background: var(--background);
+            border-radius: 6px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: monospace;
+            margin: 0.5rem 0;
+        }
+
+        .metric-label {
+            font-size: 14px;
+            color: var(--mid-gray);
+        }
+
+        .main-content {
+            grid-area: main;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+        }
+
+        .conclusion {
+            grid-area: conclusion;
+        }
+
+        .team-stages {
+            display: flex;
+            flex-direction: column;
+            margin: 1.5rem 0;
+        }
+
+        .stage {
+            display: flex;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .stage-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .stage-content {
+            flex-grow: 1;
+        }
+
+        .stage-line {
+            position: absolute;
+            top: 48px;
+            left: 24px;
+            width: 2px;
+            height: calc(100% - 24px);
+            background-color: var(--light-gray);
+            z-index: -1;
+        }
+
+        .stage:last-child .stage-line {
+            display: none;
+        }
+
+        .forming { background-color: #7B9CDB; }
+        .storming { background-color: #B75D69; }
+        .norming { background-color: #FFB347; }
+        .performing { background-color: #147B74; }
+        .adjourning { background-color: #6B4F82; }
+
+        .leadership-tips {
+            background-color: var(--light-gray);
+            border-left: 4px solid var(--secondary);
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+        }
+
+        .leadership-tips ul {
+            margin-left: 1.5rem;
+            font-size: 14px;
+        }
+
+        .insights {
+            margin: 1rem 0;
+        }
+
+        .insight-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .insight-icon {
+            background-color: var(--secondary);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .action-items {
+            background-color: var(--background);
+            border-radius: 6px;
+            padding: 1rem;
+        }
+
+        .action-items ul {
+            margin-left: 1.5rem;
+            font-size: 14px;
+        }
+
+        .action-items li {
+            margin-bottom: 0.5rem;
+        }
+
+        .reference {
+            font-size: 12px;
+            color: var(--mid-gray);
+            margin-top: 1rem;
+        }
+
+        .arrow-up {
+            color: var(--positive);
+        }
+
+        .arrow-down {
+            color: var(--alert);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "header"
+                    "key-metrics"
+                    "main"
+                    "sidebar"
+                    "conclusion";
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="title">タックマンモデルとリーダーシップ：チーム成長の4+1段階</div>
+            <div class="subtitle">効果的なチームビルディングのための段階別アプローチ</div>
+        </header>
+
+        <section class="key-metrics">
+            <h2>プロジェクト概要</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">プロジェクト期間</div>
+                    <div class="metric-value">3ヶ月</div>
+                    <div class="metric-label">納期内完成</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">チーム構成</div>
+                    <div class="metric-value">4部署</div>
+                    <div class="metric-label">異なる専門性</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">成長段階</div>
+                    <div class="metric-value">5段階</div>
+                    <div class="metric-label">タックマンモデル</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">成果</div>
+                    <div class="metric-value"><span class="arrow-up">↑</span> 予定以上</div>
+                    <div class="metric-label">顧客評価も上々</div>
+                </div>
+            </div>
+        </section>
+
+        <main class="main-content">
+            <section>
+                <h2>タックマンモデルによるチーム成長の段階</h2>
+                <p>プロジェクトチームは予測可能な発展段階を経ます。各段階に適したリーダーシップを発揮することで、チームの成長と高いパフォーマンスを実現できます。</p>
+                
+                <div class="team-stages">
+                    <div class="stage">
+                        <div class="stage-icon forming">1</div>
+                        <div class="stage-line"></div>
+                        <div class="stage-content">
+                            <h3>形成期（Forming）</h3>
+                            <p>メンバーが互いを探り合い、安全地帯にとどまる段階。互いの専門性や考え方の違いからぎこちなさが生じます。</p>
+                            <div class="leadership-tips">
+                                <p><strong>リーダーの役割：</strong></p>
+                                <ul>
+                                    <li>明確な目標と役割の提示</li>
+                                    <li>プロジェクトの目的を共有</li>
+                                    <li>チームメンバーの強みを認識する機会の創出</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stage">
+                        <div class="stage-icon storming">2</div>
+                        <div class="stage-line"></div>
+                        <div class="stage-content">
+                            <h3>混乱期（Storming）</h3>
+                            <p>意見の対立や摩擦が表面化し、チーム内の葛藤が強まる段階。アイデアや方向性をめぐる議論が活発になります。</p>
+                            <div class="leadership-tips">
+                                <p><strong>リーダーの役割：</strong></p>
+                                <ul>
+                                    <li>対立を恐れず、むしろ創造の源として活用</li>
+                                    <li>異なる意見を可視化する場の設定</li>
+                                    <li>建設的な対話を促す仲介者になる</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stage">
+                        <div class="stage-icon norming">3</div>
+                        <div class="stage-line"></div>
+                        <div class="stage-content">
+                            <h3>統一期（Norming）</h3>
+                            <p>チームのルールや行動規範が確立され、協力関係が生まれる段階。メンバー間の信頼関係が構築されます。</p>
+                            <div class="leadership-tips">
+                                <p><strong>リーダーの役割：</strong></p>
+                                <ul>
+                                    <li>各メンバーの強みを活かす仕組みの構築</li>
+                                    <li>定期的なコミュニケーションの場の確保</li>
+                                    <li>チーム独自のリズムや文化の醸成支援</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stage">
+                        <div class="stage-icon performing">4</div>
+                        <div class="stage-line"></div>
+                        <div class="stage-content">
+                            <h3>機能期（Performing）</h3>
+                            <p>高いパフォーマンスを発揮し、互いの専門性を尊重した建設的な協働が実現する段階。チームとしての一体感が最大化します。</p>
+                            <div class="leadership-tips">
+                                <p><strong>リーダーの役割：</strong></p>
+                                <ul>
+                                    <li>過度な介入を避け、チームの自律性を重視</li>
+                                    <li>障害を取り除く環境整備に注力</li>
+                                    <li>成果の認識と称賛を通じたモチベーション維持</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stage">
+                        <div class="stage-icon adjourning">5</div>
+                        <div class="stage-content">
+                            <h3>散会期（Adjourning）</h3>
+                            <p>プロジェクト終了に伴い、チームが解散する段階。達成感と共に、別れの寂しさも生じます。</p>
+                            <div class="leadership-tips">
+                                <p><strong>リーダーの役割：</strong></p>
+                                <ul>
+                                    <li>成果の振り返りと学びの共有</li>
+                                    <li>メンバーの貢献に対する適切な評価</li>
+                                    <li>次のステップや新たな挑戦の提示</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <aside class="sidebar">
+            <section>
+                <h2>重要な洞察</h2>
+                <div class="insights">
+                    <div class="insight-item">
+                        <div class="insight-icon">!</div>
+                        <div>各段階は必然的なプロセスであり、段階を飛ばすことはできない</div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-icon">!</div>
+                        <div>混乱期は創造性の源泉となる重要な段階</div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-icon">!</div>
+                        <div>リーダーは各段階に合わせて関わり方を変えるべき</div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-icon">!</div>
+                        <div>チームの成長曲線はリーダーの成長曲線でもある</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <h2>リスクと機会</h2>
+                <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                    <tr style="background-color: var(--light-gray);">
+                        <th style="padding: 8px; text-align: left;">リスク</th>
+                        <th style="padding: 8px; text-align: left;">機会</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; color: var(--alert);">メンバー間の対立が解消されない</td>
+                        <td style="padding: 8px; color: var(--positive);">多様な専門性による相乗効果</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; color: var(--alert);">過度な調和志向で創造性が損なわれる</td>
+                        <td style="padding: 8px; color: var(--positive);">建設的な対立からのイノベーション</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; color: var(--alert);">段階間の移行に時間がかかりすぎる</td>
+                        <td style="padding: 8px; color: var(--positive);">成長を通じたチーム力の向上</td>
+                    </tr>
+                </table>
+            </section>
+        </aside>
+
+        <section class="conclusion">
+            <h2>推奨事項とアクションプラン</h2>
+            <div class="action-items">
+                <ul>
+                    <li><strong>形成期</strong>：プロジェクトの目的と各メンバーの役割を明文化し、キックオフミーティングで共有する</li>
+                    <li><strong>混乱期</strong>：意見の相違を視覚化するワークショップを実施し、「違いがチームの強み」というマインドセットを醸成する</li>
+                    <li><strong>統一期</strong>：日次/週次の定例ミーティングを設定し、コミュニケーションの流れを作る</li>
+                    <li><strong>機能期</strong>：チームの自律性を尊重し、リーダーは障害除去と環境整備に注力する</li>
+                    <li><strong>散会期</strong>：振り返りセッションを行い、チームとしての学びを整理した上で、次のステップを提示する</li>
+                </ul>
+            </div>
+            
+            <div class="insights" style="margin-top: 1.5rem;">
+                <div class="insight-item">
+                    <div class="insight-icon" style="background-color: var(--primary);">!</div>
+                    <div><strong>核心的インサイト：</strong>チーム形成のプロセスを理解し、各段階に適したリーダーシップを発揮することが、効果的なチームビルディングの鍵となる</div>
+                </div>
+            </div>
+            
+            <div class="reference">
+                参考：Bruce W. Tuckman (1965) のタックマンモデル - "Developmental sequence in small groups"
+            </div>
+        </section>
+    </div>
+</body>
+</html>

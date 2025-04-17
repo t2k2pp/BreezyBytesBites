@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>変更管理の重要性 - プロジェクトマネジメント学習</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Kosugi+Maru&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      background-color: #F8F9FA;
+      color: #202124;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    header {
+      background-color: #4285F4;
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    
+    .subtitle {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+    
+    .target-grade {
+      background-color: #FBBC05;
+      color: #202124;
+      font-weight: bold;
+      padding: 5px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    
+    section {
+      margin-bottom: 40px;
+    }
+    
+    h2 {
+      font-size: 20px;
+      color: #34A853;
+      margin-bottom: 15px;
+      position: relative;
+      padding-left: 25px;
+    }
+    
+    h2:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 15px;
+      height: 15px;
+      background-color: #34A853;
+      border-radius: 50%;
+    }
+    
+    h3 {
+      font-size: 16px;
+      color: #FBBC05;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    
+    .story-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .story-part {
+      flex: 1;
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    
+    .number-badge {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: 30px;
+      height: 30px;
+      background-color: #EA4335;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    
+    .arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #4285F4;
+      font-size: 24px;
+    }
+    
+    .character {
+      display: flex;
+      align-items: center;
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .character-icon {
+      width: 60px;
+      height: 60px;
+      background-color: #4285F4;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-size: 30px;
+      color: white;
+    }
+    
+    .character-speech {
+      flex: 1;
+      position: relative;
+      background-color: #F8F9FA;
+      padding: 12px;
+      border-radius: 8px;
+    }
+    
+    .character-speech:before {
+      content: "";
+      position: absolute;
+      left: -8px;
+      top: 20px;
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-right: 8px solid #F8F9FA;
+    }
+    
+    .important-point {
+      background-color: #FBBC05;
+      background-image: linear-gradient(135deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, transparent 75%, transparent);
+      background-size: 15px 15px;
+      color: #202124;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .tips-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin: 30px 0;
+    }
+    
+    .tip-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      border-left: 5px solid #34A853;
+    }
+    
+    .tip-card h4 {
+      color: #4285F4;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    
+    .tip-icon {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-color: #34A853;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      margin-right: 5px;
+      font-size: 14px;
+      line-height: 24px;
+    }
+    
+    .quiz-section {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 30px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .quiz-title {
+      color: #EA4335;
+      font-size: 18px;
+      margin-bottom: 15px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    
+    .quiz-title:before {
+      content: "Q";
+      width: 30px;
+      height: 30px;
+      background-color: #EA4335;
+      color: white;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+    }
+    
+    .quiz-options {
+      margin-top: 15px;
+    }
+    
+    .quiz-option {
+      background-color: #F8F9FA;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .quiz-option:hover {
+      background-color: #FBBC05;
+    }
+    
+    .checklist {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 30px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .checklist h3 {
+      margin-bottom: 15px;
+    }
+    
+    .checklist-item {
+      margin-bottom: 10px;
+      padding-left: 30px;
+      position: relative;
+    }
+    
+    .checklist-item:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      background-color: #34A853;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+    
+    footer {
+      background-color: #4285F4;
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    
+    .reference {
+      font-size: 13px;
+      color: #5F6368;
+      margin-top: 10px;
+    }
+    
+    .story-diagram {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 30px 0;
+    }
+    
+    .diagram-step {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    
+    .diagram-number {
+      width: 30px;
+      height: 30px;
+      background-color: #4285F4;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-weight: bold;
+    }
+    
+    .diagram-text {
+      flex: 1;
+      background-color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .challenge-card {
+      background-color: #EA4335;
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .solution-card {
+      background-color: #34A853;
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .reflection-card {
+      background-color: #FBBC05;
+      color: #202124;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>変更管理の重要性</h1>
+      <div class="subtitle">プロジェクトを成功に導く羅針盤</div>
+      <div class="target-grade">対象：IT・プロジェクト管理者</div>
+    </header>
+    
+    <section>
+      <h2>変更管理とは？</h2>
+      <div class="character">
+        <div class="character-icon">🧑‍🏫</div>
+        <div class="character-speech">
+          変更管理プロセスとは、プロジェクトの途中で発生する変更要求に対して、その影響を評価し、承認を得てから実施するという仕組みです。顧客満足と品質・コスト・納期のバランスを保つために欠かせません。
+        </div>
+      </div>
+      
+      <div class="important-point">
+        変更要求を鵜呑みにするのではなく、しっかりと評価して対応することが大切です！
+      </div>
+    </section>
+    
+    <section>
+      <h2>木村さんのストーリーから学ぶ</h2>
+      
+      <div class="story-container">
+        <div class="story-part">
+          <div class="number-badge">1</div>
+          <h3>問題の発生</h3>
+          <p>ECサイトリニューアルプロジェクトが最終段階。テスト直前なのに、顧客から次々と新しい変更要求が…</p>
+        </div>
+        <div class="arrow">→</div>
+        <div class="story-part">
+          <div class="number-badge">2</div>
+          <h3>危機の認識</h3>
+          <p>スケジュール遅延、予算逼迫、チーム疲弊の危機に直面し、木村さんは変化の必要性を感じる</p>
+        </div>
+        <div class="arrow">→</div>
+        <div class="story-part">
+          <div class="number-badge">3</div>
+          <h3>変更管理の導入</h3>
+          <p>PM勉強会で知った「変更管理プロセス」を導入して顧客と合意形成</p>
+        </div>
+      </div>
+      
+      <div class="story-container">
+        <div class="story-part">
+          <div class="number-badge">4</div>
+          <h3>プロセスの実践</h3>
+          <p>変更要求の影響を評価し、優先順位をつけて本当に必要な変更にリソースを集中</p>
+        </div>
+        <div class="arrow">→</div>
+        <div class="story-part">
+          <div class="number-badge">5</div>
+          <h3>問題の解決</h3>
+          <p>プロジェクトが正常な軌道に戻り、適切な機能を実装してリリース</p>
+        </div>
+        <div class="arrow">→</div>
+        <div class="story-part">
+          <div class="number-badge">6</div>
+          <h3>教訓の獲得</h3>
+          <p>木村さんは「変更の嵐」にも対応できるPMに成長</p>
+        </div>
+      </div>
+    </section>
+    
+    <section>
+      <h2>変更管理がもたらす効果</h2>
+      
+      <div class="story-diagram">
+        <div class="diagram-step">
+          <div class="diagram-number">1</div>
+          <div class="diagram-text">
+            <b>スケジュール管理の改善</b>：変更を評価することで、現実的な納期設定と調整が可能に
+          </div>
+        </div>
+        <div class="diagram-step">
+          <div class="diagram-number">2</div>
+          <div class="diagram-text">
+            <b>予算の適正化</b>：不要な変更を排除し、コスト超過のリスクを低減
+          </div>
+        </div>
+        <div class="diagram-step">
+          <div class="diagram-number">3</div>
+          <div class="diagram-text">
+            <b>品質の確保</b>：十分なテストと検証の時間を確保し、品質低下を防止
+          </div>
+        </div>
+        <div class="diagram-step">
+          <div class="diagram-number">4</div>
+          <div class="diagram-text">
+            <b>チームのモチベーション維持</b>：過度な負担を避け、健全な開発環境を構築
+          </div>
+        </div>
+        <div class="diagram-step">
+          <div class="diagram-number">5</div>
+          <div class="diagram-text">
+            <b>顧客との信頼関係構築</b>：透明性のあるコミュニケーションにより相互理解を促進
+          </div>
+        </div>
+      </div>
+      
+      <div class="challenge-card">
+        <h3>❌ 変更管理がないと…</h3>
+        <p>「顧客の言うことは絶対」という考えで全ての変更要求を受け入れると、期限超過、予算不足、品質低下、チーム疲弊という「炎上プロジェクト」に！</p>
+      </div>
+      
+      <div class="solution-card">
+        <h3>✅ 変更管理があれば…</h3>
+        <p>変更要求を適切に評価・優先順位付けし、本当に必要な変更に集中することで、プロジェクトの成功確率が高まります。時には「できません」と言う勇気も必要です。</p>
+      </div>
+    </section>
+    
+    <section>
+      <h2>変更管理プロセスの実践ステップ</h2>
+      
+      <div class="tips-container">
+        <div class="tip-card">
+          <h4><span class="tip-icon">1</span> 変更管理計画の策定</h4>
+          <p>プロジェクト開始時に、変更要求の受付、評価、承認、実施、記録の流れを明確に定義しておきましょう。</p>
+        </div>
+        <div class="tip-card">
+          <h4><span class="tip-icon">2</span> 変更管理委員会の設置</h4>
+          <p>関係者で構成される委員会を設置し、変更要求の審議・承認を行う体制を整えましょう。</p>
+        </div>
+        <div class="tip-card">
+          <h4><span class="tip-icon">3</span> 影響分析の徹底</h4>
+          <p>変更によるスケジュール、コスト、品質への影響を詳細に分析し、定量的に評価しましょう。</p>
+        </div>
+        <div class="tip-card">
+          <h4><span class="tip-icon">4</span> 顧客とのコミュニケーション</h4>
+          <p>変更管理の目的とプロセスを顧客に丁寧に説明し、理解と協力を得るように努めましょう。</p>
+        </div>
+        <div class="tip-card">
+          <h4><span class="tip-icon">5</span> 記録と追跡</h4>
+          <p>全ての変更要求とその対応状況を記録し、追跡できるようにしましょう。</p>
+        </div>
+      </div>
+      
+      <div class="reflection-card">
+        <h3>🤔 振り返りのポイント</h3>
+        <p>木村さんのストーリーから学べるように、変更管理は「顧客の要求を断る」ためのものではなく、「プロジェクトを成功に導くための羅針盤」です。顧客の本当のニーズを理解し、最適な解決策を提供するための重要なプロセスなのです。</p>
+      </div>
+    </section>
+    
+    <section>
+      <h2>理解度チェック</h2>
+      
+      <div class="quiz-section">
+        <div class="quiz-title">変更管理プロセスの主な目的は何でしょうか？</div>
+        <div class="quiz-options">
+          <div class="quiz-option">A. 顧客からの変更要求をすべて拒否すること</div>
+          <div class="quiz-option">B. プロジェクトの期限を延長する理由を作ること</div>
+          <div class="quiz-option">C. 変更要求の影響を評価し、プロジェクトへの影響を最小化すること</div>
+          <div class="quiz-option">D. 予算を増やすための交渉材料とすること</div>
+        </div>
+      </div>
+      
+      <div class="quiz-section">
+        <div class="quiz-title">変更要求が来た時、PMとしてまず行うべきことは？</div>
+        <div class="quiz-options">
+          <div class="quiz-option">A. すぐに実装を始める</div>
+          <div class="quiz-option">B. 無条件に拒否する</div>
+          <div class="quiz-option">C. 影響範囲、スケジュール、コストなどを詳細に分析する</div>
+          <div class="quiz-option">D. 上司に判断を委ねる</div>
+        </div>
+      </div>
+    </section>
+    
+    <section>
+      <h2>実践のためのチェックリスト</h2>
+      
+      <div class="checklist">
+        <h3>変更管理プロセス導入チェックリスト</h3>
+        <div class="checklist-item">変更管理計画書を作成し、プロジェクト関係者と共有していますか？</div>
+        <div class="checklist-item">変更要求の申請フォームやテンプレートは整備されていますか？</div>
+        <div class="checklist-item">変更要求の評価基準が明確になっていますか？</div>
+        <div class="checklist-item">変更管理委員会のメンバーと役割が決定していますか？</div>
+        <div class="checklist-item">変更要求の承認フローは文書化されていますか？</div>
+        <div class="checklist-item">変更履歴を管理するための仕組みはありますか？</div>
+        <div class="checklist-item">顧客に変更管理プロセスについて説明し、理解を得ていますか？</div>
+      </div>
+    </section>
+    
+    <section>
+      <h2>学びを日常に活かそう</h2>
+      
+      <div class="character">
+        <div class="character-icon">💡</div>
+        <div class="character-speech">
+          変更管理は、IT開発プロジェクトだけでなく、日常のさまざまな場面でも応用できます。例えば、家族での旅行計画や、サークル活動での企画など、途中で変更が生じるあらゆる計画に活用できますよ。
+        </div>
+      </div>
+      
+      <div class="important-point">
+        何事も、計画変更の影響を考え、優先順位をつけて対応することが成功への鍵です！
+      </div>
+    </section>
+    
+    <footer>
+      <p>プロジェクトマネジメント学習シリーズ</p>
+      <p class="reference">参考：PMBOKガイド、実践プロジェクトマネジメント入門</p>
+      <p class="reference">© 2025 Project Management Education Institute</p>
+    </footer>
+  </div>
+</body>
+</html>

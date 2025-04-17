@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>見積もりの罠</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&family=Noto+Sans+JP:wght@100;400;700&display=swap');
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      color: #000000;
+      background-color: #FFFFFF;
+      line-height: 1.6;
+      padding: 5% 8%;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .header {
+      margin-bottom: 64px;
+      position: relative;
+    }
+    
+    .title {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .title::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 64px;
+      height: 3px;
+      background-color: #FF3366;
+    }
+    
+    .subtitle {
+      font-size: 16px;
+      color: #737373;
+      font-weight: 200;
+    }
+    
+    .timeline {
+      position: relative;
+      margin-bottom: 64px;
+    }
+    
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 24px;
+      height: 100%;
+      width: 1px;
+      background-color: #D8D8D8;
+    }
+    
+    .event {
+      position: relative;
+      padding-left: 64px;
+      margin-bottom: 40px;
+    }
+    
+    .event-dot {
+      position: absolute;
+      left: 20px;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #FF3366;
+    }
+    
+    .event-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .event-description {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    
+    .quote {
+      font-style: italic;
+      border-left: 2px solid #FF3366;
+      padding-left: 16px;
+      margin-bottom: 16px;
+    }
+    
+    .learning-points {
+      background-color: #F5F5F5;
+      padding: 32px;
+      border-radius: 4px;
+    }
+    
+    .learning-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .learning-title::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background-color: #FF3366;
+    }
+    
+    .learning-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 32px;
+    }
+    
+    .learning-item {
+      position: relative;
+    }
+    
+    .learning-item-number {
+      font-size: 24px;
+      font-weight: 200;
+      color: #FF3366;
+      margin-bottom: 8px;
+    }
+    
+    .learning-item-text {
+      font-size: 14px;
+    }
+    
+    .planning-poker {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 48px 0;
+    }
+    
+    .poker-card {
+      width: 60px;
+      height: 90px;
+      background-color: #FFFFFF;
+      border: 1px solid #D8D8D8;
+      border-radius: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 700;
+      color: #000000;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    
+    .poker-card.highlight {
+      color: #FF3366;
+      border-color: #FF3366;
+      box-shadow: 0 4px 8px rgba(255,51,102,0.2);
+    }
+    
+    .footer {
+      margin-top: 64px;
+      text-align: center;
+      font-size: 12px;
+      color: #737373;
+    }
+    
+    @media (max-width: 768px) {
+      .learning-items {
+        grid-template-columns: 1fr;
+      }
+      
+      .planning-poker {
+        justify-content: center;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 class="title">見積もりの罠</h1>
+      <p class="subtitle">プロジェクト見積もりが失敗するとき、その解決策とは？</p>
+    </div>
+    
+    <div class="timeline">
+      <div class="event">
+        <div class="event-dot"></div>
+        <h2 class="event-title">約束</h2>
+        <p class="event-description">PM伊藤慎二は、エース開発者・山田の「3日で終わります」という言葉を信じ、顧客に「問題なし」と約束してしまった。</p>
+        <div class="quote">「山田さんは優秀だし、彼が3日と言うなら間違いないだろう」</div>
+      </div>
+      
+      <div class="event">
+        <div class="event-dot"></div>
+        <h2 class="event-title">変化</h2>
+        <p class="event-description">3日目の進捗報告で事態は一変。「まだ30%ぐらいです。想定より複雑で...」山田の疲れた顔に、伊藤は胃が痛くなった。</p>
+      </div>
+      
+      <div class="event">
+        <div class="event-dot"></div>
+        <h2 class="event-title">危機</h2>
+        <p class="event-description">8日目の朝、テックリードの鈴木が「このままでは納期に間に合いません」と告げる。顧客への中間報告を前に、伊藤は冷や汗を流していた。</p>
+      </div>
+      
+      <div class="event">
+        <div class="event-dot"></div>
+        <h2 class="event-title">解決策</h2>
+        <p class="event-description">伊藤は前職の先輩PMのアドバイスを思い出す。「見積もりの精度を上げるには、個人の感覚頼みじゃダメなんだ。Planning Pokerを知ってるか？」</p>
+      </div>
+      
+      <div class="event">
+        <div class="event-dot"></div>
+        <h2 class="event-title">実践</h2>
+        <p class="event-description">伊藤はチームミーティングを招集し、トランプのカードを切り、各メンバーに配った。「これから各タスクについて、皆さんの見積もりを同時に出し合います」</p>
+      </div>
+      
+      <div class="event">
+        <div class="event-dot"></div>
+        <h2 class="event-title">成功</h2>
+        <p class="event-description">顧客と交渉し1週間の納期延長を了承。プロジェクトは3週間で完了し、品質も確保できた。</p>
+        <div class="quote">「では、見積もりからはじめましょうか」</div>
+      </div>
+    </div>
+    
+    <div class="planning-poker">
+      <div class="poker-card">1</div>
+      <div class="poker-card">2</div>
+      <div class="poker-card">3</div>
+      <div class="poker-card highlight">5</div>
+      <div class="poker-card">8</div>
+      <div class="poker-card">13</div>
+    </div>
+    
+    <div class="learning-points">
+      <h2 class="learning-title">Planning Pokerのポイント</h2>
+      <div class="learning-items">
+        <div class="learning-item">
+          <div class="learning-item-number">1</div>
+          <p class="learning-item-text">全員参加で行う - チーム全体の知見を集め、多角的な視点から見積もりを行う</p>
+        </div>
+        
+        <div class="learning-item">
+          <div class="learning-item-number">2</div>
+          <p class="learning-item-text">理由の共有を重視する - 見積もりの差異から、隠れた複雑さや前提条件の違いを明らかにする</p>
+        </div>
+        
+        <div class="learning-item">
+          <div class="learning-item-number">3</div>
+          <p class="learning-item-text">コーディング以外の作業も含める - テスト、文書作成、レビュー、修正など全工程を考慮する</p>
+        </div>
+        
+        <div class="learning-item">
+          <div class="learning-item-number">4</div>
+          <p class="learning-item-text">定期的に振り返り、精度を高めていく - 見積もりと実際の差を分析し、次回に活かす</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <p>プロジェクト成功の鍵は正確な見積もりから始まります</p>
+    </div>
+  </div>
+</body>
+</html>

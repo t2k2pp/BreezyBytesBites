@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ステークホルダーマッピング実践ガイド</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap');
+    
+    :root {
+      --main-color: #1976D2;
+      --step-bg-color: #E3F2FD;
+      --attention-color: #F57C00;
+      --success-color: #43A047;
+      --warning-color: #E53935;
+      --text-color: #212121;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text-color);
+      line-height: 1.6;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #FAFAFA;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .title {
+      color: var(--main-color);
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .summary {
+      margin-bottom: 20px;
+    }
+    
+    .info-bar {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+    }
+    
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .info-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--main-color);
+      color: white;
+      border-radius: 50%;
+    }
+    
+    .materials {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .section-title {
+      color: var(--main-color);
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .materials-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      list-style: none;
+    }
+    
+    .material-item {
+      background-color: var(--step-bg-color);
+      padding: 10px 15px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .steps {
+      margin-bottom: 30px;
+    }
+    
+    .step {
+      display: flex;
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    
+    .step-number {
+      background-color: var(--main-color);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: bold;
+      flex-shrink: 0;
+      margin-right: 20px;
+    }
+    
+    .step-content {
+      flex-grow: 1;
+    }
+    
+    .step-title {
+      color: var(--main-color);
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .step-description {
+      margin-bottom: 15px;
+    }
+    
+    .step-image {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 15px 0;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+    }
+    
+    .step-notes {
+      display: flex;
+      gap: 20px;
+      margin-top: 15px;
+    }
+    
+    .do-section, .dont-section {
+      flex: 1;
+      padding: 15px;
+      border-radius: 6px;
+    }
+    
+    .do-section {
+      background-color: rgba(67, 160, 71, 0.1);
+      border-left: 4px solid var(--success-color);
+    }
+    
+    .dont-section {
+      background-color: rgba(229, 57, 53, 0.1);
+      border-left: 4px solid var(--warning-color);
+    }
+    
+    .note-title {
+      font-weight: bold;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .do-title {
+      color: var(--success-color);
+    }
+    
+    .dont-title {
+      color: var(--warning-color);
+    }
+    
+    .attention {
+      background-color: rgba(245, 124, 0, 0.1);
+      border-left: 4px solid var(--attention-color);
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 6px;
+    }
+    
+    .attention-title {
+      color: var(--attention-color);
+      font-weight: bold;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .troubleshooting {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .problem {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #E0E0E0;
+    }
+    
+    .problem-title {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    
+    .footer {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .checkpoint {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .checkpoint-icon {
+      color: var(--success-color);
+    }
+    
+    .next-steps {
+      color: var(--main-color);
+      font-weight: bold;
+    }
+    
+    /* SVGのスタイル */
+    .mapping-grid {
+      width: 100%;
+      max-width: 500px;
+      margin: 20px auto;
+      border: 1px solid #E0E0E0;
+    }
+  </style>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <div class="header">
+    <h1 class="title">ステークホルダーマッピング実践ガイド</h1>
+    <p class="summary">プロジェクトの成功に不可欠なステークホルダー分析を、影響力と関心度の軸でマッピングし、適切なコミュニケーション戦略を立てる方法を学びましょう。</p>
+    <div class="info-bar">
+      <div class="info-item">
+        <div class="info-icon">⏱</div>
+        <span>所要時間: 約2時間</span>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">⚙️</div>
+        <span>難易度: 中級</span>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 準備材料 -->
+  <div class="materials">
+    <h2 class="section-title">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5Z" stroke="#1976D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M3 7L12 13L21 7" stroke="#1976D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      必要なもの
+    </h2>
+    <ul class="materials-list">
+      <li class="material-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 11L12 14L22 4" stroke="#1976D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="#1976D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        大きな紙またはホワイトボード
+      </li>
+      <li class="material-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 11L12 14L22 4" stroke="#1976D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="#1976D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        付箋紙（複数の色があると良い）
+      </li>
+      <li class="material-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 11L12 14L22 4" stroke="#1976D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="#1976D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        ペン（複数色）
+      </li>
+      <li class="material-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 11L12 14L22 4" stroke="#1976D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="#1976D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        ステークホルダーリスト
+      </li>
+      <li class="material-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 11L12 14L22 4" stroke="#1976D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="#1976D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        ヒアリングのための質問リスト
+      </li>
+    </ul>
+  </div>
+  
+  <!-- ステップ -->
+  <div class="steps">
+    <!-- ステップ1 -->
+    <div class="step">
+      <div class="step-number">1</div>
+      <div class="step-content">
+        <h3 class="step-title">ステークホルダーを特定する</h3>
+        <div class="step-description">
+          <p>プロジェクトに関わる、または影響を受ける可能性のあるすべての人や組織を洗い出します。部署、役職、外部関係者など幅広く考えましょう。</p>
+        </div>
+        
+        <svg class="step-image" width="600" height="250" viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg">
+          <rect width="600" height="250" fill="#ffffff" rx="10" />
+          <text x="300" y="40" text-anchor="middle" font-weight="bold" font-size="18" fill="#1976D2">ステークホルダー特定の例</text>
+          
+          <!-- 中央の円 -->
+          <circle cx="300" cy="125" r="50" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" />
+          <text x="300" y="125" text-anchor="middle" dominant-baseline="middle" font-weight="bold" fill="#1976D2">プロジェクト</text>
+          <text x="300" y="145" text-anchor="middle" dominant-baseline="middle" fill="#1976D2">新規顧客管理システム</text>
+          
+          <!-- 内部ステークホルダー -->
+          <circle cx="175" cy="80" r="35" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" />
+          <text x="175" y="80" text-anchor="middle" dominant-baseline="middle" font-weight="bold" fill="#212121">営業部長</text>
+          
+          <circle cx="175" cy="170" r="35" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" />
+          <text x="175" y="170" text-anchor="middle" dominant-baseline="middle" font-weight="bold" fill="#212121">経理部長</text>
+          
+          <circle cx="425" cy="80" r="35" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" />
+          <text x="425" y="80" text-anchor="middle" dominant-baseline="middle" font-weight="bold" fill="#212121">情報システム部</text>
+          <text x="425" y="100" text-anchor="middle" dominant-baseline="middle" fill="#212121">田中さん</text>
+          
+          <circle cx="425" cy="170" r="35" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" />
+          <text x="425" y="170" text-anchor="middle" dominant-baseline="middle" font-weight="bold" fill="#212121">プロジェクト</text>
+          <text x="425" y="190" text-anchor="middle" dominant-baseline="middle" fill="#212121">マネージャー</text>
+          
+          <!-- 線 -->
+          <line x1="220" y1="80" x2="250" y2="100" stroke="#1976D2" stroke-width="2" />
+          <line x1="220" y1="170" x2="250" y2="150" stroke="#1976D2" stroke-width="2" />
+          <line x1="380" y1="80" x2="350" y2="100" stroke="#1976D2" stroke-width="2" />
+          <line x1="380" y1="170" x2="350" y2="150" stroke="#1976D2" stroke-width="2" />
+        </svg>
+        
+        <div class="step-notes">
+          <div class="do-section">
+            <p class="note-title do-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18457 2.99721 7.13633 4.39828 5.49707C5.79935 3.85782 7.69279 2.71538 9.79619 2.24015C11.8996 1.76491 14.1003 1.98234 16.07 2.86" stroke="#43A047" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 4L12 14.01L9 11.01" stroke="#43A047" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              やること
+            </p>
+            <ul>
+              <li>プロジェクトに直接・間接的に関わる全員をリストアップ</li>
+              <li>外部のステークホルダー（顧客、ベンダーなど）も忘れずに</li>
+              <li>役職だけでなく、影響力のある個人も特定する</li>
+            </ul>
+          </div>
+          <div class="dont-section">
+            <p class="note-title dont-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18" stroke="#E53935" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 6L18 18" stroke="#E53935" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              やらないこと
+            </p>
+            <ul>
+              <li>組織図だけに頼って特定する</li>
+              <li>重要度が低いと思って省略する</li>
+              <li>上司や目立つ人だけに注目する</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="attention">
+          <p class="attention-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#F57C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 8V12" stroke="#F57C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="16" r="0.5" stroke="#F57C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            注意ポイント
+          </p>
+          <p>最初は「多すぎるかも」と思うくらい広範囲にステークホルダーをリストアップしましょう。後で優先順位をつける際に絞り込めます。見落としがあると、後でプロジェクトに大きな支障をきたす可能性があります。</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ステップ2 -->
+    <div class="step">
+      <div class="step-number">2</div>
+      <div class="step-content">
+        <h3 class="step-title">ヒアリングを実施する</h3>
+        <div class="step-description">
+          <p>特定したステークホルダーに個別にヒアリングを行い、プロジェクトに対する期待、懸念、要求などを把握します。質問は具体的かつオープンエンドなものを準備しましょう。</p>
+        </div>
+        
+        <svg class="step-image" width="600" height="280" viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg">
+          <rect width="600" height="280" fill="#ffffff" rx="10" />
+          <text x="300" y="30" text-anchor="middle" font-weight="bold" font-size="18" fill="#1976D2">ヒアリング質問例</text>
+          
+          <!-- 質問リスト -->
+          <rect x="50" y="50" width="500" height="200" fill="#E3F2FD" rx="8" />
+          
+          <text x="70" y="80" font-weight="bold" fill="#1976D2">期待・目標に関する質問:</text>
+          <text x="90" y="110" fill="#212121">・このプロジェクトで最も重視していることは何ですか？</text>
+          <text x="90" y="135" fill="#212121">・プロジェクトが成功したと感じるのはどんな状態ですか？</text>
+          
+          <text x="70" y="170" font-weight="bold" fill="#1976D2">懸念・リスクに関する質問:</text>
+          <text x="90" y="200" fill="#212121">・このプロジェクトにおいて最も懸念していることは何ですか？</text>
+          <text x="90" y="225" fill="#212121">・過去の類似プロジェクトで経験した問題点はありますか？</text>
+        </svg>
+        
+        <div class="step-notes">
+          <div class="do-section">
+            <p class="note-title do-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18457 2.99721 7.13633 4.39828 5.49707C5.79935 3.85782 7.69279 2.71538 9.79619 2.24015C11.8996 1.76491 14.1003 1.98234 16.07 2.86" stroke="#43A047" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 4L12 14.01L9 11.01" stroke="#43A047" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              やること
+            </p>
+            <ul>
+              <li>1対1の場でヒアリングを行う</li>
+              <li>質問は事前に準備しておく</li>
+              <li>回答をしっかりメモする</li>
+              <li>傾聴し、相手の言葉を遮らない</li>
+            </ul>
+          </div>
+          <div class="dont-section">
+            <p class="note-title dont-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18" stroke="#E53935" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 6L18 18" stroke="#E53935" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              やらないこと
+            </p>
+            <ul>
+              <li>大勢の前でのヒアリング</li>
+              <li>Yes/Noだけで答えられる質問</li>
+              <li>自分の意見を押し付ける</li>
+              <li>回答を誘導する質問をする</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ステップ3 -->
+    <div class="step">
+      <div class="step-number">3</div>
+      <div class="step-content">
+        <h3 class="step-title">影響力と関心度を評価する</h3>
+        <div class="step-description">
+          <p>各ステークホルダーについて、プロジェクトに対する「影響力」と「関心度」を評価します。影響力は意思決定への権限や影響を与える力、関心度はプロジェクトへの関与や

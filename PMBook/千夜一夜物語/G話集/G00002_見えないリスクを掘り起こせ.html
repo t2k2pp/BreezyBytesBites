@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プレモータム分析：見えないリスクを掘り起こせ</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@500;700&family=Space+Grotesk:wght@400;700&family=IBM+Plex+Sans+JP:wght@400;700&display=swap');
+    
+    :root {
+      --tech1: #10B5E3;
+      --tech2: #6610F2;
+      --neon: #00F2B5;
+      --dark: #151E3F;
+      --light: #F8F9FA;
+      --text: #343A40;
+    }
+    
+    body {
+      font-family: 'IBM Plex Sans JP', 'Space Grotesk', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    header {
+      text-align: center;
+      padding: 40px 0;
+      background: linear-gradient(135deg, var(--dark) 0%, #2a3b70 100%);
+      color: white;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      font-family: 'Oxanium', cursive;
+      font-size: 32px;
+      margin: 0;
+      background: linear-gradient(to right, var(--tech1), var(--tech2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    h2 {
+      font-family: 'Oxanium', cursive;
+      font-size: 24px;
+      color: var(--tech1);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    
+    h3 {
+      font-size: 18px;
+      color: var(--dark);
+      font-weight: 700;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    
+    h4 {
+      font-size: 16px;
+      color: var(--tech2);
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+    
+    p {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+    }
+    
+    .grid-item {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .grid-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+    
+    .col-12 {
+      grid-column: span 12;
+    }
+    
+    .col-6 {
+      grid-column: span 6;
+    }
+    
+    .col-4 {
+      grid-column: span 4;
+    }
+    
+    .col-8 {
+      grid-column: span 8;
+    }
+    
+    .concept-diagram {
+      width: 100%;
+      height: 300px;
+      background-color: var(--light);
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    
+    .flow-arrow {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-color: var(--neon);
+      clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
+    }
+    
+    .icon {
+      width: 48px;
+      height: 48px;
+      background-color: var(--tech1);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 15px;
+      color: white;
+      font-size: 24px;
+    }
+    
+    .comparison {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+    
+    .comparison-item {
+      flex: 1;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    
+    .traditional {
+      background-color: #f8d7da;
+      color: #721c24;
+      margin-right: 10px;
+    }
+    
+    .premortem {
+      background-color: #d4edda;
+      color: #155724;
+      margin-left: 10px;
+    }
+    
+    .step {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .step-number {
+      width: 30px;
+      height: 30px;
+      background-color: var(--tech2);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 15px;
+      font-weight: bold;
+    }
+    
+    .step-content {
+      flex: 1;
+    }
+    
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(16,181,227,0.1) 0%, rgba(102,16,242,0.1) 100%);
+      border-left: 4px solid var(--tech1);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .data-label {
+      font-size: 12px;
+      color: var(--dark);
+      font-family: 'Space Grotesk', monospace;
+      margin-bottom: 5px;
+    }
+    
+    .progress-container {
+      height: 30px;
+      background-color: #e9ecef;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    
+    .progress-bar {
+      height: 100%;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      color: white;
+      font-weight: bold;
+    }
+    
+    .success-rate-1 {
+      width: 35%;
+      background-color: #dc3545;
+    }
+    
+    .success-rate-2 {
+      width: 85%;
+      background-color: #28a745;
+    }
+    
+    .connector {
+      position: relative;
+      height: 40px;
+    }
+    
+    .connector:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 2px;
+      height: 100%;
+      background-color: var(--tech1);
+    }
+    
+    .risk-card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-left: 4px solid var(--tech2);
+      position: relative;
+    }
+    
+    .risk-card:after {
+      content: '!';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 25px;
+      height: 25px;
+      background-color: var(--neon);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--dark);
+      font-weight: bold;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      background-color: var(--tech1);
+      color: white;
+      border-radius: 12px;
+      font-size: 12px;
+      margin-right: 5px;
+    }
+    
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      
+      .col-4, .col-6, .col-8 {
+        grid-column: span 1;
+      }
+      
+      .comparison {
+        flex-direction: column;
+      }
+      
+      .comparison-item {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>プレモータム分析：見えないリスクを掘り起こせ</h1>
+      <p>プロジェクト成功への新たなアプローチ</p>
+    </header>
+    
+    <div class="grid">
+      <div class="grid-item col-12">
+        <h2>プレモータム分析とは</h2>
+        <p>「もしプロジェクトが失敗するとしたら、どのような原因が考えられるか？」という問いを立て、事前にリスクを洗い出す分析手法です。通常のリスク分析と異なり、あえて「失敗した」という前提で議論することで、見過ごされがちな潜在的なリスクを発見できます。</p>
+        
+        <div class="concept-diagram">
+          <svg width="100%" height="100%" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- 背景のグリッド線 -->
+            <defs>
+              <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#f1f1f1" stroke-width="0.5"/>
+              </pattern>
+              <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+                <rect width="100" height="100" fill="url(#smallGrid)"/>
+                <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#e1e1e1" stroke-width="1"/>
+              </pattern>
+            </defs>
+            
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            
+            <!-- 従来のリスク分析 -->
+            <rect x="50" y="50" width="300" height="200" rx="10" fill="#f8d7da" opacity="0.7"/>
+            <text x="200" y="90" text-anchor="middle" font-family="Oxanium" font-size="18" fill="#721c24" font-weight="bold">従来のリスク分析</text>
+            <text x="200" y="130" text-anchor="middle" font-size="14" fill="#721c24">「うまくいくはず！」</text>
+            <text x="200" y="180" text-anchor="middle" font-size="12" fill="#721c24">見つけやすいリスクのみ</text>
+            <text x="200" y="210" text-anchor="middle" font-size="12" fill="#721c24">楽観バイアスが働く</text>
+            
+            <!-- プレモータム分析 -->
+            <rect x="450" y="50" width="300" height="200" rx="10" fill="#d4edda" opacity="0.7"/>
+            <text x="600" y="90" text-anchor="middle" font-family="Oxanium" font-size="18" fill="#155724" font-weight="bold">プレモータム分析</text>
+            <text x="600" y="130" text-anchor="middle" font-size="14" fill="#155724">「もし失敗したら？」</text>
+            <text x="600" y="180" text-anchor="middle" font-size="12" fill="#155724">潜在的なリスクも洗い出す</text>
+            <text x="600" y="210" text-anchor="middle" font-size="12" fill="#155724">現実的な視点で計画</text>
+            
+            <!-- 矢印 -->
+            <path d="M 350 150 L 450 150" stroke="#10B5E3" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#10B5E3"/>
+              </marker>
+            </defs>
+            
+            <!-- 成功率の表示 -->
+            <rect x="100" y="250" width="200" height="25" rx="12.5" fill="#e9ecef"/>
+            <rect x="100" y="250" width="70" height="25" rx="12.5" fill="#dc3545"/>
+            <text x="135" y="267" text-anchor="middle" font-size="12" fill="white" font-weight="bold">35%</text>
+            <text x="200" y="290" text-anchor="middle" font-size="12" fill="#721c24">従来の成功率</text>
+            
+            <rect x="500" y="250" width="200" height="25" rx="12.5" fill="#e9ecef"/>
+            <rect x="500" y="250" width="170" height="25" rx="12.5" fill="#28a745"/>
+            <text x="585" y="267" text-anchor="middle" font-size="12" fill="white" font-weight="bold">85%</text>
+            <text x="600" y="290" text-anchor="middle" font-size="12" fill="#155724">プレモータム実施後の成功率</text>
+          </svg>
+        </div>
+      </div>
+      
+      <div class="grid-item col-6">
+        <h2>なぜ必要なのか？</h2>
+        <div class="highlight-box">
+          <h4>リスク検出率の比較</h4>
+          <div class="data-label">従来のリスク分析</div>
+          <div class="progress-container">
+            <div class="progress-bar success-rate-1">35%</div>
+          </div>
+          <div class="data-label">プレモータム分析導入後</div>
+          <div class="progress-container">
+            <div class="progress-bar success-rate-2">85%</div>
+          </div>
+        </div>
+        
+        <h3>主要なメリット</h3>
+        <ul>
+          <li>楽観バイアスを克服できる</li>
+          <li>チーム全体のリスク感度が向上する</li>
+          <li>若手や新メンバーからの意見も引き出せる</li>
+          <li>「まさか」の事態に対する準備ができる</li>
+          <li>プロジェクト成功率が飛躍的に向上する</li>
+        </ul>
+      </div>
+      
+      <div class="grid-item col-6">
+        <h2>佐藤のケース</h2>
+        <div class="risk-card">
+          <h4>API連携における想定外の仕様変更</h4>
+          <p>外部システムのドキュメントに記載されていない仕様変更が発生し、広範囲に影響</p>
+          <span class="badge">高リスク</span>
+          <span class="badge">開発中盤</span>
+        </div>
+        
+        <div class="risk-card">
+          <h4>チーム全体の楽観的バイアス</h4>
+          <p>「まあ、大丈夫だろう」という空気感がリスク発見を妨げた</p>
+          <span class="badge">組織的課題</span>
+          <span class="badge">計画段階</span>
+        </div>
+        
+        <div class="risk-card">
+          <h4>若手エンジニアの懸念を無視</h4>
+          <p>経験の差から、重要な指摘が「そんなこと、まず起きませんよ」と無視された</p>
+          <span class="badge">コミュニケーション</span>
+          <span class="badge">人的要因</span>
+        </div>
+      </div>
+      
+      <div class="grid-item col-12">
+        <h2>プレモータム分析の実施方法</h2>
+        <div class="grid">
+          <div class="grid-item col-4">
+            <div class="icon">1</div>
+            <h3>未来視点での思考</h3>
+            <p>「このプロジェクトは失敗した」と仮定し、その原因を考える</p>
+          </div>
+          
+          <div class="grid-item col-4">
+            <div class="icon">2</div>
+            <h3>リスクの具体化</h3>
+            <p>想定されるリスクをできるだけ具体的に書き出す</p>
+          </div>
+          
+          <div class="grid-item col-4">
+            <div class="icon">3</div>
+            <h3>優先順位付け</h3>
+            <p>影響度と発生確率でリスクを評価する</p>
+          </div>
+          
+          <div class="grid-item col-4">
+            <div class="icon">4</div>
+            <h3>対策立案</h3>
+            <p>各リスクに対する具体的な対応策を検討する</p>
+          </div>
+          
+          <div class="grid-item col-4">
+            <div class="icon">5</div>
+            <h3>担当者指定</h3>
+            <p>リスク対応の責任者を明確にする</p>
+          </div>
+          
+          <div class="grid-item col-4">
+            <div class="icon">6</div>
+            <h3>定期的な見直し</h3>
+            <p>プロジェクト進行に合わせてリスクを再評価する</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid-item col-8">
+        <h2>物語から学ぶ失敗のパターン</h2>
+        <div class="comparison">
+          <div class="comparison-item traditional">
+            <h4>計画段階</h4>
+            <p>「特にないですね」<br>「スケジュール通りで問題ない」</p>
+          </div>
+          <div class="comparison-item premortem">
+            <h4>プレモータムの場合</h4>
+            <p>「もし失敗したら？」<br>「どんなリスクが考えられる？」</p>
+          </div>
+        </div>
+        
+        <div class="comparison">
+          <div class="comparison-item traditional">
+            <h4>リスク識別</h4>
+            <p>「まあ、いっか」<br>「そんなこと、まず起きませんよ」</p>
+          </div>
+          <div class="comparison-item premortem">
+            <h4>プレモータムの場合</h4>
+            <p>「起きないと思うけど、もしも…」<br>「過去の失敗事例を検討」</p>
+          </div>
+        </div>
+        
+        <div class="comparison">
+          <div class="comparison-item traditional">
+            <h4>対策</h4>
+            <p>明確な対策なし<br>発生後の対応に追われる</p>
+          </div>
+          <div class="comparison-item premortem">
+            <h4>プレモータムの場合</h4>
+            <p>具体的な対応策を準備<br>担当者を明確化</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid-item col-4">
+        <h2>実践のヒント</h2>
+        <div class="highlight-box">
+          <h4>佐藤の教訓</h4>
+          <p>「今後は、『まさか』を想定して、徹底的にリスクを洗い出すようにしましょう」</p>
+        </div>
+        
+        <h3>効果的な実施のために</h3>
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">役職や経験を問わず、全員の意見を尊重する</div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">「批判的思考」を奨励する安全な場を作る</div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">過去の失敗事例をデータベース化する</div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">「まさか」を想像する思考実験を定期的に行う</div>
+        </div>
+      </div>
+      
+      <div class="grid-item col-12">
+        <h2>未来へのステップ</h2>
+        <p>プレモータム分析は、プロジェクト開始時の一回限りのイベントではなく、継続的なプロセスとして取り入れることで最大の効果を発揮します。チーム全体で「失敗の可能性」について定期的に議論し、リスク対策を更新していくことで、プロジェクトの成功確率を高めることができます。</p>
+        <div class="highlight-box">
+          <h4>リスク管理のパラダイムシフト</h4>
+          <p>「見えないリスクを掘り起こす」という考え方は、プロジェクト管理の新たな文化を創造します。それは、問題が発生してから対処するのではなく、先回りして対策を講じる予防型のマネジメントへの転換です。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
