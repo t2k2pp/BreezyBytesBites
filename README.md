@@ -163,4 +163,7 @@ DeepResearchの結果をそのまま転記しています。自己責任で最�
 - [AzureとCline設定支援](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/Azure%E3%81%A8Cline%E8%A8%AD%E5%AE%9A%E6%94%AF%E6%8F%B4_.pdf)...2025/04/18
 - [Deep Research cline 利用情報](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/Deep%20Research%20cline%20%E5%88%A9%E7%94%A8%E6%83%85%E5%A0%B1_.pdf)...2025/04/18
 - [動画分析AIサービス一覧](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/%E5%8B%95%E7%94%BB%E5%88%86%E6%9E%90AI%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E4%B8%80%E8%A6%A7_.pdf)...2025/04/18
-
+- [Azure ChatGPT 利用料金と機能](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/Azure%20ChatGPT%20%E5%88%A9%E7%94%A8%E6%96%99%E9%87%91%E3%81%A8%E6%A9%9F%E8%83%BD_.pdf)...2025/04/21
+- [GitHub Release 詳細な利用手順](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/GitHub%20Release%20%E8%A9%B3%E7%B4%B0%E3%81%AA%E5%88%A9%E7%94%A8%E6%89%8B%E9%A0%86_.pdf)...2025/04/21
+- [Windowsアプリ配布プラットフォーム調査](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/Windows%E3%82%A2%E3%83%97%E3%83%AA%E9%85%8D%E5%B8%83%E3%83%97%E3%83%A9%E3%83%83%E3%83%88%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E8%AA%BF%E6%9F%BB_.pdf)...2025/04/21
+- [生成AI 開発費用と能力比較](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/%E7%94%9F%E6%88%90AI%20%E9%96%8B%E7%99%BA%E8%B2%BB%E7%94%A8%E3%81%A8%E8%83%BD%E5%8A%9B%E6%AF%94%E8%BC%83_.pdf)...2025/04/21
