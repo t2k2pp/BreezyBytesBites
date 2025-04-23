@@ -183,3 +183,10 @@ DeepResearchの結果をそのまま転記しています。自己責任で最�
 - [Claude課金モデル別コンテキストウィンドウ比較](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/Claude%E8%AA%B2%E9%87%91%E3%83%A2%E3%83%87%E3%83%AB%E5%88%A5%E3%82%B3%E3%83%B3%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E6%AF%94%E8%BC%83_.pdf)...2025/04/23
 - [ESP32-CAM開発環境と撮影保存](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/ESP32-CAM%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E3%81%A8%E6%92%AE%E5%BD%B1%E4%BF%9D%E5%AD%98_.pdf)...2025/04/23
 - [iPhoneアプリ開発環境と費用調査](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/iPhone%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E3%81%A8%E8%B2%BB%E7%94%A8%E8%AA%BF%E6%9F%BB_.pdf)...2025/04/24
+
+### HTML
+
+Claude の アーティファクトという機能で作成したものです。
+
+- [コンシューマー向け生成AIサービス比較](https://claude.ai/public/artifacts/ab462758-0107-44cd-9799-c18b3d002345)...2025/04/24
+- [生成AIサービス比較インフォグラフィック](https://claude.ai/public/artifacts/2e5b3be2-0019-437d-851b-c8bc80f7d370)...2025/04/24
