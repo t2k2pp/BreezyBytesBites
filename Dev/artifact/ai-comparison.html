@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コンシューマー向け生成AIサービス比較</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-bottom: none;
+            border-radius: 4px 4px 0 0;
+            background-color: #f8f9fa;
+            margin-right: 5px;
+            transition: all 0.3s;
+        }
+        .tab:hover {
+            background-color: #e9ecef;
+        }
+        .tab.active {
+            background-color: #fff;
+            border-color: #ddd;
+            border-bottom-color: #fff;
+            font-weight: bold;
+            color: #3498db;
+        }
+        .content {
+            display: none;
+            background: white;
+            padding: 20px;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .content.active {
+            display: block;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .plan-header {
+            background-color: #e6f2ff;
+            font-weight: bold;
+        }
+        .feature-available {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .feature-unavailable {
+            color: #e74c3c;
+        }
+        .toggle-details {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .toggle-details:hover {
+            background-color: #2980b9;
+        }
+        .details {
+            display: none;
+            margin-top: 10px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            border-left: 3px solid #3498db;
+        }
+        .platform-icon {
+            margin-right: 5px;
+            font-weight: bold;
+        }
+        .note {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+            .tab {
+                margin-bottom: 5px;
+                border-radius: 4px;
+            }
+            table {
+                font-size: 0.9em;
+            }
+            th, td {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>コンシューマー向け生成AIサービス比較</h1>
+    
+    <div class="tabs">
+        <div class="tab active" onclick="showTab('text-ai')">文章生成系AI</div>
+        <div class="tab" onclick="showTab('dev-ai')">開発系AI</div>
+    </div>
+    
+    <div id="text-ai" class="content active">
+        <h2>文章生成系AI比較</h2>
+        <p>文章生成、質問応答、創作支援などに特化した生成AIサービスです。隙間時間での利用に適しています。</p>
+        
+        <table>
+            <tr>
+                <th>サービス名</th>
+                <th>提供企業</th>
+                <th>無料プラン</th>
+                <th>有料プラン</th>
+                <th>対応プラットフォーム</th>
+                <th>主な特徴</th>
+            </tr>
+            <tr>
+                <td><strong>Claude</strong></td>
+                <td>Anthropic</td>
+                <td>利用可能</td>
+                <td>
+                    <strong>Pro:</strong> 20ドル/月<br>
+                    <strong>Max:</strong> 60ドル/月
+                </td>
+                <td>
+                    <span class="platform-icon">🌐</span> Web<br>
+                    <span class="platform-icon">📱</span> iOS/Android
+                </td>
+                <td>
+                    長文処理と複雑な分析に強み。倫理的考慮が必要な場面に適している。<br>
+                    <button class="toggle-details" onclick="toggleDetails('claude-details')">詳細を表示</button>
+                    <div id="claude-details" class="details">
+                        • 無料プラン：基本的な文章生成が可能<br>
+                        • Pro：高速処理、長文対応強化<br>
+                        • Max：最新モデルへの優先アクセス、高度な分析機能
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>ChatGPT</strong></td>
+                <td>OpenAI</td>
+                <td>利用可能</td>
+                <td>
+                    <strong>Plus:</strong> 20ドル/月<br>
+                    <strong>Pro:</strong> 200ドル/月
+                </td>
+                <td>
+                    <span class="platform-icon">🌐</span> Web<br>
+                    <span class="platform-icon">📱</span> iOS/Android
+                </td>
+                <td>
+                    創造的な文章作成とコーディング支援にバランスよく対応。<br>
+                    <button class="toggle-details" onclick="toggleDetails('chatgpt-details')">詳細を表示</button>
+                    <div id="chatgpt-details" class="details">
+                        • 無料プラン：基本的な文章生成、コード生成が可能<br>
+                        • Plus：最新モデルへのアクセス、高速処理、プラグイン対応<br>
+                        • Pro：企業向け高機能版、Deep Research対応
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Gemini</strong></td>
+                <td>Google</td>
+                <td>利用可能</td>
+                <td><strong>Advanced:</strong> 19.99ドル/月</td>
+                <td>
+                    <span class="platform-icon">🌐</span> Web<br>
+                    <span class="platform-icon">📱</span> iOS/Android<br>
+                    <span class="platform-icon">💻</span> Googleアプリ連携
+                </td>
+                <td>
+                    検索連携とマルチモーダル処理、Google環境との統合が特徴。<br>
+                    <button class="toggle-details" onclick="toggleDetails('gemini-details')">詳細を表示</button>
+                    <div id="gemini-details" class="details">
+                        • 無料プラン：基本的な対話、Googleサービスとの連携<br>
+                        • Advanced：高度なモデル、長文処理の強化、より複雑な分析
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Copilot</strong></td>
+                <td>Microsoft</td>
+                <td>Windows/Edgeの基本機能として利用可能</td>
+                <td><strong>Copilot Pro:</strong> 20ドル/月</td>
+                <td>
+                    <span class="platform-icon">🌐</span> Web<br>
+                    <span class="platform-icon">💻</span> Windows<br>
+                    <span class="platform-icon">📝</span> Office連携
+                </td>
+                <td>
+                    Office製品との連携による業務文書作成・編集の効率化が魅力。<br>
+                    <button class="toggle-details" onclick="toggleDetails('copilot-details')">詳細を表示</button>
+                    <div id="copilot-details" class="details">
+                        • 無料プラン：Windows/Edgeでの基本的な支援<br>
+                        • Pro：Office製品との高度な連携、画像生成機能の強化、高速処理
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Grok</strong></td>
+                <td>xAI</td>
+                <td>X Premium登録者は利用可能</td>
+                <td>Xプラットフォームの有料サブスクリプションに含まれる</td>
+                <td>
+                    <span class="platform-icon">🌐</span> Web (X内)
+                </td>
+                <td>
+                    ユーモアを取り入れた対話スタイルが特徴的。X(旧Twitter)との統合。<br>
+                    <button class="toggle-details" onclick="toggleDetails('grok-details')">詳細を表示</button>
+                    <div id="grok-details" class="details">
+                        • X Premium：プラットフォーム内でGrok-1モデルに基づく対話が可能<br>
+                        • リアルタイム情報へのアクセス機能
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Perplexity</strong></td>
+                <td>Perplexity AI</td>
+                <td>利用可能</td>
+                <td><strong>Pro:</strong> 20ドル/月</td>
+                <td>
+                    <span class="platform-icon">🌐</span> Web<br>
+                    <span class="platform-icon">📱</span> iOS/Android
+                </td>
+                <td>
+                    情報検索と出典提示に特化、調査業務に最適。<br>
+                    <button class="toggle-details" onclick="toggleDetails('perplexity-details')">詳細を表示</button>
+                    <div id="perplexity-details" class="details">
+                        • 無料プラン：基本的な検索、情報提供<br>
+                        • Pro：複数のAIモデル利用可、高度な検索機能、Deep Research対応
+                    </div>
+                </td>
+            </tr>
+        </table>
+        
+        <div class="note">
+            <p>※料金は2025年4月時点の情報です。為替レートの変動により実際の日本円換算額は変わる場合があります。</p>
+            <p>※バージョン表記（Claude 3.5など）は頻繁に更新されるため省略しています。</p>
+        </div>
+    </div>
+    
+    <div id="dev-ai" class="content">
+        <h2>開発系AI比較</h2>
+        <p>プログラミングやコード生成に特化した生成AIサービスです。開発作業の効率化に役立ちます。</p>
+        
+        <table>
+            <tr>
+                <th>サービス名</th>
+                <th>提供企業</th>
+                <th>無料プラン</th>
+                <th>有料プラン</th>
+                <th>対応プラットフォーム</th>
+                <th>主な特徴</th>
+            </tr>
+            <tr>
+                <td><strong>GitHub Copilot</strong></td>
+                <td>GitHub/Microsoft</td>
+                <td>限定機能のみ<br>学生・教育者向け無料</td>
+                <td>
+                    <strong>Individual:</strong> 10ドル/月<br>
+                    <strong>Business:</strong> ユーザーあたり19ドル/月<br>
+                    <strong>Enterprise:</strong> 要問合せ
+                </td>
+                <td>
+                    <span class="platform-icon">💻</span> VS Code<br>
+                    <span class="platform-icon">💻</span> Visual Studio<br>
+                    <span class="platform-icon">💻</span> JetBrains IDEs<br>
+                    <span class="platform-icon">💻</span> Neovim
+                </td>
+                <td>
+                    コードエディタと緊密に統合されたコード生成支援。進化が速く機能が充実。<br>
+                    <button class="toggle-details" onclick="toggleDetails('github-copilot-details')">詳細を表示</button>
+                    <div id="github-copilot-details" class="details">
+                        • 無料：限定機能のみ<br>
+                        • Individual：コード補完、AIコード生成<br>
+                        • Business：セキュリティ管理、組織向け管理機能<br>
+                        • Agent Mode：VSCodeでの対話型開発支援(2025年新機能)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Cursor</strong></td>
+                <td>Cursor</td>
+                <td>基本機能利用可能</td>
+                <td>
+                    <strong>Pro:</strong> 月額9ドル<br>
+                    <strong>Team:</strong> ユーザーあたり20ドル/月
+                </td>
+                <td>
+                    <span class="platform-icon">💻</span> macOS<br>
+                    <span class="platform-icon">💻</span> Windows<br>
+                    <span class="platform-icon">💻</span> Linux
+                </td>
+                <td>
+                    AIネイティブのコードエディタ。対話型のコード生成とリファクタリングに強み。<br>
+                    <button class="toggle-details" onclick="toggleDetails('cursor-details')">詳細を表示</button>
+                    <div id="cursor-details" class="details">
+                        • 無料：基本的なコード補完、チャット機能<br>
+                        • Pro：高度なAIコード生成、コードベース理解機能<br>
+                        • Team：共同編集、チーム向け管理機能
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Amazon CodeWhisperer</strong><br>(Amazon Q Developer)</td>
+                <td>Amazon</td>
+                <td>個人向け基本機能</td>
+                <td>
+                    <strong>Professional:</strong> ユーザーあたり19ドル/月
+                </td>
+                <td>
+                    <span class="platform-icon">💻</span> VS Code<br>
+                    <span class="platform-icon">💻</span> IntelliJ<br>
+                    <span class="platform-icon">💻</span> AWS環境
+                </td>
+                <td>
+                    AWSサービスとの連携が強み。セキュリティコードスキャン機能を搭載。<br>
+                    <button class="toggle-details" onclick="toggleDetails('codewhisperer-details')">詳細を表示</button>
+                    <div id="codewhisperer-details" class="details">
+                        • 無料：基本的なコード提案<br>
+                        • Professional：セキュリティスキャン、チャット対話、AWSサービス連携強化
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Replit</strong></td>
+                <td>Replit</td>
+                <td>基本機能利用可能</td>
+                <td>
+                    <strong>Pro:</strong> 10ドル/月<br>
+                    <strong>Teams:</strong> ユーザーあたり20ドル/月
+                </td>
+                <td>
+                    <span class="platform-icon">🌐</span> Web<br>
+                    <span class="platform-icon">📱</span> モバイル
+                </td>
+                <td>
+                    ブラウザで完結する開発環境。50以上の言語に対応し共同編集が可能。<br>
+                    <button class="toggle-details" onclick="toggleDetails('replit-details')">詳細を表示</button>
+                    <div id="replit-details" class="details">
+                        • 無料：ブラウザベースの開発環境、基本AIアシスト<br>
+                        • Pro：高度なAI機能、プライベートリポジトリ<br>
+                        • Teams：チーム共同作業、組織管理機能
+                    </div>
+                </td>
+            </tr>
+        </table>
+        
+        <div class="note">
+            <p>※料金は2025年4月時点の情報です。為替レートの変動により実際の日本円換算額は変わる場合があります。</p>
+            <p>※各サービスは急速に進化しており、機能や価格が変更される可能性があります。</p>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all content divs
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show the selected content div
+            document.getElementById(tabId).classList.add('active');
+            
+            // Update tab styles
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Add active class to clicked tab
+            event.currentTarget.classList.add('active');
+        }
+        
+        function toggleDetails(detailsId) {
+            const details = document.getElementById(detailsId);
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                event.currentTarget.textContent = '詳細を表示';
+            } else {
+                details.style.display = 'block';
+                event.currentTarget.textContent = '詳細を隠す';
+            }
+        }
+    </script>
+    
+    <footer>
+        <p>情報更新日: 2025年4月24日</p>
+        <p>※サービス内容や料金は予告なく変更される場合があります。最新情報は各サービスの公式サイトでご確認ください。</p>
+    </footer>
+</body>
+</html>

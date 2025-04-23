@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成AIサービス比較インフォグラフィック</title>
+    <style>
+        :root {
+            --text-ai-primary: #3498db;
+            --text-ai-secondary: #e8f4fc;
+            --text-ai-accent: #2980b9;
+            --dev-ai-primary: #2ecc71;
+            --dev-ai-secondary: #eafaf1;
+            --dev-ai-accent: #27ae60;
+            --neutral-dark: #34495e;
+            --neutral-mid: #7f8c8d;
+            --neutral-light: #ecf0f1;
+            --card-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            --border-radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--neutral-dark);
+            line-height: 1.6;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--neutral-dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--text-ai-primary), var(--dev-ai-primary));
+            bottom: -10px;
+            left: 20%;
+            border-radius: 2px;
+        }
+        
+        .intro {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--neutral-mid);
+        }
+        
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        
+        .text-ai-color {
+            background-color: var(--text-ai-primary);
+        }
+        
+        .dev-ai-color {
+            background-color: var(--dev-ai-primary);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin: 50px 0 30px;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            display: inline-block;
+            padding: 8px 25px;
+            border-radius: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .text-ai .section-title {
+            background-color: var(--text-ai-secondary);
+            color: var(--text-ai-primary);
+            border-left: 5px solid var(--text-ai-primary);
+        }
+        
+        .dev-ai .section-title {
+            background-color: var(--dev-ai-secondary);
+            color: var(--dev-ai-primary);
+            border-left: 5px solid var(--dev-ai-primary);
+        }
+        
+        .section-description {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--neutral-mid);
+        }
+        
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+        
+        .card {
+            width: 350px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            background-color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+        }
+        
+        .text-ai .card-header {
+            background-color: var(--text-ai-primary);
+            color: white;
+        }
+        
+        .dev-ai .card-header {
+            background-color: var(--dev-ai-primary);
+            color: white;
+        }
+        
+        .card-header {
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        
+        .card-company {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .info-row {
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--neutral-light);
+            padding-bottom: 15px;
+        }
+        
+        .info-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: var(--neutral-dark);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-icon {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        
+        .text-ai .info-icon {
+            color: var(--text-ai-primary);
+        }
+        
+        .dev-ai .info-icon {
+            color: var(--dev-ai-primary);
+        }
+        
+        .plan-tag {
+            display: inline-block;
+            border-radius: 20px;
+            padding: 3px 10px;
+            margin: 5px 5px 5px 0;
+            font-size: 0.9rem;
+        }
+        
+        .text-ai .free-plan {
+            background-color: var(--text-ai-secondary);
+            color: var(--text-ai-primary);
+        }
+        
+        .text-ai .paid-plan {
+            background-color: rgba(52, 152, 219, 0.15);
+            color: var(--text-ai-primary);
+        }
+        
+        .dev-ai .free-plan {
+            background-color: var(--dev-ai-secondary);
+            color: var(--dev-ai-primary);
+        }
+        
+        .dev-ai .paid-plan {
+            background-color: rgba(46, 204, 113, 0.15);
+            color: var(--dev-ai-primary);
+        }
+        
+        .platform-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .platform-icon {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: var(--neutral-light);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .features-list {
+            padding-left: 20px;
+        }
+        
+        .features-list li {
+            margin-bottom: 5px;
+            position: relative;
+        }
+        
+        .text-ai .features-list li::marker {
+            color: var(--text-ai-primary);
+        }
+        
+        .dev-ai .features-list li::marker {
+            color: var(--dev-ai-primary);
+        }
+        
+        .price-meter {
+            height: 8px;
+            background-color: var(--neutral-light);
+            border-radius: 4px;
+            margin: 10px 0;
+            position: relative;
+        }
+        
+        .text-ai .price-fill {
+            background-color: var(--text-ai-primary);
+            height: 100%;
+            border-radius: 4px;
+        }
+        
+        .dev-ai .price-fill {
+            background-color: var(--dev-ai-primary);
+            height: 100%;
+            border-radius: 4px;
+        }
+        
+        .price-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--neutral-mid);
+        }
+        
+        .comparison-note {
+            text-align: center;
+            margin: 40px auto;
+            max-width: 800px;
+            font-style: italic;
+            color: var(--neutral-mid);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+            color: var(--neutral-mid);
+            border-top: 1px solid var(--neutral-light);
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .cards-container {
+                gap: 15px;
+            }
+            
+            .card {
+                width: 100%;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>生成AIサービス比較インフォグラフィック</h1>
+            <p class="intro">コンシューマー向け生成AIの主要サービスを分かりやすく比較。隙間時間でのAI活用のための参考資料として、料金プランや利用環境、特徴をまとめました。</p>
+            
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color text-ai-color"></div>
+                    <span>文章生成系AI</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color dev-ai-color"></div>
+                    <span>開発系AI</span>
+                </div>
+            </div>
+        </header>
+        
+        <section class="text-ai">
+            <div class="section-header">
+                <h2 class="section-title">文章生成系AI</h2>
+                <p class="section-description">文章生成、質問応答、創作支援などに特化した生成AIサービス。日常的な作業や学習をサポートします。</p>
+            </div>
+            
+            <div class="cards-container">
+                <!-- Claude Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Claude</h3>
+                            <div class="card-company">by Anthropic</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">💰</span>料金プラン
+                            </div>
+                            <div>
+                                <span class="plan-tag free-plan">無料プラン ✓</span>
+                                <span class="plan-tag paid-plan">Pro: $20/月</span>
+                                <span class="plan-tag paid-plan">Max: $60/月</span>
+                            </div>
+                            <div class="price-meter">
+                                <div class="price-fill" style="width: 65%;"></div>
+                            </div>
+                            <div class="price-labels">
+                                <span>$0</span>
+                                <span>$60/月</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">📱</span>対応プラットフォーム
+                            </div>
+                            <div class="platform-icons">
+                                <span class="platform-icon">🌐 Web</span>
+                                <span class="platform-icon">📱 iOS</span>
+                                <span class="platform-icon">📱 Android</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">✨</span>主な特徴
+                            </div>
+                            <ul class="features-list">
+                                <li>長文処理と複雑な分析に強み</li>
+                                <li>倫理的考慮が必要な場面に適している</li>
+                                <li>会話的で自然な応答スタイル</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ChatGPT Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">ChatGPT</h3>
+                            <div class="card-company">by OpenAI</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">💰</span>料金プラン
+                            </div>
+                            <div>
+                                <span class="plan-tag free-plan">無料プラン ✓</span>
+                                <span class="plan-tag paid-plan">Plus: $20/月</span>
+                                <span class="plan-tag paid-plan">Pro: $200/月</span>
+                            </div>
+                            <div class="price-meter">
+                                <div class="price-fill" style="width: 100%;"></div>
+                            </div>
+                            <div class="price-labels">
+                                <span>$0</span>
+                                <span>$200/月</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">📱</span>対応プラットフォーム
+                            </div>
+                            <div class="platform-icons">
+                                <span class="platform-icon">🌐 Web</span>
+                                <span class="platform-icon">📱 iOS</span>
+                                <span class="platform-icon">📱 Android</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">✨</span>主な特徴
+                            </div>
+                            <ul class="features-list">
+                                <li>創造的な文章作成とコーディング支援にバランスよく対応</li>
+                                <li>プラグイン機能でカスタマイズ性が高い</li>
+                                <li>Deep Research機能で深い調査が可能</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gemini Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Gemini</h3>
+                            <div class="card-company">by Google</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">💰</span>料金プラン
+                            </div>
+                            <div>
+                                <span class="plan-tag free-plan">無料プラン ✓</span>
+                                <span class="plan-tag paid-plan">Advanced: $19.99/月</span>
+                            </div>
+                            <div class="price-meter">
+                                <div class="price-fill" style="width: 30%;"></div>
+                            </div>
+                            <div class="price-labels">
+                                <span>$0</span>
+                                <span>$19.99/月</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">📱</span>対応プラットフォーム
+                            </div>
+                            <div class="platform-icons">
+                                <span class="platform-icon">🌐 Web</span>
+                                <span class="platform-icon">📱 iOS</span>
+                                <span class="platform-icon">📱 Android</span>
+                                <span class="platform-icon">💻 Google連携</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">✨</span>主な特徴
+                            </div>
+                            <ul class="features-list">
+                                <li>検索連携とマルチモーダル処理</li>
+                                <li>Google環境との統合が充実</li>
+                                <li>Deep Research機能で深い調査が可能</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Copilot Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Copilot</h3>
+                            <div class="card-company">by Microsoft</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">💰</span>料金プラン
+                            </div>
+                            <div>
+                                <span class="plan-tag free-plan">Windows基本機能</span>
+                                <span class="plan-tag paid-plan">Pro: $20/月</span>
+                            </div>
+                            <div class="price-meter">
+                                <div class="price-fill" style="width: 30%;"></div>
+                            </div>
+                            <div class="price-labels">
+                                <span>$0</span>
+                                <span>$20/月</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">📱</span>対応プラットフォーム
+                            </div>
+                            <div class="platform-icons">
+                                <span class="platform-icon">🌐 Web</span>
+                                <span class="platform-icon">💻 Windows</span>
+                                <span class="platform-icon">📝 Office連携</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">✨</span>主な特徴
+                            </div>
+                            <ul class="features-list">
+                                <li>Office製品との連携による業務文書作成・編集の効率化</li>
+                                <li>Windows OSとの統合</li>
+                                <li>Think Deeper機能による詳細な回答</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Perplexity Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Perplexity</h3>
+                            <div class="card-company">by Perplexity AI</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">💰</span>料金プラン
+                            </div>
+                            <div>
+                                <span class="plan-tag free-plan">無料プラン ✓</span>
+                                <span class="plan-tag paid-plan">Pro: $20/月</span>
+                            </div>
+                            <div class="price-meter">
+                                <div class="price-fill" style="width: 30%;"></div>
+                            </div>
+                            <div class="price-labels">
+                                <span>$0</span>
+                                <span>$20/月</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">📱</span>対応プラットフォーム
+                            </div>
+                            <div class="platform-icons">
+                                <span class="platform-icon">🌐 Web</span>
+                                <span class="platform-icon">📱 iOS</span>
+                                <span class="platform-icon">📱 Android</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">✨</span>主な特徴
+                            </div>
+                            <ul class="features-list">
+                                <li>情報検索と出典提示に特化</li>
+                                <li>調査業務に最適</li>
+                                <li>リアルタイム情報へのアクセス</li>
+                                <li>Deep Research機能で詳細な調査が可能</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grok Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Grok</h3>
+                            <div class="card-company">by xAI</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">💰</span>料金プラン
+                            </div>
+                            <div>
+                                <span class="plan-tag paid-plan">X Premium登録者のみ</span>
+                            </div>
+                            <div class="price-meter">
+                                <div class="price-fill" style="width: 15%;"></div>
+                            </div>
+                            <div class="price-labels">
+                                <span>X Premium</span>
+                                <span>-</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">📱</span>対応プラットフォーム
+                            </div>
+                            <div class="platform-icons">
+                                <span class="platform-icon">🌐 Web (X内)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">✨</span>主な特徴
+                            </div>
+                            <ul class="features-list">
+                                <li>ユーモアを取り入れた対話スタイル</li>
+                                <li>X(旧Twitter)との統合</li>
+                                <li>リアルタイム情報へのアクセス機能</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="dev-ai">
+            <div class="section-header">
+                <h2 class="section-title">開発系AI</h2>
+                <p class="section-description">プログラミングやコード生成に特化した生成AIサービス。開発作業の効率化をサポートします。</p>
+            </div>
+            
+            <div class="cards-container">
+                <!-- GitHub Copilot Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">GitHub Copilot</h3>
+                            <div class="card-company">by GitHub/Microsoft</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">💰</span>料金プラン
+                            </div>
+                            <div>
+                                <span class="plan-tag free-plan">限定機能/学生無料</span>
+                                <span class="plan-tag paid-plan">Individual: $10/月</span>
+                                <span class="plan-tag paid-plan">Business: $19/ユーザー/月</span>
+                            </div>
+                            <div class="price-meter">
+                                <div class="price-fill" style="width: 25%;"></div>
+                            </div>
+                            <div class="price-labels">
+                                <span>$0</span>
+                                <span>$19/ユーザー/月</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">📱</span>対応プラットフォーム
+                            </div>
+                            <div class="platform-icons">
+                                <span class="platform-icon">💻 VS Code</span>
+                                <span class="platform-icon">💻 Visual Studio</span>
+                                <span class="platform-icon">💻 JetBrains</span>
+                                <span class="platform-icon">💻 Neovim</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">✨</span>主な特徴
+                            </div>
+                            <ul class="features-list">
+                                <li>コードエディタと緊密に統合されたコード生成支援</li>
+                                <li>進化が速く機能が充実</li>
+                                <li>Agent Mode：対話型開発支援(2025年新機能)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cursor Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Cursor</h3>
+                            <div class="card-company">by Cursor</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">💰</span>料金プラン
+                            </div>
+                            <div>
+                                <span class="plan-tag free-plan">基本機能無料</span>
+                                <span class="plan-tag paid-plan">Pro: $9/月</span>
+                                <span class="plan-tag paid-plan">Team: $20/ユーザー/月</span>
+                            </div>
+                            <div class="price-meter">
+                                <div class="price-fill" style="width: 20%;"></div>
+                            </div>
+                            <div class="price-labels">
+                                <span>$0</span>
+                                <span>$20/ユーザー/月</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">📱</span>対応プラットフォーム
+                            </div>
+                            <div class="platform-icons">
+                                <span class="platform-icon">💻 macOS</span>
+                                <span class="platform-icon">💻 Windows</span>
+                                <span class="platform-icon">💻 Linux</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">✨</span>主な特徴
+                            </div>
+                            <ul class="features-list">
+                                <li>AIネイティブのコードエディタ</li>
+                                <li>対話型のコード生成とリファクタリングに強み</li>
+                                <li>コードベース全体の理解と修正提案</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Windsurf Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Windsurf</h3>
+                            <div class="card-company">by Codeium</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">💰</span>料金プラン
+                            </div>
+                            <div>
+                                <span class="plan-tag free-plan">基本機能無料</span>
+                                <span class="plan-tag paid-plan">Pro: $15/月</span>
+                            </div>
+                            <div class="price-meter">
+                                <div class="price-fill" style="width: 20%;"></div>
+                            </div>
+                            <div class="price-labels">
+                                <span>$0</span>
+                                <span>$15/月</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">📱</span>対応プラットフォーム
+                            </div>
+                            <div class="platform-icons">
+                                <span class="platform-icon">💻 Windows</span>
+                                <span class="platform-icon">💻 macOS</span>
+                                <span class="platform-icon">💻 Linux</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">✨</span>主な特徴
+                            </div>
+                            <ul class="features-list">
+                                <li>Cascade機能による自然言語からのコード生成</li>
+                                <li>マルチファイル編集とコンテキスト理解</li>
+                                <li>VS Code互換のユーザーインターフェース</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cline Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Cline</h3>
+                            <div class="card-company">オープンソース</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">💰</span>料金プラン
+                            </div>
+                            <div>
+                                <span class="plan-tag free-plan">オープンソース/無料</span>
+                                <span class="plan-tag paid-plan">API費用のみ</span>
+                            </div>
+                            <div class="price-meter">
+                                <div class="price-fill" style="width: 10%;"></div>
+                            </div>
+                            <div class="price-labels">
+                                <span>$0</span>
+                                <span>APIコスト</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">📱</span>対応プラットフォーム
+                            </div>
+                            <div class="platform-icons">
+                                <span class="platform-icon">💻 VS Code拡張</span>
+                                <span class="platform-icon">💻 カスタマイズ可能</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">✨</span>主な特徴
+                            </div>
+                            <ul class="features-list">
+                                <li>高度にカスタマイズ可能なAIエージェント</li>
+                                <li>独自のAPIキー利用が可能</li>
+                                <li>自律的なコード生成と修正が可能</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Devin Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Devin</h3>
+                            <div class="card-company">by Cognition</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">💰</span>料金プラン
+                            </div>
+                            <div>
+                                <span class="plan-tag paid-plan">$500/月 (ユーザー数無制限)</span>
+                            </div>
+                            <div class="price-meter">
+                                <div class="price-fill" style="width: 100%;"></div>
+                            </div>
+                            <div class="price-labels">
+                                <span>$0</span>
+                                <span>$500/月</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">📱</span>対応プラットフォーム
+                            </div>
+                            <div class="platform-icons">
+                                <span class="platform-icon">🌐 Web</span>
+                                <span class="platform-icon">💻 独立型開発環境</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">✨</span>主な特徴
+                            </div>
+                            <ul class="features-list">
+                                <li>AIジュニアエンジニアとしての自律開発</li>
+                                <li>複雑なプロジェクト全体を理解して作業</li>
+                                <li>大規模リファクタリングや移行に強み</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Replit Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Replit</h3>
+                            <div class="card-company">by Replit</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">💰</span>料金プラン
+                            </div>
+                            <div>
+                                <span class="plan-tag free-plan">基本機能無料</span>
+                                <span class="plan-tag paid-plan">Pro: $10/月</span>
+                                <span class="plan-tag paid-plan">Teams: $20/ユーザー/月</span>
+                            </div>
+                            <div class="price-meter">
+                                <div class="price-fill" style="width: 15%;"></div>
+                            </div>
+                            <div class="price-labels">
+                                <span>$0</span>
+                                <span>$20/ユーザー/月</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">📱</span>対応プラットフォーム
+                            </div>
+                            <div class="platform-icons">
+                                <span class="platform-icon">🌐 Web</span>
+                                <span class="platform-icon">📱 モバイル</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <div class="info-label">
+                                <span class="info-icon">✨</span>主な特徴
+                            </div>
+                            <ul class="features-list">
+                                <li>ブラウザで完結する開発環境</li>
+                                <li>50以上の言語に対応し共同編集が可能</li>
+                                <li>モバイルからでもコーディング可能</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="comparison-note">
+            <p>※料金は2025年4月時点の情報です。為替レートの変動により実際の日本円換算額は変わる場合があります。</p>
+            <p>※バージョン表記（Claude 3.5など）は頻繁に更新されるため省略しています。</p>
+        </div>
+        
+        <footer>
+            <p>情報更新日: 2025年4月24日</p>
+            <p>※サービス内容や料金は予告なく変更される場合があります。最新情報は各サービスの公式サイトでご確認ください。</p>
+        </footer>
+    </div>
+</body>
+</html>
