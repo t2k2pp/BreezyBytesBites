@@ -188,5 +188,5 @@ DeepResearchの結果をそのまま転記しています。自己責任で最�
 
 Claude の アーティファクトという機能で作成したものです。
 
-- [コンシューマー向け生成AIサービス比較](https://claude.ai/public/artifacts/ab462758-0107-44cd-9799-c18b3d002345)...2025/04/24
-- [生成AIサービス比較インフォグラフィック](https://claude.ai/public/artifacts/2e5b3be2-0019-437d-851b-c8bc80f7d370)...2025/04/24
+- [コンシューマー向け生成AIサービス比較](https://t2k2pp.github.io/BreezyBytesBites/Dev/artifact/ai-comparison.html)...2025/04/24
+- [生成AIサービス比較インフォグラフィック](https://t2k2pp.github.io/BreezyBytesBites/Dev/artifact/ai-comparison-infographic.html)...2025/04/24
