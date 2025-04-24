@@ -183,6 +183,11 @@ DeepResearchの結果をそのまま転記しています。自己責任で最�
 - [Claude課金モデル別コンテキストウィンドウ比較](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/Claude%E8%AA%B2%E9%87%91%E3%83%A2%E3%83%87%E3%83%AB%E5%88%A5%E3%82%B3%E3%83%B3%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E6%AF%94%E8%BC%83_.pdf)...2025/04/23
 - [ESP32-CAM開発環境と撮影保存](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/ESP32-CAM%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E3%81%A8%E6%92%AE%E5%BD%B1%E4%BF%9D%E5%AD%98_.pdf)...2025/04/23
 - [iPhoneアプリ開発環境と費用調査](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/iPhone%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E3%81%A8%E8%B2%BB%E7%94%A8%E8%AA%BF%E6%9F%BB_.pdf)...2025/04/24
+- [AIエージェント構築の可能性と限界](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/AI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E6%A7%8B%E7%AF%89%E3%81%AE%E5%8F%AF%E8%83%BD%E6%80%A7%E3%81%A8%E9%99%90%E7%95%8C_.pdf)...2025/04/25
+- [AIエージェント構築の実現性検討](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/AI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E6%A7%8B%E7%AF%89%E3%81%AE%E5%AE%9F%E7%8F%BE%E6%80%A7%E6%A4%9C%E8%A8%8E_.pdf)...2025/04/25
+- [OpenAI API パラメータ変更調査](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/OpenAI%20API%20%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E5%A4%89%E6%9B%B4%E8%AA%BF%E6%9F%BB_.pdf)...2025/04/25
+- [ジブリ風画像生成制限の調査](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/%E3%82%B8%E3%83%96%E3%83%AA%E9%A2%A8%E7%94%BB%E5%83%8F%E7%94%9F%E6%88%90%E5%88%B6%E9%99%90%E3%81%AE%E8%AA%BF%E6%9F%BB_.pdf)...2025/04/25
+- [ビックリマンシール生成AIプロンプト検討](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/%E3%83%93%E3%83%83%E3%82%AF%E3%83%AA%E3%83%9E%E3%83%B3%E3%82%B7%E3%83%BC%E3%83%AB%E7%94%9F%E6%88%90AI%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88%E6%A4%9C%E8%A8%8E_.pdf)...2025/04/25
 
 ### HTML
 
