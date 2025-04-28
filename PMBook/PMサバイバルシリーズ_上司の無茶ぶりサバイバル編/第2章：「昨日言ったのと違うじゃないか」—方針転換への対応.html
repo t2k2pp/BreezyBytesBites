@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プロジェクト方針転換対応ガイド</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Kosugi+Maru&display=swap');
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      background-color: #F8F9FA;
+      color: #202124;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    header {
+      background-color: #4285F4;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+    
+    h1 {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .subtitle {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+    
+    .target {
+      background-color: #FBBC05;
+      color: #202124;
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 20px;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    
+    section {
+      padding: 30px;
+      margin-bottom: 20px;
+    }
+    
+    h2 {
+      font-size: 22px;
+      color: #34A853;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+    
+    h2 img {
+      margin-right: 10px;
+    }
+    
+    h3 {
+      font-size: 18px;
+      color: #FBBC05;
+      margin: 15px 0 10px;
+    }
+    
+    .character {
+      float: right;
+      width: 120px;
+      margin-left: 20px;
+    }
+    
+    .info-card {
+      background-color: white;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 15px 0;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    }
+    
+    .highlight-box {
+      background-color: #E8F0FE;
+      border-left: 5px solid #4285F4;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 0 10px 10px 0;
+    }
+    
+    .phrase-box {
+      background-color: #FEF7E0;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 15px 0;
+      font-style: italic;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+    
+    th {
+      background-color: #4285F4;
+      color: white;
+      text-align: left;
+      padding: 12px;
+    }
+    
+    td {
+      border-bottom: 1px solid #E0E0E0;
+      padding: 12px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #F8F9FA;
+    }
+    
+    .timeline {
+      background-color: #F8F9FA;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      font-family: monospace;
+      white-space: pre;
+      overflow-x: auto;
+    }
+    
+    .steps {
+      counter-reset: step;
+      margin: 20px 0;
+    }
+    
+    .step {
+      margin-bottom: 15px;
+      padding-left: 50px;
+      position: relative;
+    }
+    
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: #4285F4;
+      color: white;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    
+    .quiz {
+      background-color: #E6F4EA;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    
+    .quiz-title {
+      color: #34A853;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .summary {
+      background-color: #F8F9FA;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 30px;
+    }
+    
+    .note {
+      font-size: 13px;
+      color: #5F6368;
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #F8F9FA;
+      border-radius: 5px;
+    }
+    
+    .arrow {
+      text-align: center;
+      margin: 15px 0;
+      color: #4285F4;
+      font-size: 24px;
+    }
+    
+    .column {
+      background-color: #FEF7E0;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px 0;
+      position: relative;
+    }
+    
+    .column::before {
+      content: "コラム";
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      background-color: #FBBC05;
+      color: #202124;
+      padding: 2px 15px;
+      border-radius: 15px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    
+    .checklist {
+      list-style-type: none;
+      margin: 15px 0;
+    }
+    
+    .checklist li {
+      margin-bottom: 10px;
+      padding-left: 30px;
+      position: relative;
+    }
+    
+    .checklist li::before {
+      content: "□";
+      position: absolute;
+      left: 0;
+      color: #4285F4;
+      font-weight: bold;
+    }
+    
+    footer {
+      background-color: #4285F4;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+    
+    .two-columns {
+      display: flex;
+      gap: 20px;
+      margin: 20px 0;
+    }
+    
+    .col {
+      flex: 1;
+    }
+    
+    @media (max-width: 768px) {
+      .two-columns {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>「昨日言ったのと違うじゃないか」—方針転換への対応</h1>
+      <div class="subtitle">プロジェクトマネージャーのための実践ガイド</div>
+      <div class="target">対象：新任〜中堅PM・リーダー</div>
+    </header>
+    
+    <section>
+      <div class="info-card">
+        <svg width="100" height="100" style="float: right; margin-left: 15px;" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="40" fill="#FEF7E0" stroke="#FBBC05" stroke-width="2"/>
+          <circle cx="35" cy="40" r="5" fill="#202124"/>
+          <circle cx="65" cy="40" r="5" fill="#202124"/>
+          <path d="M35 65 Q50 80 65 65" stroke="#202124" stroke-width="3" fill="none"/>
+        </svg>
+        <h3>突然の方向転換</h3>
+        <p>「佐藤さん、やっぱりシステムの設計方針を変更したい」</p>
+        <p>プロジェクト進捗会議の終了直前、部長の鈴木がそう切り出した時、プロジェクトマネージャーの佐藤は一瞬息を飲みました。すでにチームは現在の設計に基づいて3週間作業しており、インフラ構成も決定済みでした。</p>
+        <p>こうした突然の方針転換は初めてではなく、おそらく最後でもありません。重要なのは、<strong>どう対応するか</strong>です。</p>
+      </div>
+      
+      <h2>
+        <svg width="30" height="30" viewBox="0 0 24 24">
+          <path fill="#34A853" d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z"/>
+        </svg>
+        柔軟性と一貫性のバランス取り
+      </h2>
+      
+      <div class="two-columns">
+        <div class="col">
+          <p>上司からの突然の方針転換は、プロジェクトマネージャーを最も困惑させる事態の一つです。</p>
+          <div class="highlight-box">
+            <p><strong>バランスの課題：</strong></p>
+            <p>・柔軟に対応する必要がある</p>
+            <p>・プロジェクトの一貫性と安定性を保つ責任がある</p>
+          </div>
+        </div>
+        <div class="col">
+          <svg viewBox="0 0 200 150" width="100%" height="150">
+            <rect x="10" y="60" width="80" height="40" fill="#E8F0FE" stroke="#4285F4" rx="5"/>
+            <rect x="110" y="60" width="80" height="40" fill="#E6F4EA" stroke="#34A853" rx="5"/>
+            <text x="50" y="85" text-anchor="middle" font-size="14" fill="#202124">柔軟性</text>
+            <text x="150" y="85" text-anchor="middle" font-size="14" fill="#202124">一貫性</text>
+            <line x1="90" y1="80" x2="110" y2="80" stroke="#FBBC05" stroke-width="2"/>
+            <path d="M30 20 Q50 40 50 60" stroke="#4285F4" stroke-width="2" fill="none"/>
+            <path d="M170 20 Q150 40 150 60" stroke="#34A853" stroke-width="2" fill="none"/>
+            <text x="30" y="15" text-anchor="middle" font-size="12" fill="#4285F4">変化対応</text>
+            <text x="170" y="15" text-anchor="middle" font-size="12" fill="#34A853">安定性維持</text>
+          </svg>
+        </div>
+      </div>
+      
+      <h3>変更の分類と基本姿勢</h3>
+      <table>
+        <tr>
+          <th>変更の種類</th>
+          <th>特徴</th>
+          <th>基本姿勢</th>
+        </tr>
+        <tr>
+          <td><strong>戦略的変更</strong></td>
+          <td>市場環境や経営方針の変化に基づく</td>
+          <td>理解し適応する</td>
+        </tr>
+        <tr>
+          <td><strong>戦術的変更</strong></td>
+          <td>実装方法や優先順位の修正</td>
+          <td>影響を評価し調整する</td>
+        </tr>
+        <tr>
+          <td><strong>感情的変更</strong></td>
+          <td>一時的な感情や外圧による</td>
+          <td>冷静に判断し、必要に応じて再検討を促す</td>
+        </tr>
+      </table>
+      
+      <div class="phrase-box">
+        <p><strong>効果的なフレーズ：</strong></p>
+        <p>「この変更が必要な理由と達成したい目標を理解したいと思います。それに基づいて、最適な実装プランを提案させてください。」</p>
+      </div>
+      
+      <h3>初期対応のステップ</h3>
+      <div class="steps">
+        <div class="step">
+          <strong>即座の感情管理</strong>
+          <p>内心での動揺があっても、まずは冷静さを保ちましょう。「考えさせてください」という言葉で時間を稼ぐことも有効です。</p>
+        </div>
+        <div class="step">
+          <strong>変更の本質理解</strong>
+          <p>表面的な指示ではなく、なぜその変更が必要なのかの本質を探ります。</p>
+          <p class="note">「この変更によって達成したい目標は何でしょうか？」</p>
+        </div>
+        <div class="step">
+          <strong>影響範囲の初期評価</strong>
+          <p>変更がプロジェクトのどの側面に影響するかを素早く評価します。</p>
+        </div>
+        <div class="step">
+          <strong>初期対応の明確化</strong>
+          <p>即座に対応すべきことと、詳細な分析が必要なことを区別します。</p>
+        </div>
+      </div>
+      
+      <h3>変更のバッファリング技術</h3>
+      <p>プロジェクトマネージャーは「変更のバッファ」となり、チームを不必要な混乱から守る役割を担います。</p>
+      
+      <div class="two-columns">
+        <div class="col">
+          <div class="info-card">
+            <h3>変更の翻訳</h3>
+            <p>上司の抽象的な指示を具体的なアクションに翻訳します。</p>
+            <p class="note">例：「クラウドネイティブにしたい」→「どの機能をサーバーレスにするか明確にする」</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="info-card">
+            <h3>変更の分解</h3>
+            <p>大きな方針転換を小さな段階的変更に分解します。</p>
+            <p class="note">例：「設計全体の見直し」→「1. DB設計の修正、2. API層の再構築、3. UI連携部分の更新...」</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="quiz">
+        <div class="quiz-title">考えてみよう！</div>
+        <p>あなたのプロジェクトで突然の方針転換があった場合、最初にすべきことは何ですか？</p>
+        <p>① すぐに反論する</p>
+        <p>② 一旦受け入れて、変更の理由を理解する</p>
+        <p>③ 無視して元の計画通り進める</p>
+        <p>④ チームに即座に伝える</p>
+        <p class="note">ヒント：感情より理性を優先させるアプローチが効果的です</p>
+      </div>
+      
+      <div class="arrow">↓</div>
+      
+      <h2>
+        <svg width="30" height="30" viewBox="0 0 24 24">
+          <path fill="#34A853" d="M16 1H8C6.34 1 5 2.34 5 4v16c0 1.66 1.34 3 3 3h8c1.66 0 3-1.34 3-3V4c0-1.66-1.34-3-3-3zm-2 20h-4v-1h4v1zm3.25-3H6.75V4h10.5v14z"/>
+        </svg>
+        変更による影響の定量化手法
+      </h2>
+      
+      <p>方針転換に対応するには、変更の影響を「感覚」ではなく「数値」で捉えることが重要です。定量的な分析によって、上司との建設的な議論が可能になります。</p>
+      
+      <h3>変更影響分析マトリクス</h3>
+      <p>変更がプロジェクトの各側面にどの程度影響するかを数値化します。</p>
+      
+      <table>
+        <tr>
+          <th>影響領域</th>
+          <th>影響度（1-5）</th>
+          <th>対応工数（人日）</th>
+          <th>リスク評価</th>
+        </tr>
+        <tr>
+          <td>スケジュール</td>
+          <td>4</td>
+          <td>10</td>
+          <td>納期遅延</td>
+        </tr>
+        <tr>
+          <td>品質</td>
+          <td>3</td>
+          <td>15</td>
+          <td>テスト不足</td>
+        </tr>
+        <tr>
+          <td>コスト</td>
+          <td>4</td>
+          <td>-</td>
+          <td>予算超過</td>
+        </tr>
+        <tr>
+          <td>チーム</td>
+          <td>2</td>
+          <td>5</td>
+          <td>モチベーション低下</td>
+        </tr>
+        <tr>
+          <td>顧客</td>
+          <td>1</td>
+          <td>3</td>
+          <td>特になし</td>
+        </tr>
+      </table>
+      
+      <div class="phrase-box">
+        <p><strong>プレゼンテーション方法：</strong></p>
+        <p>「この変更による全体影響度は5段階中3.5と評価しています。特にスケジュールへの影響が大きく、追加で約30人日の工数が必要となります。」</p>
+      </div>
+      
+      <h3>変更コスト計算式</h3>
+      <div class="highlight-box">
+        <p><strong>変更コスト = 直接作業コスト + 再作業コスト + 遅延コスト + 機会損失</strong></p>
+      </div>
+      
+      <h3>変更影響タイムライン</h3>
+      <div class="timeline">
+【変更前】
+週1  週2  週3  週4  週5  週6  週7  週8
+│    │    │    │    │    │    │    │
+設計-→開発-------→テスト-----→リリース
+
+【変更後】
+週1  週2  週3  週4  週5  週6  週7  週8  週9  週10
+│    │    │    │    │    │    │    │    │    │
+設計--変更設計→開発再開発-----→テスト-------→リリース
+      ↑現在
+      </div>
+      
+      <h3>変更影響の段階評価</h3>
+      <table>
+        <tr>
+          <th>影響レベル</th>
+          <th>特徴</th>
+          <th>対応方針</th>
+        </tr>
+        <tr>
+          <td>レベル1（軽微）</td>
+          <td>局所的な変更、他への波及なし</td>
+          <td>チーム内で吸収、報告のみ</td>
+        </tr>
+        <tr>
+          <td>レベル2（小）</td>
+          <td>一部機能への影響、軽微な遅延</td>
+          <td>PM判断で対応、事後報告</td>
+        </tr>
+        <tr>
+          <td>レベル3（中）</td>
+          <td>複数機能への影響、スケジュール調整必要</td>
+          <td>上司と協議、計画修正</td>
+        </tr>
+        <tr>
+          <td>レベル4（大）</td>
+          <td>プロジェクト全体への影響、大幅な遅延</td>
+          <td>上層部承認必要、再計画</td>
+        </tr>
+        <tr>
+          <td>レベル5（重大）</td>
+          <td>プロジェクト目標の変更が必要</td>
+          <td>経営判断必要、再立案</td>
+        </tr>
+      </table>
+      
+      <div class="arrow">↓</div>
+      
+      <h2>
+        <svg width="30" height="30" viewBox="0 0 24 24">
+          <path fill="#34A853" d="M12 12.75c1.63 0 3.07.39 4.24.9 1.08.48 1.76 1.56 1.76 2.73V18H6v-1.61c0-1.18.68-2.26 1.76-2.73 1.17-.52 2.61-.91 4.24-.91zM4 13c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm1.13 1.1c-.37-.06-.74-.1-1.13-.1-.99 0-1.93.21-2.78.58A2.01 2.01 0 000 16.43V18h4.5v-1.61c0-.83.23-1.61.63-2.29zM20 13c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm4 3.43c0-.99-.53-1.85-1.22-2.33-.75-.37-1.69-.57-2.78-.57-.39 0-.76.04-1.13.1.4.68.63 1.46.63 2.29V18H24v-1.57z"/>
+        </svg>
+        チームを混乱させない伝え方
+      </h2>
+      
+      <p>方針転換は、上司との関係だけでなく、チームマネジメントの面でも大きな課題をもたらします。チームの混乱を最小限に抑えながら変更を進めるためには、慎重なコミュニケーションが必要です。</p>
+      
+      <h3>方針転換を伝える基本ステップ</h3>
+      
+      <div class="steps">
+        <div class="step">
+          <strong>準備段階</strong>
+          <p>完全な情報を収集し、変更の背景と理由を理解します。質問への回答を用意し、メンバーの反応を予測します。</p>
+        </div>
+        <div class="step">
+          <strong>伝達方法の選択</strong>
+          <p>全体会議か個別説明か、影響の範囲に応じて適切な方法を選びます。</p>
+        </div>
+        <div class="step">
+          <strong>伝達内容の構成</strong>
+          <p>変更の事実、理由と背景、チームへの期待と支援体制、次のステップと責任分担を明確に伝えます。</p>
+        </div>
+        <div class="step">
+          <strong>フォローアップ</strong>
+          <p>変更発表後、影響の大きいメンバーと個別に話し合い、懸念を聞きます。</p>
+        </div>
+      </div>
+      
+      <div class="phrase-box">
+        <p><strong>効果的な導入例：</strong></p>
+        <p>「今日はプロジェクトの今後に関わる重要な話があります。まず全体像をお伝えした後、皆さんの質問に答え、一緒に最善の進め方を考えていきたいと思います。」</p>
+      </div>
+      
+      <h3>感情への配慮</h3>
+      
+      <div class="two-columns">
+        <div class="col">
+          <div class="info-card">
+            <svg viewBox="0 0 100 50" width="100" height="50">
+              <path d="M10 25 Q25 5 50 25 T90 25" stroke="#EA4335" stroke-width="3" fill="none"/>
+              <circle cx="50" cy="25" r="5" fill="#EA4335"/>
+              <text x="50" y="45" text-anchor="middle" font-size="10" fill="#202124">感情の波</text>
+            </svg>
+            <p><strong>失望や不満の予測</strong></p>
+            <p>「これまでの作業が無駄になると感じる方もいるかもしれません。その気持ちは理解できます。」</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="info-card">
+            <svg viewBox="0 0 100 50" width="100" height="50">
+              <path d="M10 40 Q30 35 50 20 T90 10" stroke="#34A853" stroke-width="3" fill="none"/>
+              <circle cx="50" cy="20" r="5" fill="#34A853"/>
+              <text x="50" y="45" text-anchor="middle" font-size="10" fill="#202124">前向きな視点</text>
+            </svg>
+            <p><strong>前向きな側面の強調</strong></p>
+            <p>「この変更により、より先進的な技術に触れる機会にもなります。キャリア的にもプラスになる面があります。」</p>
+          </div>
+        </div>
+      </div>
+      
+      <h3>チームの安定化戦略</h3>
+      <div class="steps">
+        <div class="step">
+          <strong>個別フォローアップ</strong>
+          <p>変更発表後、影響の大きいメンバーと個別に話し合い、懸念を聞きます。</p>
+        </div>
+        <div class="step">
+          <strong>短期目標の再設定</strong>
+          <p>長期計画が変わっても、短期的に達成可能な目標を設定します。</p>
+        </div>
+        <div class="step">
+          <strong>成功体験の創出</strong>
+          <p>変更プロセスの早い段階で小さな成功体験を作ります。</p>
+        </div>
+        <div class="step">
+          <strong>定期的な進捗確認</strong>
+          <p>変更後は通常より頻繁に進捗確認を行います。</p>
+        </div>
+      </div>
+      
+      <h3>実践：混乱を最小化するためのチェックリスト</h3>
+      <ul class="checklist">
+        <li>変更内容を明確かつシンプルな言葉で説明できるか</li>
+        <li>各メンバーへの具体的な影響を把握しているか</li>
+        <li>予想される質問への回答を用意しているか</li>
+        <li>感情的反応への対応策を考えているか</li>
+        <li>変更後の具体的な次のステップを提示できるか</li>
+        <li>フォローアップの仕組みを計画しているか</li>
+      </ul>
+      
+      <div class="column">
+        <h3>方針変更を記録する重要性</h3>
+        <p>方針変更は避けられませんが、その混乱から身を守る盾は、緻密な記録と透明性にあります。</p>
+        
+        <p><strong>方針変更記録の仕組み：</strong></p>
+        <ol>
+          <li><strong>変更記録テンプレート</strong> - 日付、出席者、元の方針、新方針、変更理由、影響範囲を簡潔に記録</li>
+          <li><strong>確認メールの習慣化</strong> - 会議後すぐに「本日の打ち合わせ内容の確認」として変更点をメールで送信</li>
+          <li><strong>議事録への明示的な記載</strong> - 公式議事録に方針変更を明記し、レビューを依頼</li>
+          <li><strong>変更履歴ダッシュボード</strong> - プロジェクト関係者がいつでも確認できる変更履歴の可視化</li>
+        </ol>
+        
+        <div class="highlight-box">
+          <p><strong>変更記録がもたらす効果：</strong></p>
+          <p>1. <strong>変更の抑制効果</strong> - 軽率な変更指示が減る</p>
+          <p>2. <strong>チームの信頼獲得</strong> - 「PMの判断」ではなく「プロジェクト環境の変化」であることを明確にできる</p>
+          <p>3. <strong>振り返りの質向上</strong> - 計画との乖離の原因が明確になり、より正確な教訓を得られる</p>
+        </div>
+        
+        <p class="note">「佐藤さん、方針変更記録をつける習慣、始めてみたら？今からでも遅くないよ」</p>
+      </div>
+      
+      <div class="summary">
+        <h3>まとめ：方針転換への対応ステップ</h3>
+        <div class="steps">
+          <div class="step">
+            <strong>冷静に受け止める</strong>
+            <p>感情的にならず、変更の理由と背景を理解する</p>
+          </div>
+          <div class="step">
+            <strong>影響を定量化する</strong>
+            <p>スケジュール、コスト、品質への影響を数値で示す</p>
+          </div>
+          <div class="step">
+            <strong>チームに適切に伝える</strong>
+            <p>明確かつ感情に配慮した方法で変更を説明する</p>
+          </div>
+          <div class="step">
+            <strong>変更を記録する</strong>
+            <p>方針変更の履歴を残し、透明性を確保する</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="quiz">
+        <div class="quiz-title">理解度チェック</div>
+        <p>Q1: 方針変更の分類で、「市場環境の変化に基づく変更」は何に分類されますか？</p>
+        <p>Q2: 変更コストの計算式の4つの要素は何ですか？</p>
+        <p>Q3: チームへの変更伝達で最も重要なのは何ですか？</p>
+        <p>Q4: 方針変更記録の主な効果を2つ挙げてください。</p>
+      </div>
+      
+      <div class="note">
+        <p><strong>学習の展開：</strong> この知識を活かして、次回のプロジェクト計画では「変更を想定した余裕」をどう組み込むか考えてみましょう。また、自分のプロジェクトで方針変更記録テンプレートを作成してみることをお勧めします。</p>
+      </div>
+    </section>
+    
+    <footer>
+      <p>© 2025 プロジェクトマネジメント学習シリーズ</p>
+      <p>参考文献：『プロジェクトマネージャーのための変化対応ハンドブック』『困難なステークホルダーとの交渉術』</p>
+      <p>発展学習：「予測不能な変化に強いプロジェクト計画の立て方」「上層部の突然の決定変更への対処法」</p>
+    </footer>
+  </div>
+</body>
+</html>

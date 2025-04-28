@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>チームマネジメントの境界線と責任: 教育用インフォグラフィック</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Kosugi+Maru&display=swap');
+    
+    :root {
+      --main-color: #4285F4;
+      --sub1-color: #34A853;
+      --sub2-color: #FBBC05;
+      --accent-color: #EA4335;
+      --back-color: #F8F9FA;
+      --text-color: #202124;
+      --light-text: #5F6368;
+    }
+    
+    body {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      background-color: var(--back-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    header {
+      text-align: center;
+      background-color: var(--main-color);
+      color: white;
+      padding: 30px 20px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 0;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+    
+    .sub-header {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    
+    h2 {
+      font-size: 20px;
+      color: var(--sub1-color);
+      border-bottom: 2px solid var(--sub1-color);
+      padding-bottom: 5px;
+      margin-top: 40px;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+    
+    h3 {
+      font-size: 16px;
+      color: var(--sub2-color);
+      font-weight: bold;
+      margin-top: 25px;
+    }
+    
+    .intro-story {
+      background-color: white;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border-left: 5px solid var(--main-color);
+    }
+    
+    .character {
+      float: right;
+      background-color: var(--main-color);
+      color: white;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 20px;
+      font-size: 40px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .section {
+      background-color: white;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .responsibility-matrix {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    
+    .responsibility-matrix th, .responsibility-matrix td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    
+    .responsibility-matrix th {
+      background-color: var(--main-color);
+      color: white;
+    }
+    
+    .responsibility-matrix tr:nth-child(even) {
+      background-color: #f2f7fe;
+    }
+    
+    .quote-box {
+      background-color: #e8f0fe;
+      border-left: 4px solid var(--main-color);
+      padding: 15px;
+      margin: 20px 0;
+      font-style: italic;
+      border-radius: 0 10px 10px 0;
+    }
+    
+    .key-point {
+      background-color: #fef7e0;
+      border: 2px dashed var(--sub2-color);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 10px;
+    }
+    
+    .key-point-title {
+      color: var(--sub2-color);
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .step-box {
+      display: flex;
+      margin: 20px 0;
+    }
+    
+    .step-number {
+      background-color: var(--sub1-color);
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+    
+    .step-content {
+      flex-grow: 1;
+    }
+    
+    .conversation-box {
+      background-color: #f0f7ff;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+    
+    .speaker {
+      font-weight: bold;
+      color: var(--main-color);
+    }
+    
+    .response {
+      margin-top: 10px;
+      padding-left: 20px;
+      border-left: 3px solid var(--main-color);
+      font-style: italic;
+    }
+    
+    .checklist {
+      list-style-type: none;
+      padding-left: 5px;
+    }
+    
+    .checklist li {
+      margin-bottom: 10px;
+      padding-left: 30px;
+      position: relative;
+    }
+    
+    .checklist li:before {
+      content: "□";
+      position: absolute;
+      left: 0;
+      color: var(--sub1-color);
+      font-size: 20px;
+    }
+    
+    .two-column {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 20px 0;
+    }
+    
+    .column {
+      flex: 1;
+      min-width: 300px;
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .column h3 {
+      margin-top: 0;
+    }
+    
+    .review-section {
+      background-color: #e8f5e9;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    
+    .review-title {
+      color: var(--sub1-color);
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+      color: var(--light-text);
+      font-size: 13px;
+    }
+    
+    .mental-health-tips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 20px 0;
+    }
+    
+    .mental-health-tip {
+      flex: 1;
+      min-width: 200px;
+      background-color: #f1f8e9;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .mental-health-tip h4 {
+      color: var(--sub1-color);
+      margin-top: 0;
+    }
+    
+    .scenario-box {
+      background-color: #e3f2fd;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+    }
+    
+    .scenario-title {
+      color: var(--main-color);
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    @media (max-width: 768px) {
+      .two-column {
+        flex-direction: column;
+      }
+      
+      .character {
+        float: none;
+        margin: 0 auto 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>チームマネジメントの境界線と責任</h1>
+      <div class="sub-header">プロジェクトマネージャーのためのサバイバルガイド</div>
+      <div class="sub-header">対象: マネジメント研修・ビジネス教育</div>
+    </header>
+    
+    <div class="intro-story">
+      <div class="character">PM</div>
+      <h2>プロジェクト管理の課題</h2>
+      <p>「林さん、最近チームの雰囲気が良くないね。士気を高める工夫をしているの？」</p>
+      <p>プロジェクトマネージャーの林は、部長の佐々木のその言葉に内心で苦笑しました。チームは過剰な作業量、納期プレッシャー、リソース不足という状況で苦しんでいたからです。</p>
+      <p>このような状況で、プロジェクトマネージャーはどこまで責任を負うべきでしょうか？どのように上司と建設的に交渉し、チームを守るべきでしょうか？</p>
+    </div>
+    
+    <div class="section">
+      <h2>1. 上司と共有すべき責任の線引き</h2>
+      
+      <p>「チームの士気は君の責任だ」という言葉の裏には、複雑な責任の境界線の問題があります。責任の境界を明確にすることが、効果的なマネジメントの第一歩です。</p>
+      
+      <h3>責任境界マトリクス（RASCI）</h3>
+      
+      <table class="responsibility-matrix">
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>PM</th>
+            <th>上位管理職</th>
+            <th>経営層</th>
+            <th>解説</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>日常業務の遂行</td>
+            <td>R</td>
+            <td>I</td>
+            <td>-</td>
+            <td>PMが主責任者として実行</td>
+          </tr>
+          <tr>
+            <td>リソース配分</td>
+            <td>A</td>
+            <td>R</td>
+            <td>A</td>
+            <td>上位管理職が決定、PMは説明責任</td>
+          </tr>
+          <tr>
+            <td>プロジェクト優先順位</td>
+            <td>C</td>
+            <td>A</td>
+            <td>R</td>
+            <td>経営層が決定、PM・管理職は助言</td>
+          </tr>
+          <tr>
+            <td>チーム士気・育成</td>
+            <td>R</td>
+            <td>S</td>
+            <td>-</td>
+            <td>PMが主導、上位管理職がサポート</td>
+          </tr>
+          <tr>
+            <td>組織文化・環境</td>
+            <td>C</td>
+            <td>S</td>
+            <td>R</td>
+            <td>経営層が責任、PMは影響力行使</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="quote-box">
+        <p>R:Responsible（実行責任）、A:Accountable（説明責任）、<br>
+        S:Support（支援）、C:Consulted（助言）、I:Informed（報告）</p>
+      </div>
+      
+      <h3>士気低下の原因分析と責任分担</h3>
+      
+      <table class="responsibility-matrix">
+        <thead>
+          <tr>
+            <th>士気低下要因</th>
+            <th>主な責任レベル</th>
+            <th>PMができること</th>
+            <th>上位層の支援が必要なこと</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>過剰な労働量</td>
+            <td>上位管理職/経営層</td>
+            <td>業務の優先順位付け、効率化</td>
+            <td>リソース増強、スコープ調整の承認</td>
+          </tr>
+          <tr>
+            <td>技術的課題</td>
+            <td>PM</td>
+            <td>技術サポート提供、外部専門家活用</td>
+            <td>必要に応じた予算・外部リソース承認</td>
+          </tr>
+          <tr>
+            <td>役割の不明確さ</td>
+            <td>PM</td>
+            <td>明確な役割定義、期待値設定</td>
+            <td>組織レベルの役割整理</td>
+          </tr>
+          <tr>
+            <td>評価・報酬</td>
+            <td>上位管理職/HR</td>
+            <td>適切なフィードバック、成果の可視化</td>
+            <td>評価制度改善、適切な報酬設定</td>
+          </tr>
+          <tr>
+            <td>将来の不透明さ</td>
+            <td>経営層</td>
+            <td>可能な範囲での情報共有</td>
+            <td>明確なビジョン共有、キャリアパス提示</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="key-point">
+        <div class="key-point-title">ポイント：責任の境界線を理解する重要性</div>
+        <p>責任の境界線を明確にすることで、無力感から解放され、実際に変えられることに集中できます。自分の責任範囲を理解することは、効果的なリーダーシップの第一歩です。</p>
+      </div>
+      
+      <h3>エスカレーションとアクセプタンスのバランス</h3>
+      
+      <div class="two-column">
+        <div class="column">
+          <h3>エスカレーションが適切な状況</h3>
+          <ol>
+            <li><strong>権限の範囲外の意思決定が必要な場合</strong><br>
+            「このスコープ変更は納期に5週間の影響があります。納期調整権限は私にないため、判断をお願いします。」</li>
+            <li><strong>リソース配分の大幅な見直しが必要な場合</strong><br>
+            「現状のリソースでは要件を達成できません。3名の追加アサインもしくはスコープ40%削減の判断が必要です。」</li>
+            <li><strong>組織横断的な調整が必要な場合</strong><br>
+            「このプロジェクトの完遂には営業部門との調整が不可欠ですが、部門間の優先順位に不一致があります。」</li>
+          </ol>
+        </div>
+        <div class="column">
+          <h3>アクセプタンス（自己責任）が適切な状況</h3>
+          <ol>
+            <li><strong>日常的なチーム内のコンフリクト管理</strong><br>
+            「チームメンバー間の意見の相違は、私の調整で解決します。」</li>
+            <li><strong>プロジェクト計画の詳細レベルの調整</strong><br>
+            「機能開発の順序や担当割りなど、プロジェクト内部の調整は私の責任で行います。」</li>
+            <li><strong>短期的な士気向上の取り組み</strong><br>
+            「週次の振り返りミーティングや小さな成功の祝賀など、日常的なモチベーション施策は私が担当します。」</li>
+          </ol>
+        </div>
+      </div>
+      
+      <h3>責任境界の明確化コミュニケーション</h3>
+      
+      <div class="conversation-box">
+        <div class="scenario-title">効果的な責任確認の対話例</div>
+        <p class="speaker">上司：</p>
+        <p>「最近チームの進捗が遅いね。みんなのやる気を高める工夫をしているの？」</p>
+        
+        <p class="speaker">非効果的な対応：</p>
+        <p>「はい、頑張っています。モチベーションアップのためのイベントも計画中です」</p>
+        <p class="response">（責任をすべて引き受け、根本原因に触れていない）</p>
+        
+        <p class="speaker">効果的な対応：</p>
+        <p>「チームモチベーションについて共有させてください。現在のチーム状態調査によると、主な課題は3点あります。</p>
+        <p>1つ目は過剰な労働量です。当初計画の1.5倍の作業量に対して人員は変わっていないため、全員が週60時間以上働いています。この点は私の現場改善だけでは対応が難しく、スコープ調整か人員増強の判断が必要です。</p>
+        <p>2つ目はキャリア成長の機会です。これは私の責任で、すでに週1回の技術共有会を始め、改善の兆しが見えています。</p>
+        <p>3つ目は成果の可視化で、これも私の責任範囲です。新しいダッシュボードを導入し、小さな成功を見える化しています。</p>
+        <p>1つ目の課題については、どのように対応すべきでしょうか？選択肢としては、A)スコープ削減、B)納期延長、C)人員増強が考えられます。」</p>
+        <p class="response">（自分の責任として取り組んでいる部分と、上位マネジメントの判断が必要な部分を明確に区別している）</p>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2>2. チーム防衛の交渉術</h2>
+      
+      <p>チームを過剰な負担や不合理な要求から守ることもプロジェクトマネージャーの重要な責務です。しかし、単に「できません」と言うだけでは建設的な解決につながりません。</p>
+      
+      <h3>データによる「見える化」戦略</h3>
+      
+      <div class="step-box">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <strong>現状の「負荷率」の可視化</strong>
+          <p>チームの現在の負荷状況を数値化して提示します。</p>
+          <div class="quote-box">
+            「チームの現在の負荷状況をデータ化しました。業界標準では80％が適正とされる中、現在のチームは平均142％の負荷状態です。」
+          </div>
+        </div>
+      </div>
+      
+      <div class="step-box">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <strong>「燃え尽き指標」の開発と提示</strong>
+          <p>チームの疲弊度を複数の指標で可視化します。</p>
+          <ul>
+            <li>連続残業日数：平均15日（赤）</li>
+            <li>休日出勤率：直近4週で75%（赤）</li>
+            <li>ミーティング発言数：4週間で40%減少（黄）</li>
+            <li>バグ発生率：2週間で30%増加（黄）</li>
+            <li>健康不調報告：2名（赤）</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="step-box">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <strong>生産性と品質への影響の定量化</strong>
+          <p>過剰な負荷が実際の成果にどう影響しているかを数値で示します。</p>
+          <ul>
+            <li>残業20%増加ごとのバグ発生率：平均15%増加</li>
+            <li>連続勤務2週間後の生産性：通常時の65%に低下</li>
+            <li>疲労関連のミス発生率：4週間で28%増加</li>
+          </ul>
+        </div>
+      </div>
+      
+      <h3>「Yes, but」から「Yes, and」への転換</h3>
+      
+      <div class="two-column">
+        <div class="column">
+          <h3>「Yes, but」アプローチの問題点</h3>
+          <div class="conversation-box">
+            <p class="speaker">上司：</p>
+            <p>「この追加要件も含めてスケジュール通りに完了させてほしい」</p>
+            <p class="speaker">PM：</p>
+            <p>「はい、重要性は理解していますが、現状のリソースでは不可能です」</p>
+            <p class="response">（この応答は対立構造を生み出しやすい）</p>
+          </div>
+        </div>
+        <div class="column">
+          <h3>「Yes, and」アプローチの効果</h3>
+          <div class="conversation-box">
+            <p class="speaker">上司：</p>
+            <p>「この追加要件も含めてスケジュール通りに完了させてほしい」</p>
+            <p class="speaker">PM：</p>
+            <p>「はい、その重要性は理解しています。そして最高の成果を出すために、次の3つの選択肢を用意しました。①納期を2週間延長、②現行スコープと追加要件の優先順位付けによる段階的デリバリー、③2名の追加リソースによる並行開発。どのアプローチが最適とお考えでしょうか？」</p>
+            <p class="response">（対立ではなく、共同問題解決の姿勢を示す）</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-point">
+        <div class="key-point-title">ポイント：3つの選択肢の法則</div>
+        <p>単一の代替案ではなく、必ず3つの選択肢を用意することで、「できない」から「どうやるか」という建設的な議論に転換できます。この方法により、対立ではなく協力関係を構築しやすくなります。</p>
+      </div>
+      
+      <h3>チーム防衛のための「境界線設定」</h3>
+      
+      <p>チームを守るための明確な境界線（レッドライン）を設定し、それを上司と共有することも重要です。</p>
+      
+      <div class="two-column">
+        <div class="column">
+          <h3>健全な境界線の例</h3>
+          <ul>
+            <li>週あたりの残業時間上限：10時間/人</li>
+            <li>連続勤務日数の上限：12日</li>
+            <li>休日出勤時の代休取得ルール：3日以内に消化</li>
+            <li>深夜作業（22時以降）の原則禁止</li>
+            <li>緊急対応後の回復時間確保</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h3>境界線を伝える効果的な言い回し</h3>
+          <table class="responsibility-matrix">
+            <tr>
+              <th>避けるべき言い方</th>
+              <th>効果的な言い方</th>
+            </tr>
+            <tr>
+              <td>「それは無理です」</td>
+              <td>「チームの持続可能性を考えると、別のアプローチが必要です」</td>
+            </tr>
+            <tr>
+              <td>「これ以上は働けません」</td>
+              <td>「パフォーマンスと品質を維持するために、現実的な工数計画が必要です」</td>
+            </tr>
+            <tr>
+              <td>「そんなことをするとチームが壊れます」</td>
+              <td>「長期的なチームの健全性と生産性を守るための配慮をお願いします」</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2>3. 組織的問題の戦略的エスカレーション</h2>
+      
+      <p>現場レベルでは解決できない構造的な問題に直面した場合、適切にエスカレーションすることが必要です。単なる「上申」ではなく、戦略的にエスカレーションを行いましょう。</p>
+      
+      <h3>エスカレーション前の自己チェック</h3>
+      
+      <ul class="checklist">
+        <li>自分の権限内ですべての対策を試みたか</li>
+        <li>問題の根本原因を特定しているか</li>
+        <li>データと事実で問題を裏付けられるか</li>
+        <li>具体的な解決案を用意しているか</li>
+        <li>エスカレーションの目的と期待する結果が明確か</li>
+      </ul>
+      
+      <div class="quote-box">
+        <p>「エスカレーションは『問題を押し付ける』ではなく『適切なレベルでの解決を促す』ためのものです。そのため、自分の役割を果たした上で行うことが信頼を築きます。」</p>
+      </div>
+      
+      <h3>エスカレーション文書の準備</h3>
+      
+      <div class="key-point">
+        <div class="key-point-title">エスカレーション文書テンプレート</div>
+        <p><strong>■課題概要：</strong><br>[一文で問題の本質を説明]</p>
+        <p><strong>■影響範囲：</strong><br>[ビジネス・顧客・チームへの影響]</p>
+        <p><strong>■現状分析：</strong><br>[データと事実による状況説明]</p>
+        <p><strong>■これまでの対応：</strong><br>[権限内で実施した対策とその結果]</p>
+        <p><strong>■エスカレーションの理由：</strong><br>[なぜ上位判断が必要なのか]</p>
+        <p><strong>■解決案と選択肢：</strong><br>[可能な選択肢と推奨案]</p>
+        <p><strong>■期待するアクション：</strong><br>[具体的に何を期待するか]</p>
+        <p><strong>■決定期限：</strong><br>[いつまでに決断が必要か]</p>
+      </div>
+      
+      <h3>エスカレーション会議の効果的な進行</h3>
+      
+      <div class="step-box">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <strong>問題提起（2分）：</strong>端的に課題の本質を説明</div>
+      </div>
+      
+      <div class="step-box">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <strong>影響範囲（3分）：</strong>ビジネスへの影響を中心に説明
+        </div>
+      </div>
+      
+      <div class="step-box">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <strong>根本原因（3分）：</strong>データに基づく原因分析
+        </div>
+      </div>
+      
+      <div class="step-box">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <strong>選択肢提示（5分）：</strong>2-3の選択肢と各シナリオ
+        </div>
+      </div>
+      
+      <div class="step-box">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <strong>推奨案（2分）：</strong>理由を含めた推奨案の提示
+        </div>
+      </div>
+      
+      <div class="quote-box">
+        <p>「エスカレーション会議の前に、1ページのエグゼクティブサマリーを配布すると、議論の質が向上します。」</p>
+      </div>
+      
+      <div class="scenario-box">
+        <div class="scenario-title">エスカレーションシナリオ例</div>
+        <p><strong>状況</strong>：リソース不足が深刻化し、現場レベルでの対応が限界に達している。直属上司は状況を認識しているが、部門予算の制約から追加リソースの承認に躊躇している。</p>
+        <p><strong>エスカレーション会議でのポイント</strong>：</p>
+        <ol>
+          <li><strong>問題の本質を経営視点で説明</strong>：<br>
+          「このままでは品質低下→顧客満足度低下→継続率低下という負のスパイラルに陥るリスクがあります。短期的コスト増より長期的損失の方が大きいと判断しています。」</li>
+          <li><strong>質問への備え</strong>：<br>
+          Q:「なぜもっと早く言わなかったのか？」<br>
+          A:「4週間前から警戒シグナルを週次報告で共有し、現場レベルでの対策を続けてきました。全ての対策を講じた現時点で、組織判断が必要と判断しました。」</li>
+          <li><strong>決断の促進</strong>：<br>
+          「判断が遅れるほどリスクとコストが増大します。本日の段階で仮決定いただければ、チームの再編成計画を明日から始められます。」</li>
+        </ol>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2>4. メンタルヘルスの保ち方</h2>
+      
+      <div class="intro-story">
+        <p>「君、顔色悪いよ。大丈夫？」</p>
+        <p>ある日、帰り際に先輩プロジェクトマネージャーの山本さんから声をかけられました。当時私は大型プロジェクトを任され、上司からの無理難題、チームの疲弊、クライアントからのプレッシャーに板挟みとなっていました。</p>
+        <p>山本さんは意外な告白をしてくれました。「実は私、3年前に燃え尽きたんだ。1ヶ月の休職になってね。」そして「PMとして生き残るための『自分を守る技術』を学んだんだ」と教えてくれました。</p>
+      </div>
+      
+      <div class="mental-health-tips">
+        <div class="mental-health-tip">
+          <h4>1. 「非常事態の定義」を持つ</h4>
+          <p>感情ではなく、客観的な指標で自分の限界を定義しておきましょう。</p>
+          <ul>
+            <li>3日連続で6時間未満の睡眠</li>
+            <li>1週間で3回以上の夜中の目覚め</li>
+            <li>2回連続で休日に仕事のことを考え続ける</li>
+            <li>家族との会話が3日間ほぼない</li>
+          </ul>
+          <p>これらの指標のうち2つ以上が発生したら、「非常事態」と認識して対策を取りましょう。</p>
+        </div>
+        
+        <div class="mental-health-tip">
+          <h4>2. 「エネルギー会計」の習慣</h4>
+          <p>「心のエネルギー」を貯金と同じように管理します。</p>
+          <p><strong>消費活動</strong>：長時間ミーティング（-30）、板挟み状態での意思決定（-25）、クレーム対応（-20）</p>
+          <p><strong>回復活動</strong>：30分の一人散歩（+15）、家族との食事（+20）、趣味の時間（+25）、深い睡眠（+40）</p>
+          <p>毎週トータルでプラスにすることを目標にしましょう。</p>
+        </div>
+        
+        <div class="mental-health-tip">
+          <h4>3. 「境界線の設定」</h4>
+          <p>「交渉不可能な約束」を自分で決めておきましょう：</p>
+          <ul>
+            <li>子供の重要な行事には必ず参加</li>
+            <li>週に1回は19時までに帰宅</li>
+            <li>日曜日の午前中は家族の時間</li>
+            <li>月に一度は完全にオフの週末を確保</li>
+          </ul>
+          <p>これらは絶対に譲らないと決めておくことで、仕事に飲み込まれるのを防ぎます。</p>
+        </div>
+        
+        <div class="mental-health-tip">
+          <h4>4. 「リカバリープラン」の準備</h4>
+          <p>調子を崩した時のための回復計画を持っておきましょう：</p>
+          <p><strong>レベル1（軽度疲労）</strong>：<br>
+          ・2日間、21時以降のメール確認を停止<br>
+          ・週末は1日完全オフに</p>
+          <p><strong>レベル2（中度疲労）</strong>：<br>
+          ・上司に状況を伝え、一部タスクの委譲を相談<br>
+          ・3日間の完全オフを確保</p>
+          <p><strong>レベル3（重度疲労）</strong>：<br>
+          ・産業医に相談<br>
+          ・休暇取得を検討</p>
+        </div>
+      </div>
+      
+      <div class="key-point">
+        <div class="key-point-title">重要な気づき</div>
+        <p>「セルフケアはわがままではなく、プロとしての責任だ」</p>
+        <p>自分を守ることは、結果的にチームを守り、プロジェクトを成功に導く第一歩なのです。</p>
+      </div>
+    </div>
+    
+    <div class="review-section">
+      <div class="review-title">復習ポイント</div>
+      <ol>
+        <li><strong>責任の境界線を理解する</strong>：自分の責任範囲と上位マネジメントの責任範囲を明確にし、適切なエスカレーションとアクセプタンスのバランスを取りましょう。</li>
+        <li><strong>データで交渉する</strong>：感情や印象ではなく、客観的なデータを使ってチームの状況を可視化し、建設的な対話を促進しましょう。</li>
+        <li><strong>「Yes, and」アプローチ</strong>：単純な拒否ではなく、複数の選択肢を提示して建設的な問題解決を図りましょう。</li>
+        <li><strong>戦略的エスカレーション</strong>：問題の押し付けではなく、適切なレベルでの意思決定を促すためのエスカレーションを心がけましょう。</li>
+        <li><strong>セルフケアを優先</strong>：メンタルヘルスを保つことは、長期的なパフォーマンスと成功のための基盤です。</li>
+      </ol>
+    </div>
+    
+    <div class="conversation-box">
+      <div class="scenario-title">考えてみよう</div>
+      <p>1. あなたのチームで過剰な労働負荷が発生している場合、どのようなデータを収集して上司と交渉しますか？</p>
+      <p>2. 「Yes, and」アプローチを使って、無理難題に対処する会話例を考えてみましょう。</p>
+      <p>3. あなた自身の「非常事態の定義」と「交渉不可能な約束」は何ですか？</p>
+    </div>
+    
+    <footer>
+      <p>© 2025 ビジネスマネジメント教育研究所 | このインフォグラフィックは教育目的で作成されています</p>
+      <p>参考文献：「マネジメントの境界線」、「チーム防衛の交渉術」、「メンタルヘルスとリーダーシップ」</p>
+    </footer>
+  </div>
+</body>
+</html>
