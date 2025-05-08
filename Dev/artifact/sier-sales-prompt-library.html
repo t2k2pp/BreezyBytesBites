@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIer企業の営業職向けプロンプトライブラリ</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        :root {
+            --main-color: #0066CC;
+            --sub1-color: #00A3E0;
+            --sub2-color: #FFB900;
+            --accent-color: #FF5630;
+            --back-color: #F8F9FA;
+            --text-color: #253858;
+            --light-gray: #F4F5F7;
+            --medium-gray: #EBECF0;
+            --dark-gray: #5E6C84;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: var(--back-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--main-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 24px;
+            color: var(--main-color);
+            margin: 30px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--main-color);
+        }
+        
+        h3 {
+            font-size: 20px;
+            color: var(--sub1-color);
+            margin: 25px 0 15px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .intro {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .toc {
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .toc ul {
+            list-style-type: none;
+        }
+        
+        .toc li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .toc li:before {
+            content: "•";
+            color: var(--main-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .prompt-elements {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .element {
+            flex: 1;
+            min-width: 200px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .element h4 {
+            color: var(--sub1-color);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .daily-workflow {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 20px 0;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 20px;
+            width: 2px;
+            height: 100%;
+            background-color: var(--sub1-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-time {
+            position: absolute;
+            left: 0;
+            background-color: var(--sub1-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .timeline-content {
+            background-color: var(--light-gray);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .timeline-content h4 {
+            color: var(--main-color);
+            margin-bottom: 10px;
+        }
+        
+        .prompt-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .card-icon {
+            background-color: var(--main-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        
+        .card-title {
+            font-size: 20px;
+            color: var(--main-color);
+        }
+        
+        .prompt-example {
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--sub2-color);
+        }
+        
+        .output-example {
+            background-color: var(--medium-gray);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .basic-advanced {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .basic, .advanced {
+            flex: 1;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .basic {
+            background-color: var(--light-gray);
+            border-left: 4px solid var(--sub1-color);
+        }
+        
+        .advanced {
+            background-color: var(--light-gray);
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .tabs {
+            display: flex;
+            margin-bottom: 0;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: var(--medium-gray);
+            border-radius: 8px 8px 0 0;
+            margin-right: 5px;
+        }
+        
+        .tab.active {
+            background-color: white;
+            border-bottom: none;
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: var(--sub2-color);
+            color: var(--text-color);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .feature-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .feature-icon {
+            background-color: var(--sub1-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: var(--main-color);
+            color: white;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .color-main { color: var(--main-color); }
+        .color-sub1 { color: var(--sub1-color); }
+        .color-sub2 { color: var(--sub2-color); }
+        .color-accent { color: var(--accent-color); }
+        
+        .bg-main { background-color: var(--main-color); color: white; }
+        .bg-sub1 { background-color: var(--sub1-color); color: white; }
+        .bg-sub2 { background-color: var(--sub2-color); color: var(--text-color); }
+        .bg-accent { background-color: var(--accent-color); color: white; }
+        
+        .highlight {
+            background-color: #FFEB3B;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
+        .note {
+            background-color: #E3F2FD;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--main-color);
+        }
+        
+        .sales-cycle {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .cycle-stage {
+            flex: 1;
+            min-width: 200px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .cycle-stage h4 {
+            color: var(--main-color);
+            margin-bottom: 10px;
+            font-size: 18px;
+            border-bottom: 1px solid var(--medium-gray);
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SIer企業の営業職向けプロンプトライブラリ</h1>
+            <p>2025年5月版</p>
+        </header>
+        
+        <div class="intro">
+            <h2>はじめに</h2>
+            <p>このライブラリは、SIer企業の営業職がAIツール（Claude、ChatGPT、Geminiなど）を活用してより効率的に業務を行うためのプロンプト集です。営業活動の各段階や日常業務において、AIを最大限に活用するためのアイデアやテンプレートを提供します。</p>
+            <p>これらのプロンプトは、営業担当者の時間を節約し、提案品質を向上させるのに役立ちます。自由に修正して、あなたの業務や顧客に最適なものにしてください。</p>
+        </div>
+        
+        <div class="toc">
+            <h3>目次</h3>
+            <ul>
+                <li>「プロンプト例」の使い方</li>
+                <li>優れたプロンプトに必要な5つの要素</li>
+                <li>AIを活用して、1日の営業活動を効率化する</li>
+                <li>AIを戦略的アシスタントとして活用し営業活動の質を向上させる</li>
+                <li>営業サイクルに沿ったプロンプト活用法</li>
+                <li>クライアント対応の質を高めるプロンプト</li>
+                <li>高度なリサーチと提案書作成</li>
+                <li>パーソナライズと効率化のためのTips</li>
+            </ul>
+        </div>
+        
+        <h2>プロンプトの使い方</h2>
+        <div class="prompt-card">
+            <ul>
+                <li>目標に合ったプロンプトを選びましょう</li>
+                <li>プロンプトをカスタマイズしましょう</li>
+                <li>プロンプトをコピーして、お使いのAIツールに貼り付けます</li>
+                <li>AIが生成したアウトプットを確認し、必要に応じて修正や調整を加えます</li>
+            </ul>
+        </div>
+        
+        <h2>優れたプロンプトに必要な5つの要素</h2>
+        <p>プロンプトで必ずしも5つの要素すべてを使用する必要はありませんが、複数の要素を含めてプロンプトを作成すると効果的です。</p>
+        
+        <div class="prompt-elements">
+            <div class="element">
+                <h4>人物（ペルソナ）</h4>
+                <p>AIにどんな人として回答を作ってほしいのか</p>
+                <p>職種、専門性、役職など</p>
+            </div>
+            <div class="element">
+                <h4>内容（タスク）</h4>
+                <p>質問や指示はどんな内容なのか？</p>
+                <p>できるだけ詳細に</p>
+            </div>
+            <div class="element">
+                <h4>形式や語調</h4>
+                <p>どんな形式や雰囲気で回答してほしいのか？</p>
+                <p>ドキュメント形式、ビジネス調など</p>
+            </div>
+            <div class="element">
+                <h4>制約（コンテキスト）</h4>
+                <p>質問や指示の詳細な状況や背景など</p>
+                <p>文字量、時間、予算など</p>
+            </div>
+            <div class="element">
+                <h4>例</h4>
+                <p>例えばどんな回答をしてほしいのか？</p>
+                <p>具体的な例があれば示す</p>
+            </div>
+        </div>
+        
+        <div class="prompt-card">
+            <div class="card-header">
+                <div class="card-icon">✓</div>
+                <div class="card-title">良いプロンプトの例</div>
+            </div>
+            <div class="prompt-example">
+                「あなたは10年以上の経験を持つITコンサルタントです。中規模製造業向けのERPシステム導入プロジェクトの提案書を作成してください。提案書には、現状の課題分析、システム導入のメリット、導入スケジュール、概算コストを含めてください。経営層向けに2ページ程度でまとめ、専門用語は極力避け、ROIを強調する内容にしてください。」
+            </div>
+            <div class="card-header">
+                <div class="card-icon">✗</div>
+                <div class="card-title">改善が必要なプロンプトの例</div>
+            </div>
+            <div class="prompt-example">
+                「ERPの提案書を作って。」
+            </div>
+        </div>
+        
+        <h2>AIを活用して、1日の営業活動を効率化する</h2>
+        <p>AIを活用することで、日常業務を効率化し、より多くの時間を顧客との関係構築や戦略的な活動に充てることができます。</p>
+        
+        <div class="daily-workflow">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">8:30 AM</div>
+                    <div class="timeline-content">
+                        <h4>一日のスケジュール最適化と準備</h4>
+                        <p>朝一番でAIに一日のアポイントや優先タスクを整理してもらい、効率的な移動経路も含めたスケジュールを立案。各アポイント前の準備事項もリスト化してもらうことで、計画的に行動できます。</p>
+                        <div class="tag">時間管理</div>
+                        <div class="tag">効率化</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">9:30 AM</div>
+                    <div class="timeline-content">
+                        <h4>クライアントミーティングの事前準備</h4>
+                        <p>過去の商談記録や企業情報をAIに分析してもらい、ポイントをまとめた資料を作成。想定される質問と回答例もリスト化しておくことで、自信を持って商談に臨めます。</p>
+                        <div class="tag">顧客理解</div>
+                        <div class="tag">準備</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">11:00 AM</div>
+                    <div class="timeline-content">
+                        <h4>商談後の議事録作成と次のアクション</h4>
+                        <p>商談メモをAIに渡して、構造化された議事録を作成。合わせて次のアクションプランや期限も提案してもらうことで、フォローアップ漏れを防止します。</p>
+                        <div class="tag">ドキュメント作成</div>
+                        <div class="tag">フォローアップ</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">1:30 PM</div>
+                    <div class="timeline-content">
+                        <h4>提案書の作成支援</h4>
+                        <p>顧客要件に基づいて、AIに提案書の骨子や主要なセールスポイントをまとめてもらい、提案書作成の時間を短縮。差別化要因や成功事例も盛り込んだ説得力のある提案が可能になります。</p>
+                        <div class="tag">提案力向上</div>
+                        <div class="tag">時間短縮</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">3:00 PM</div>
+                    <div class="timeline-content">
+                        <h4>競合分析と差別化戦略</h4>
+                        <p>競合情報をAIに分析してもらい、自社ソリューションとの比較表や差別化ポイントを整理。顧客にとっての価値を明確に伝えられる資料を短時間で作成できます。</p>
+                        <div class="tag">競合分析</div>
+                        <div class="tag">差別化</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">4:30 PM</div>
+                    <div class="timeline-content">
+                        <h4>日報作成と明日の準備</h4>
+                        <p>一日の活動記録をAIに整理してもらい、簡潔で要点を押さえた日報を作成。同時に明日の準備事項もリスト化することで、効率的に業務を終えられます。</p>
+                        <div class="tag">報告</div>
+                        <div class="tag">振り返り</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>クライアントミーティングの事前準備</h2>
+        <div class="prompt-card">
+            <div class="prompt-example">
+                <strong>プロンプト例:</strong><br>
+                「あなたは熟練したITコンサルタントです。新規クライアント（製造業、従業員500名規模、主に在庫管理と生産管理に課題を抱えている）との初回ミーティングに向けて、次の項目を含む準備資料を作成してください：
+                <br><br>
+                1. この業界/規模の企業が一般的に抱える課題リスト<br>
+                2. 効果的な質問リスト（課題の深堀り用）<br>
+                3. 想定される質問と適切な回答例<br>
+                4. 類似企業の成功事例（具体的な数値効果を含む）<br>
+                5. 初回ミーティングでの到達目標<br>
+                <br>
+                製造業の専門用語を適切に使用し、相手に専門知識と信頼感を与える内容にしてください。」
+            </div>
+            
+            <div class="basic-advanced">
+                <div class="basic">
+                    <strong>基本:</strong><br>
+                    クライアントの業界や規模に応じた課題と質問リストを作成することで、より的確なヒアリングができます。事前準備によって、初回面談での信頼構築が容易になります。
+                </div>
+                <div class="advanced">
+                    <strong>応用:</strong><br>
+                    <strong>追加プロンプト例:</strong><br>
+                    「クライアントのウェブサイトやプレスリリース、SNSの最新情報（URLを添付）を分析し、彼らの事業戦略、最近の取り組み、経営課題について考察してください。特に、当社のITソリューションがどのように貢献できる可能性があるかを示唆する情報に注目してください。」
+                </div>
+            </div>
+        </div>
+        
+        <h2>商談後の議事録作成と次のアクション</h2>
+        <div class="prompt-card">
+            <div class="prompt-example">
+                <strong>プロンプト例:</strong><br>
+                「あなたは営業アシスタントです。以下の商談メモから、構造化された議事録を作成し、次のアクションとフォローアップ項目を提案してください。議事録には以下を含めてください：
+                <br><br>
+                1. 日時、参加者、目的（メモから抽出）<br>
+                2. 主な議題と決定事項<br>
+                3. クライアントのニーズや懸念点<br>
+                4. 提案したソリューションとクライアントの反応<br>
+                5. 次のアクションリスト（担当者と期限付き）<br>
+                <br>
+                以下が商談メモです：
+                [ここに商談メモを入力]」
+            </div>
+            
+            <div class="basic-advanced">
+                <div class="basic">
+                    <strong>基本:</strong><br>
+                    商談後すぐにメモを整理することで、重要なポイントやフォローアップ項目を見逃すリスクを減らします。AIが構造化した議事録は、チーム内での情報共有や次回商談の準備にも役立ちます。
+                </div>
+                <div class="advanced">
+                    <strong>応用:</strong><br>
+                    <strong>追加プロンプト例:</strong><br>
+                    「作成した議事録を分析し、商談で見落としている可能性のある重要な質問や確認事項、リスク要因を指摘してください。また、クライアントの発言から読み取れる潜在的なニーズや懸念点も分析してください。」
+                </div>
+            </div>
+        </div>
+        
+        <h2>提案書の作成支援</h2>
+        <div class="prompt-card">
+            <div class="prompt-example">
+                <strong>プロンプト例:</strong><br>
+                「あなたは提案書作成のスペシャリストです。食品メーカー向けのサプライチェーン最適化システム導入の提案書を作成してください。提案書には以下の要素を含めてください：
+                <br><br>
+                1. エグゼクティブサマリー（1ページ以内）<br>
+                2. 課題認識（クライアントの現状と課題）<br>
+                3. 提案するソリューションの概要と特徴<br>
+                4. 導入による定量的・定性的メリット<br>
+                5. 実装スケジュールと大まかな工程<br>
+                6. 概算費用と投資対効果<br>
+                7. 類似業界での成功事例<br>
+                <br>
+                クライアント企業情報：年商300億円、全国に5つの工場と3つの物流センターを持つ中堅食品メーカー。現状はレガシーシステムを使用しており、需要予測の精度が低く、在庫の過不足が常態化している。」
+            </div>
+            
+            <div class="basic-advanced">
+                <div class="basic">
+                    <strong>基本:</strong><br>
+                    AIを活用して提案書の骨組みを作成することで、提案書作成の時間を大幅に短縮できます。顧客特性に合わせた内容に調整し、より説得力のある提案が可能になります。
+                </div>
+                <div class="advanced">
+                    <strong>応用:</strong><br>
+                    <strong>追加プロンプト例:</strong><br>
+                    「この提案書の差別化ポイントをさらに強化するために、業界特有のKPIと、それらに対する当社ソリューションの影響を示す図表のアイデアを5つ提案してください。また、経営層と現場担当者それぞれにアピールするポイントを整理してください。」
+                </div>
+            </div>
+        </div>
+        
+        <h2>AIを戦略的アシスタントとして活用し営業活動の質を向上させる</h2>
+        <p>AIは日常業務の効率化だけでなく、戦略的な意思決定や営業力強化のための強力なパートナーとなります。</p>
+        
+        <div class="prompt-card">
+            <div class="card-header">
+                <div class="card-icon">🎯</div>
+                <div class="card-title">市場動向分析と戦略立案</div>
+            </div>
+            <div class="prompt-example">
+                <strong>プロンプト例:</strong><br>
+                「あなたは市場分析の専門家です。製造業向けIoTソリューション市場の最新動向を分析し、今後6ヶ月の営業戦略立案に役立つレポートを作成してください。以下の点を含めてください：
+                <br><br>
+                1. 市場の成長が見込まれるセグメントと要因<br>
+                2. 主要プレイヤーの動向と差別化戦略<br>
+                3. 顧客企業が直面する主な課題とトレンド<br>
+                4. 有望な見込み客の特徴とアプローチ方法<br>
+                5. 今後6ヶ月の営業活動において注力すべきポイント<br>
+                <br>
+                レポートは経営陣向けの簡潔な要約（1ページ）と、営業チーム向けの詳細分析（3〜5ページ）の両方を含めてください。」
+            </div>
+        </div>
+        
+        <div class="prompt-card">
+            <div class="card-header">
+                <div class="card-icon">📊</div>
+                <div class="card-title">営業パフォーマンスの分析と改善</div>
+            </div>
+            <div class="prompt-example">
+                <strong>プロンプト例:</strong><br>
+                「あなたは営業コンサルタントです。以下の四半期営業データを分析し、パフォーマンス向上のための具体的な提案をしてください：
+                <br><br>
+                • 訪問件数：120件<br>
+                • 提案件数：35件<br>
+                • 成約件数：8件<br>
+                • 平均契約金額：1,500万円<br>
+                • 平均営業サイクル：75日<br>
+                • 主な失注理由：価格（40%）、機能不足（25%）、競合選定（20%）、その他（15%）<br>
+                <br>
+                前四半期と比較したとき（訪問件数：100件、提案件数：30件、成約件数：9件、平均契約金額：1,800万円）、どのような改善点が考えられるか、具体的なアクションプランと共に提案してください。特に成約率と平均契約金額の改善に焦点を当ててください。」
+            </div>
+        </div>
+        
+        <div class="prompt-card">
+            <div class="card-header">
+                <div class="card-icon">🚀</div>
+                <div class="card-title">新規開拓戦略の立案</div>
+            </div>
+            <div class="prompt-example">
+                <strong>プロンプト例:</strong><br>
+                「あなたは新規開拓のスペシャリストです。当社は中小企業向けのクラウドERP導入支援サービスを提供しています。新規顧客開拓のための効果的な戦略を立案してください。以下の点を含めてください：
+                <br><br>
+                1. ターゲット顧客の絞り込み基準と優先度設定方法<br>
+                2. 効果的なアプローチ方法と初期コンタクトのシナリオ<br>
+                3. リード獲得のためのコンテンツ戦略とバリュープロポジション<br>
+                4. 営業活動のKPIと測定方法<br>
+                5. 初期コンタクトから商談につなげるためのステップ<br>
+                <br>
+                現在の課題は、初期コンタクト後の商談化率が低いこと（約12%）と、競合との差別化が伝わりにくいことです。予算は四半期で300万円で、2名の営業担当者がアサインされています。」
+            </div>
+        </div>
+        
+        <h2>営業サイクルに沿ったプロンプト活用法</h2>
+        <p>営業活動のサイクルに合わせて、各段階で効果的なAI活用方法を紹介します。</p>
+        
+        <div class="sales-cycle">
+            <div class="cycle-stage">
+                <h4>1. 見込み客発掘</h4>
+                <div class="prompt-example">
+                    <strong>プロンプト例:</strong><br>
+                    「特定の業界（例：医療機器メーカー）における見込み客リストの作成基準と、初期コンタクトのアプローチ方法を提案してください。」
+                </div>
+            </div>
+            
+            <div class="cycle-stage">
+                <h4>2. 課題発見と関係構築</h4>
+                <div class="prompt-example">
+                    <strong>プロンプト例:</strong><br>
+                    「医療機器メーカーが一般的に抱える業務課題と、それを引き出すための効果的な質問リストを作成してください。」
+                </div>
+            </div>
+            
+            <div class="cycle-stage">
+                <h4>3. ソリューション提案</h4>
+                <div class="prompt-example">
+                    <strong>プロンプト例:</strong><br>
+                    「医療機器メーカーの在庫管理課題に対する当社ERPソリューションの提案資料を作成してください。競合との差別化ポイントを強調し、ROIを明確に示す内容にしてください。」
+                </div>
+            </div>
+            
+            <div class="cycle-stage">
+                <h4>4. 課題解決と価値実証</h4>
+                <div class="prompt-example">
+                    <strong>プロンプト例:</strong><br>
+                    「医療機器メーカーにおけるERPシステム導入の成功事例と、その定量的・定性的効果をまとめてください。特に在庫最適化によるコスト削減と製品の市場投入期間短縮に焦点を当ててください。」
+                </div>
+            </div>
+            
+            <div class="cycle-stage">
+                <h4>5. クロージング</h4>
+                <div class="prompt-example">
+                    <strong>プロンプト例:</strong><br>
+                    「商談クロージングのための交渉戦略と、想定される顧客の懸念点に対する効果的な回答を提案してください。契約金額2,000万円、導入期間6ヶ月のプロジェクトを想定しています。」
+                </div>
+            </div>
+            
+            <div class="cycle-stage">
+                <h4>6. 関係維持と拡大</h4>
+                <div class="prompt-example">
+                    <strong>プロンプト例:</strong><br>
+                    「ERP導入後3ヶ月経過した顧客に対するフォローアップの計画と、追加提案の機会を発見するための質問リストを作成してください。」
+                </div>
+            </div>
+        </div>
+        
+        <h2>クライアント対応の質を高めるプロンプト</h2>
+        <p>顧客とのコミュニケーションやプレゼンテーションの質を向上させるためのプロンプトを紹介します。</p>
+        
+        <div class="prompt-card">
+            <div class="card-header">
+                <div class="card-icon">📝</div>
+                <div class="card-title">説得力のあるメール作成</div>
+            </div>
+            <div class="prompt-example">
+                <strong>プロンプト例:</strong><br>
+                「あなたは熟練した営業担当者です。新規顧客（金融機関のIT部門責任者）へのアポイント獲得のためのメールを作成してください。以下の条件を満たすようにしてください：
+                <br><br>
+                1. 件名は開封率が高まるよう工夫する<br>
+                2. 本文は3段落以内、300文字程度にまとめる<br>
+                3. 当社のセキュリティソリューションが金融機関特有の課題（規制対応、不正検知など）をどのように解決するかを簡潔に伝える<br>
+                4. 同業他社での導入事例に言及する（具体的な社名は不要）<br>
+                5. 明確なアクションコール（Webミーティングの提案）を含める<br>
+                <br>
+                メールの目的は、15分間のオンラインミーティングの約束を取り付けることです。押しつけがましくなく、相手の時間を尊重する姿勢を示してください。」
+            </div>
+        </div>
+        
+        <div class="prompt-card">
+            <div class="card-header">
+                <div class="card-icon">🎤</div>
+                <div class="card-title">プレゼンテーション改善</div>
+            </div>
+            <div class="prompt-example">
+                <strong>プロンプト例:</strong><br>
+                「あなたはプレゼンテーションコーチです。添付の提案資料を分析し、以下の観点から改善提案をしてください：
+                <br><br>
+                1. ストーリーテリングの流れと説得力<br>
+                2. スライドごとの主要メッセージの明確さ<br>
+                3. データとビジュアルの効果的な使用<br>
+                4. 顧客にとっての価値訴求の強化方法<br>
+                5. Q&Aセッションに備えて準備すべき質問と回答<br>
+                <br>
+                対象顧客は製造業の経営層で、特にコスト削減とビジネスの俊敏性向上に関心があります。プレゼン時間は30分の予定です。」
+            </div>
+        </div>
+        
+        <div class="prompt-card">
+            <div class="card-header">
+                <div class="card-icon">❓</div>
+                <div class="card-title">想定質問と回答例の作成</div>
+            </div>
+            <div class="prompt-example">
+                <strong>プロンプト例:</strong><br>
+                「あなたは提案プレゼンテーションを準備している営業担当者です。小売業向けのデータ分析ソリューション提案における想定質問と回答例を作成してください。以下のカテゴリに分けて各5問ずつ作成してください：
+                <br><br>
+                1. コスト関連（初期投資、運用コスト、ROIなど）<br>
+                2. 技術関連（既存システムとの連携、セキュリティ、拡張性など）<br>
+                3. 導入プロセス（期間、必要リソース、リスクなど）<br>
+                4. サポート体制（トレーニング、障害対応、保守など）<br>
+                5. 他社比較（競合製品との違い、選定理由など）<br>
+                <br>
+                回答は具体的かつ説得力があり、数字や事例を含むようにしてください。特に厳しい質問や反論に対しても誠実に回答するアプローチを示してください。」
+            </div>
+        </div>
+        
+        <h2>高度なリサーチと提案書作成</h2>
+        <p>AIの高度な機能を活用して、より深いリサーチと質の高い提案書作成を行う方法を紹介します。</p>
+        
+        <div class="feature-card">
+            <div class="feature-title">
+                <div class="feature-icon">🔍</div>
+                <h3>深堀りリサーチ</h3>
+            </div>
+            <p>特定の業界や技術トレンドについて詳細なリサーチを行い、その結果を営業活動に活用します。</p>
+            <div class="prompt-example">
+                <strong>プロンプト例:</strong><br>
+                「小売業におけるAI活用の最新トレンドを調査し、以下の観点からレポートを作成してください：<br>
+                1. 主要な活用領域と事例（在庫管理、需要予測、顧客体験など）<br>
+                2. 導入による定量的効果と成功要因<br>
+                3. 実装における課題と対策<br>
+                4. 今後3年間の発展予測<br>
+                5. 小売事業者がAI導入を検討する際の評価基準<br>
+                リサーチ結果は、顧客との会話のトーキングポイントとして使用できるよう、簡潔な要点と詳細資料の両方を含めてください。」
+            </div>
+            <p>AIはウェブ検索機能を活用して、最新情報を収集し、構造化されたレポートを生成します。このレポートを元に、顧客との会話や提案の質を高めることができます。</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-title">
+                <div class="feature-icon">📄</div>
+                <h3>提案書構成と作成</h3>
+            </div>
+            <p>顧客ニーズと自社の強みを効果的に結びつけた、説得力のある提案書を作成します。</p>
+            <div class="prompt-example">
+                <strong>プロンプト例:</strong><br>
+                「あなたは提案書作成のスペシャリストです。以下の情報を基に、物流企業向けのシステム再構築プロジェクトの提案書を作成してください：<br><br>
+                【クライアント情報】<br>
+                • 業種：総合物流企業<br>
+                • 規模：年商800億円、従業員2,000名<br>
+                • 課題：レガシーシステムの保守コスト増大、業務効率の低下、データ活用の遅れ<br><br>
+                
+                【提案内容】<br>
+                • クラウドベースの統合物流管理システムの構築<br>
+                • モバイルアプリによる現場作業の効率化<br>
+                • データ分析基盤の整備<br><br>
+                
+                提案書には以下を含めてください：<br>
+                1. エグゼクティブサマリー<br>
+                2. 現状分析と課題抽出<br>
+                3. ソリューション概要と特徴<br>
+                4. 導入効果（コスト削減20%、リードタイム30%短縮など）<br>
+                5. 実装アプローチとスケジュール<br>
+                6. 投資対効果<br>
+                7. 成功事例<br>
+                8. 当社の強み<br><br>
+                
+                経営層向けと現場責任者向けの両方に響くメッセージを含め、専門用語は必要最小限に抑えてください。」
+            </div>
+            <p>AIは提供された情報を整理し、論理的で説得力のある提案書の下書きを作成します。これをベースに微調整を加えることで、質の高い提案書を効率的に作成できます。</p>
+        </div>
+        
+        <h2>パーソナライズと効率化のためのTips</h2>
+        <p>AIを最大限に活用するためのヒントと、効率化のためのテクニックを紹介します。</p>
+        
+        <div class="prompt-card">
+            <div class="card-header">
+                <div class="card-icon">⚙️</div>
+                <div class="card-title">プロンプトのテンプレート化</div>
+            </div>
+            <p>繰り返し使用するプロンプトはテンプレート化して保存しておくと、効率的です。変更が必要な部分を明確にしておくことで、迅速にカスタマイズできます。</p>
+            <div class="prompt-example">
+                <strong>テンプレート例:</strong><br>
+                「あなたは10年以上の経験を持つITコンサルタントです。[業種]向けの[ソリューション種類]導入プロジェクトの提案書を作成してください。提案書には、現状の課題分析、システム導入のメリット、導入スケジュール、概算コストを含めてください。[対象者]向けに[ページ数]程度でまとめ、[特徴]を強調する内容にしてください。」
+            </div>
+        </div>
+        
+        <div class="prompt-card">
+            <div class="card-header">
+                <div class="card-icon">🔄</div>
+                <div class="card-title">段階的な改善と反復</div>
+            </div>
+            <p>最初から完璧な回答を得ようとするのではなく、基本的な内容を生成してから段階的に改善していくアプローチが効果的です。</p>
+            <div class="prompt-example">
+                <strong>ステップ例:</strong><br>
+                1. 基本構成の生成: 「製造業向けのIoTソリューション提案書の基本構成を作成してください。」<br>
+                2. 内容の詳細化: 「各セクションの内容を詳細化してください。特に課題分析とソリューション概要に重点を置いてください。」<br>
+                3. 差別化要素の追加: 「競合との差別化要素をより明確にするために、以下の当社独自の強みを提案書に統合してください: [強み]」<br>
+                4. 表現の洗練: 「経営層向けにより説得力のある表現に洗練してください。専門用語は必要最小限にし、ビジネス価値を強調する内容にしてください。」
+            </div>
+        </div>
+        
+        <div class="prompt-card">
+            <div class="card-header">
+                <div class="card-icon">🧩</div>
+                <div class="card-title">複数のAIツールの使い分け</div>
+            </div>
+            <p>各AIツールの特徴を理解し、用途に応じて使い分けることで、より効果的に活用できます。</p>
+            <div class="note">
+                <strong>主なAIツールの特徴:</strong><br>
+                - <strong>Claude:</strong> 長文の処理や複雑な指示の理解に優れています。詳細な分析や洞察が必要な場合に適しています。<br>
+                - <strong>ChatGPT:</strong> 幅広い知識と柔軟な対応が特徴です。一般的なビジネス文書の作成や情報整理に適しています。<br>
+                - <strong>Gemini:</strong> Google製品との統合が強みです。データ分析や視覚情報の処理、検索機能と連携した情報収集に適しています。
+            </div>
+        </div>
+        
+        <footer>
+            <p>SIer企業の営業職向けプロンプトライブラリ - 2025年5月版</p>
+            <p>効果的なAI活用で営業活動の効率と質を向上させましょう。</p>
+        </footer>
+    </div>
+</body>
+</html>
