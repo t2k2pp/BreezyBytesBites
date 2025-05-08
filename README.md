@@ -207,3 +207,5 @@ Claude の アーティファクトという機能で作成したものです。
 
 - [コンシューマー向け生成AIサービス比較](https://t2k2pp.github.io/BreezyBytesBites/Dev/artifact/ai-comparison.html)...2025/04/24
 - [生成AIサービス比較インフォグラフィック](https://t2k2pp.github.io/BreezyBytesBites/Dev/artifact/ai-comparison-infographic.html)...2025/04/24
+- [SIer企業の営業職向けプロンプトライブラリ](https://t2k2pp.github.io/BreezyBytesBites/Dev/artifact/sier-sales-prompt-library.html)...2025/05/09
+- [SIer企業のためのプロンプトライブラリ プロジェクトマネージャー編](https://t2k2pp.github.io/BreezyBytesBites/Dev/artifact/sier-pm-prompt-library.html)...2025/05/09
