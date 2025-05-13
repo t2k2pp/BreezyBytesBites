@@ -35,6 +35,7 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 ### 生成AI関連書籍
 
 - [抵抗勢力を黙らせた上で信者にする生成AIの社内導入](https://github.com/t2k2pp/AI_Adoption_Book/blob/main/ai-adoption-book-all.pdf)
+  - [sound.fm](https://stand.fm/episodes/682352523a3949c38d6f2437)...2025/05/13 Notebook LM
 - [『それってレガシープロンプト：生成AIとの対話を再考する』](https://github.com/t2k2pp/NewPrompt/blob/main/legacy-prompts-book%20(%E3%81%BE%E3%81%A8%E3%82%81%E7%89%88).md)(一部エラーあり)
 - [生成AIで本を作成するためのクックブック](https://github.com/t2k2pp/BookBuilder/blob/main/ai-book-cookbook.md)
 - [Claudeを活用した書籍制作ワークフロー](https://github.com/t2k2pp/BookBuilder/blob/main/claude-book-creation-workflow.md)
@@ -86,6 +87,7 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 
 **おすすめ**
 - [強みを生み出すPM入門](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/%E5%BC%B7%E3%81%BF%E3%82%92%E7%94%9F%E3%81%BF%E5%87%BA%E3%81%99/pm-book.pdf),[付録](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/%E5%BC%B7%E3%81%BF%E3%82%92%E7%94%9F%E3%81%BF%E5%87%BA%E3%81%99/pm-self-assessment-tool.pdf)...2025/04/15 Claude 3.7
+  - [sound.fm](https://stand.fm/episodes/682351b0276568a95689492e)...2025/05/13 Notebook LM
 
 **マジメ**
 
@@ -131,6 +133,7 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [あなたのファシリテーションは間違っている！](https://github.com/t2k2pp/facilitator_book/blob/main/facilitator-book-1.md)
 - [後悔だらけのファシリテーション](https://github.com/t2k2pp/facilitator_book/blob/main/facilitator-book-3.md)
 - [今日から始めるインフォグラフィック](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/InfoGraphic/infographic-book-outline.pdf)...2025/04/18 Claude 3.7
+  - [sound.fm](https://stand.fm/episodes/682353483a3949c38d6f2446)...2025/05/13 Notebook LM
 
 **その他ファシリテータ本**
 
