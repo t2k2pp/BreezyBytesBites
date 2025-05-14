@@ -62,6 +62,7 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [Ruby入門:基礎から実践まで](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Ruby/ruby-beginner-book.pdf)...2025/04/09 add
 - [Excel & Power BI データ変換マスターガイド](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/PowerQuery/powerbook.pdf)...2025/04/10 add
 - [金融レガシーシステム再生術](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/financial/01.financial-legacy-ai-guide.pdf)...2025/04/16 add
+- [AI対応！神エクセルからの卒業プロセス](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Excel/excel-reskilling-book.md)...2025/05/15 Claude3.7
 
 **ゆるめ**
 
@@ -203,6 +204,7 @@ DeepResearchの結果をそのまま転記しています。自己責任で最�
 - [OpenAI API パラメータ変更調査](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/OpenAI%20API%20%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E5%A4%89%E6%9B%B4%E8%AA%BF%E6%9F%BB_.pdf)...2025/04/25
 - [ジブリ風画像生成制限の調査](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/%E3%82%B8%E3%83%96%E3%83%AA%E9%A2%A8%E7%94%BB%E5%83%8F%E7%94%9F%E6%88%90%E5%88%B6%E9%99%90%E3%81%AE%E8%AA%BF%E6%9F%BB_.pdf)...2025/04/25
 - [ビックリマンシール生成AIプロンプト検討](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/%E3%83%93%E3%83%83%E3%82%AF%E3%83%AA%E3%83%9E%E3%83%B3%E3%82%B7%E3%83%BC%E3%83%AB%E7%94%9F%E6%88%90AI%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88%E6%A4%9C%E8%A8%8E_.pdf)...2025/04/25
+- [Microsoft Copilot Studio M365 and Azure](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/Microsoft%20Copilot%20Studio.pdf)...2025/05/15
 
 ### HTML
 
