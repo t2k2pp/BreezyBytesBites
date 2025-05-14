@@ -63,6 +63,8 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [Excel & Power BI データ変換マスターガイド](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/PowerQuery/powerbook.pdf)...2025/04/10 add
 - [金融レガシーシステム再生術](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/financial/01.financial-legacy-ai-guide.pdf)...2025/04/16 add
 - [AI対応！神エクセルからの卒業プロセス](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Excel/excel-reskilling-book.md)...2025/05/15 Claude3.7
+  - [sound.fm type A](https://stand.fm/episodes/6825211f9ada14f216acecd1)...2025/05/15 Notebook LM
+  - [sound.fm type B](https://stand.fm/episodes/682521b66ac9b6d1d35387bf)...2025/05/15 Notebook LM
 
 **ゆるめ**
 
