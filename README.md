@@ -71,6 +71,14 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [ソースコードのないプログラミングの本](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Program/programming-book.md)
 - [PythonもR言語もないデータサイエンス・AIの本](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/AI/datascience-ai-book.md)
 
+
+**転生したら・・・**
+- [転生したら生成AIの中の人だった件](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Tensei/reincarnated_ai_novel.md)...2025/05/26 Claude4.0
+- [転生したら生成AIの中の人だった件 〜RAG編〜](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Tensei/reincarnated_ai_rag_novel.md)...2025/05/26 Claude4.0
+- [転生したら生成AIの中の人だった件 〜MCP編〜](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Tensei/reincarnated_ai_mcp_novel.md)...2025/05/26 Claude4.0
+- [転生したら生成AIの中の人だった件 〜AIエージェント編〜](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Tensei/reincarnated_ai_agent_novel.md)...2025/05/26 Claude4.0
+- [転生したら生成AIの中の人だった件 〜Dify編〜](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Tensei/reincarnated_ai_dify_novel.md)...2025/05/26 Claude4.0
+
 ---
 
 ### プロジェクトマネージャー向け書籍
