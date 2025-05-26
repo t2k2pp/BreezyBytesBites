@@ -75,20 +75,20 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 
 **Dify Hands-On**
 - Dify導入トレーニング - 1日目
-	- [Difyの基礎知識とローカル版の理解](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day1_content.md)
-	- [Docker・Kubernetes入門（Dify構築準備）](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day1_afternoon_docker.md)
+	- [Difyの基礎知識とローカル版の理解](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day1_content.md)...2025/05/26 Claude4.0
+	- [Docker・Kubernetes入門（Dify構築準備）](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day1_afternoon_docker.md)...2025/05/26 Claude4.0
 - Dify導入トレーニング - 2日目
-	- [ローカル環境構築ハンズオン](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day2_handson.md)
-	- [よくある質問と回答集](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day2_qa_session.md)
+	- [ローカル環境構築ハンズオン](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day2_handson.md)...2025/05/26 Claude4.0
+	- [よくある質問と回答集](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day2_qa_session.md)...2025/05/26 Claude4.0
 - Dify導入トレーニング - 3日目
-	- [エージェント作成実習](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day3_agent_creation.md)
-	- [エージェント作成実習 Q&A集](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day3_qa_session.md)
+	- [エージェント作成実習](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day3_agent_creation.md)...2025/05/26 Claude4.0
+	- [エージェント作成実習 Q&A集](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day3_qa_session.md)...2025/05/26 Claude4.0
 - Dify導入トレーニング - 4日目
-	- [オンライン版の知識とエンタープライズ機能](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day4_online_knowledge.md)
-	- [深い理解に基づく質問 Q&A集](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day4_qa_deep.md)
+	- [オンライン版の知識とエンタープライズ機能](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day4_online_knowledge.md)...2025/05/26 Claude4.0
+	- [深い理解に基づく質問 Q&A集](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day4_qa_deep.md)...2025/05/26 Claude4.0
 - Dify導入トレーニング - 5日目
-	- [オンライン版実践ハンズオン - 総合実習](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day5_online_practice.md)
-	- [簡潔Q&A集](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day5_final_qa.md)
+	- [オンライン版実践ハンズオン - 総合実習](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day5_online_practice.md)...2025/05/26 Claude4.0
+	- [簡潔Q&A集](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day5_final_qa.md)...2025/05/26 Claude4.0
 
 
 **転生したら・・・**
@@ -97,7 +97,7 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [転生したら生成AIの中の人だった件 〜MCP編〜](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Tensei/reincarnated_ai_mcp_novel.md)...2025/05/26 Claude4.0
 - [転生したら生成AIの中の人だった件 〜AIエージェント編〜](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Tensei/reincarnated_ai_agent_novel.md)...2025/05/26 Claude4.0
 - [転生したら生成AIの中の人だった件 〜Dify編〜](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Tensei/reincarnated_ai_dify_novel.md)...2025/05/26 Claude4.0
-
+- [転生したら生成AIの中の人だった件 〜PM支援AIエージェント編〜](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Tensei/reincarnated_ai_pm_support_novel.md)...2025/05/27 Claude4.0
 ---
 
 ### プロジェクトマネージャー向け書籍
