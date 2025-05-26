@@ -66,10 +66,29 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
   - [sound.fm type A](https://stand.fm/episodes/6825211f9ada14f216acecd1)...2025/05/15 Notebook LM
   - [sound.fm type B](https://stand.fm/episodes/682521b66ac9b6d1d35387bf)...2025/05/15 Notebook LM
 
+
 **ゆるめ**
 
 - [ソースコードのないプログラミングの本](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Program/programming-book.md)
 - [PythonもR言語もないデータサイエンス・AIの本](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/AI/datascience-ai-book.md)
+
+
+**Dify Hands-On**
+- Dify導入トレーニング - 1日目
+	- [Difyの基礎知識とローカル版の理解](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day1_content.md)
+	- [Docker・Kubernetes入門（Dify構築準備）](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day1_afternoon_docker.md)
+- Dify導入トレーニング - 2日目
+	- [ローカル環境構築ハンズオン](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day2_handson.md)
+	- [よくある質問と回答集](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day2_qa_session.md)
+- Dify導入トレーニング - 3日目
+	- [エージェント作成実習](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day3_agent_creation.md)
+	- [エージェント作成実習 Q&A集](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day3_qa_session.md)
+- Dify導入トレーニング - 4日目
+	- [オンライン版の知識とエンタープライズ機能](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day4_online_knowledge.md)
+	- [深い理解に基づく質問 Q&A集](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day4_qa_deep.md)
+- Dify導入トレーニング - 5日目
+	- [オンライン版実践ハンズオン - 総合実習](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day5_online_practice.md)
+	- [簡潔Q&A集](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/dify_handson/dify_day5_final_qa.md)
 
 
 **転生したら・・・**
