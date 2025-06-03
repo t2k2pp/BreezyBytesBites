@@ -79,7 +79,10 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
   - インフォグラフィック6:[持続的改善と変革ロードマップ](https://t2k2pp.github.io/BreezyBytesBites/Dev/CICD/ci_cd_infographic_part6.html)...2025/06/04 Claude4.0
   - インフォグラフィック7:[ビジネス価値と未来展望](https://t2k2pp.github.io/BreezyBytesBites/Dev/CICD/ci_cd_infographic_part7.html)...2025/06/04 Claude4.0
 
-
+** プロンプト手法と現在の各生成AIでの効果 2025/06版 **
+- [Claude版](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Prompt/%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88%E6%89%8B%E6%B3%95%E3%81%A8%E7%8F%BE%E5%9C%A8%E3%81%AE%E5%90%84%E7%94%9F%E6%88%90AI%E3%81%A7%E3%81%AE%E5%8A%B9%E6%9E%9CClaudeBuild.md)
+- [Copilot版](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Prompt/%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88%E6%89%8B%E6%B3%95%E3%81%A8%E7%8F%BE%E5%9C%A8%E3%81%AE%E5%90%84%E7%94%9F%E6%88%90AI%E3%81%A7%E3%81%AE%E5%8A%B9%E6%9E%9CCopilotBuild.md)
+- [Gemini版](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Prompt/%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88%E6%89%8B%E6%B3%95%E3%81%A8%E7%8F%BE%E5%9C%A8%E3%81%AE%E5%90%84%E7%94%9F%E6%88%90AI%E3%81%A7%E3%81%AE%E5%8A%B9%E6%9E%9CGeminiBuild.pdf)
 
 **ゆるめ**
 
