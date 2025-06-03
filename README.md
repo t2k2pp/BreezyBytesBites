@@ -68,7 +68,7 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 **CI/CD**
 
 - [いちばんやさしい、CI/CDの社内導入](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/CICD/%E3%81%84%E3%81%A1%E3%81%B0%E3%82%93%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E3%80%81CI_CD%E3%81%AE%E7%A4%BE%E5%86%85%E5%B0%8E%E5%85%A5.md)...2025/06/04 Claude4.0
-  - [インフォグラフィック](https://t2k2pp.github.io/BreezyBytesBites/Dev/CICD/cicd_educational_infographic.html)
+  - [インフォグラフィック](https://t2k2pp.github.io/BreezyBytesBites/Dev/CICD/cicd_educational_infographic.html)...2025/06/04 Claude4.0
 - [聖域なきCI/CDの社内導入](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/CICD/%E8%81%96%E5%9F%9F%E3%81%AA%E3%81%8DCI_CD%E3%81%AE%E7%A4%BE%E5%86%85%E5%B0%8E%E5%85%A5.md) [分冊版](https://github.com/t2k2pp/CICDBook)...2025/03/12 Claude3.7
   - インフォグラフィック1:[基本概念と聖域の理解](https://t2k2pp.github.io/BreezyBytesBites/Dev/CICD/ci_cd_infographic_part1.html)...2025/06/04 Claude4.0
   - インフォグラフィック2:[技術的聖域への挑戦](https://t2k2pp.github.io/BreezyBytesBites/Dev/CICD/ci_cd_infographic_part2.html)...2025/06/04 Claude4.0
