@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft 365 Copilot 完全比較ガイド 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #0078d4, #106ebe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        
+        .build-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .plan-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 3px solid #f0f0f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .plan-card.free {
+            border-color: #10ac84;
+            background: linear-gradient(135deg, #10ac84 0%, #1dd1a1 100%);
+            color: white;
+        }
+        
+        .plan-card.paid {
+            border-color: #0078d4;
+            background: linear-gradient(135deg, #0078d4 0%, #106ebe 100%);
+            color: white;
+        }
+        
+        .plan-card.payg {
+            border-color: #f39c12;
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+        }
+        
+        .plan-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .plan-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            display: block;
+        }
+        
+        .plan-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .plan-price {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .plan-description {
+            font-size: 0.9em;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .features-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #fff;
+            font-weight: bold;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        .recommendation-section {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            color: white;
+        }
+        
+        .recommendation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .recommendation-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .recommendation-card h4 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .recommendation-card ul {
+            list-style: none;
+        }
+        
+        .recommendation-card li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.9em;
+        }
+        
+        .recommendation-card li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        .timeline-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-date {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            min-width: 100px;
+            text-align: center;
+            margin-right: 20px;
+        }
+        
+        .timeline-content {
+            flex: 1;
+        }
+        
+        .timeline-content h4 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-content p {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        
+        .decision-matrix {
+            background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            color: white;
+        }
+        
+        .decision-matrix h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .matrix-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .matrix-item .icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .matrix-item h4 {
+            margin-bottom: 10px;
+        }
+        
+        .matrix-item p {
+            font-size: 0.9em;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+            color: #666;
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .recommendation-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .matrix-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Microsoft 365 Copilot 完全比較ガイド</h1>
+            <p>2025年最新情報：Build 2025アップデート対応版</p>
+            <div class="build-badge">🚀 Build 2025 Wave 2 Spring対応</div>
+        </div>
+
+        <div class="comparison-grid">
+            <div class="plan-card free">
+                <div class="plan-header">
+                    <svg class="plan-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="45" fill="rgba(255,255,255,0.2)" stroke="white" stroke-width="3"/>
+                        <path d="M30 50L45 65L70 35" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="plan-title">Microsoft 365 Copilot Chat</div>
+                    <div class="plan-price">無償</div>
+                    <div class="plan-description">Microsoft 365サブスクリプション契約者向け基本AI機能</div>
+                </div>
+                <ul class="features-list">
+                    <li>GPT-4o基盤のWebチャット機能</li>
+                    <li>ファイルアップロード・分析機能</li>
+                    <li>画像生成（OpenAI GPT-4o）</li>
+                    <li>Copilot Pages（リアルタイム共同編集）</li>
+                    <li>基本的なエンタープライズデータ保護</li>
+                    <li>市場調査・戦略文書作成支援</li>
+                    <li>Win + C ショートカット対応（Windows 11）</li>
+                </ul>
+            </div>
+
+            <div class="plan-card paid">
+                <div class="plan-header">
+                    <svg class="plan-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="10" y="20" width="80" height="60" rx="8" fill="rgba(255,255,255,0.2)" stroke="white" stroke-width="3"/>
+                        <path d="M20 35L80 35" stroke="white" stroke-width="2"/>
+                        <path d="M20 50L80 50" stroke="white" stroke-width="2"/>
+                        <path d="M20 65L60 65" stroke="white" stroke-width="2"/>
+                        <circle cx="75" cy="25" r="8" fill="white"/>
+                    </svg>
+                    <div class="plan-title">Microsoft 365 Copilot</div>
+                    <div class="plan-price">$30/月</div>
+                    <div class="plan-description">完全統合型個人AIアシスタント</div>
+                </div>
+                <ul class="features-list">
+                    <li>Copilot Chat の全機能を含む</li>
+                    <li>Word, Excel, PowerPoint, Outlook, Teams統合</li>
+                    <li>個人ワークデータ（メール・会議・チャット）アクセス</li>
+                    <li>Copilot Analytics（ROI測定）</li>
+                    <li>Python分析機能（Excel）</li>
+                    <li>最大5ファイル参照（PowerPoint）</li>
+                    <li>添付ファイル自動要約（Outlook）</li>
+                    <li>高度なCopilot Control System</li>
+                </ul>
+            </div>
+
+            <div class="plan-card payg">
+                <div class="plan-header">
+                    <svg class="plan-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="30" r="20" fill="rgba(255,255,255,0.2)" stroke="white" stroke-width="3"/>
+                        <path d="M30 70L70 70" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M35 60L35 80" stroke="white" stroke-width="2"/>
+                        <path d="M50 55L50 85" stroke="white" stroke-width="2"/>
+                        <path d="M65 65L65 75" stroke="white" stroke-width="2"/>
+                        <path d="M45 25L55 35M55 25L45 35" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <div class="plan-title">Pay-as-you-go Agents</div>
+                    <div class="plan-price">従量課金</div>
+                    <div class="plan-description">必要な時だけ使用する柔軟な料金体系</div>
+                </div>
+                <ul class="features-list">
+                    <li>メッセージ単位での課金システム</li>
+                    <li>カスタムAIエージェント作成・利用</li>
+                    <li>CRMエージェント（顧客関係管理）</li>
+                    <li>SharePoint連携フィールドサービス</li>
+                    <li>管理者による組織全体エージェント構築</li>
+                    <li>Microsoft Copilot Studio連携</li>
+                    <li>変動需要に対応した柔軟な利用</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="recommendation-section">
+            <h3>🎯 あなたの組織に最適な選択肢</h3>
+            <div class="recommendation-grid">
+                <div class="recommendation-card">
+                    <h4>🆓 無償版がおすすめの場合</h4>
+                    <ul>
+                        <li>小規模チーム・スタートアップ</li>
+                        <li>初期コスト抑制が重要</li>
+                        <li>市場調査・単発的な分析作業</li>
+                        <li>AI機能の学習・実験段階</li>
+                        <li>画像生成が主要な用途</li>
+                    </ul>
+                </div>
+                <div class="recommendation-card">
+                    <h4>💼 有償版がおすすめの場合</h4>
+                    <ul>
+                        <li>日常的な生産性向上が目標</li>
+                        <li>Microsoft 365を頻繁に使用</li>
+                        <li>データ統合・分析が重要</li>
+                        <li>ROI測定が必要な大規模組織</li>
+                        <li>時間節約による効率化を重視</li>
+                    </ul>
+                </div>
+                <div class="recommendation-card">
+                    <h4>⚡ 従量課金がおすすめの場合</h4>
+                    <ul>
+                        <li>需要が季節的・プロジェクト的</li>
+                        <li>特定業務プロセスの自動化</li>
+                        <li>全社展開前の部分的テスト</li>
+                        <li>カスタムエージェント活用</li>
+                        <li>予算管理の柔軟性が重要</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-section">
+            <h3>📅 Build 2025アップデート・今後の予定</h3>
+            <div class="timeline-item">
+                <div class="timeline-date">2025年1月</div>
+                <div class="timeline-content">
+                    <h4>Microsoft 365 Copilot Chat 発表</h4>
+                    <p>無償版チャット機能が全Microsoft 365商用ユーザーに提供開始。GPT-4o基盤の安全なビジネス向けAI体験を実現。</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2025年5月</div>
+                <div class="timeline-content">
+                    <h4>Wave 2 Spring Release 展開</h4>
+                    <p>再設計されたCopilotアプリ、Copilot Notebooks、Win + Cショートカット対応、画像生成機能が利用可能に。</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2025年6月</div>
+                <div class="timeline-content">
+                    <h4>Copilot Search & Memory 展開予定</h4>
+                    <p>自然言語による企業データ検索体験と、個人設定・指示の記憶機能が追加予定。Researcher・Analyst Agentも一般提供開始。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="decision-matrix">
+            <h3>🤔 意思決定のためのチェックポイント</h3>
+            <div class="matrix-grid">
+                <div class="matrix-item">
+                    <div class="icon">💰</div>
+                    <h4>コスト対効果</h4>
+                    <p>月額30ドル/ユーザーのコストを、統合による時間節約で回収できるか評価しましょう。</p>
+                </div>
+                <div class="matrix-item">
+                    <div class="icon">🔗</div>
+                    <h4>統合の重要度</h4>
+                    <p>Microsoft 365アプリ内での直接利用が業務効率に与える影響を検討しましょう。</p>
+                </div>
+                <div class="matrix-item">
+                    <div class="icon">📊</div>
+                    <h4>データアクセス</h4>
+                    <p>個人のメール、会議、チャット履歴を横断した分析が必要かを判断しましょう。</p>
+                </div>
+                <div class="matrix-item">
+                    <div class="icon">📈</div>
+                    <h4>組織規模</h4>
+                    <p>ROI測定、管理機能、分析ツールが組織の規模に適しているかを確認しましょう。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>推奨アプローチ：</strong>多くの組織では、まず無償版のCopilot Chatから始めて効果を実感してから有償版への移行を検討することが推奨されています。</p>
+            <p>情報更新日：2025年5月 | Build 2025アップデート対応版</p>
+        </div>
+    </div>
+</body>
+</html>

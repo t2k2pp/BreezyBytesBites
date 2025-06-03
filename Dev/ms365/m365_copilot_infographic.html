@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft 365 Copilot 完全ガイド</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Kosugi+Maru&display=swap');
+        
+        :root {
+            --main-color: #4285F4;
+            --sub1-color: #34A853;
+            --sub2-color: #FBBC05;
+            --accent-color: #EA4335;
+            --bg-color: #F8F9FA;
+            --text-color: #202124;
+            --light-gray: #5F6368;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'M PLUS Rounded 1c', 'Kosugi Maru', sans-serif;
+            background: linear-gradient(135deg, var(--bg-color) 0%, #e8f0fe 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--main-color), var(--sub1-color));
+            color: white;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(66, 133, 244, 0.3);
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .header .target {
+            font-size: 15px;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            color: var(--sub1-color);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--sub1-color);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--main-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .card h3 {
+            font-size: 18px;
+            color: var(--main-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .comparison-table {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            margin: 30px 0;
+            overflow-x: auto;
+        }
+        
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e8e8e8;
+            font-size: 14px;
+        }
+        
+        .comparison-table th {
+            background: var(--main-color);
+            color: white;
+            font-weight: 700;
+        }
+        
+        .comparison-table .feature-category {
+            background: var(--bg-color);
+            font-weight: 700;
+            color: var(--text-color);
+        }
+        
+        .step-flow {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .step {
+            background: white;
+            padding: 20px;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .step:hover {
+            transform: scale(1.05);
+        }
+        
+        .step-number {
+            background: var(--sub2-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .step-text {
+            font-size: 12px;
+            font-weight: 700;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, var(--sub2-color), #fff3cd);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid var(--accent-color);
+        }
+        
+        .highlight-box h4 {
+            color: var(--accent-color);
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .dos-donts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .dos, .donts {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+        
+        .dos {
+            border-left: 5px solid var(--sub1-color);
+        }
+        
+        .donts {
+            border-left: 5px solid var(--accent-color);
+        }
+        
+        .dos h4 {
+            color: var(--sub1-color);
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .donts h4 {
+            color: var(--accent-color);
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .quiz-box {
+            background: linear-gradient(135deg, var(--main-color), var(--sub1-color));
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .quiz-question {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .quiz-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .quiz-option {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .quiz-option:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .mascot {
+            width: 80px;
+            height: 80px;
+            background: var(--sub2-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin: 0 auto 15px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .footer {
+            background: var(--text-color);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .footer h3 {
+            margin-bottom: 15px;
+            color: var(--sub2-color);
+        }
+        
+        .future-features {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        
+        .future-features h3 {
+            color: var(--sub2-color);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .feature-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .arrow {
+            text-align: center;
+            font-size: 24px;
+            color: var(--main-color);
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .dos-donts {
+                grid-template-columns: 1fr;
+            }
+            
+            .quiz-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .step-flow {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ヘッダー -->
+        <div class="header">
+            <div class="mascot">🤖</div>
+            <h1>Microsoft 365 Copilot 完全ガイド</h1>
+            <div class="subtitle">AI時代の業務効率化を始めよう</div>
+            <div class="target">対象：AI初心者・全従業員</div>
+        </div>
+
+        <!-- セクション1：Copilotとは -->
+        <div class="section">
+            <h2 class="section-title">🌟 Microsoft 365 Copilotって何？</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>🆓 無償版 Copilot Chat</h3>
+                    <p><strong>データソース：</strong>Web上の公開情報</p>
+                    <p><strong>利用場面：</strong>情報検索、アイデア出し、簡単な翻訳</p>
+                    <p><strong>特徴：</strong>追加料金なしで利用可能</p>
+                </div>
+                <div class="card">
+                    <h3>💎 有償版 Copilot</h3>
+                    <p><strong>データソース：</strong>Web情報 + 社内データ</p>
+                    <p><strong>利用場面：</strong>Word・Excel・PowerPoint・Teams内での高度な業務支援</p>
+                    <p><strong>特徴：</strong>月額約4,497円、組織データと連携</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 比較表 -->
+        <div class="comparison-table">
+            <h3 style="text-align: center; margin-bottom: 20px; color: var(--main-color);">📊 機能比較一覧表</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>機能項目</th>
+                        <th>無償版 Copilot Chat</th>
+                        <th>有償版 Copilot</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-category">基本機能</td>
+                        <td>AIチャット、情報検索、翻訳</td>
+                        <td>全機能 + M365アプリ連携</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-category">データソース</td>
+                        <td>Web上の公開情報のみ</td>
+                        <td>Web情報 + 社内データ</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-category">Word連携</td>
+                        <td>なし</td>
+                        <td>文書作成支援、校正</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-category">Excel連携</td>
+                        <td>なし</td>
+                        <td>データ分析、グラフ作成</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-category">Teams連携</td>
+                        <td>基本的なチャット</td>
+                        <td>会議要約、議事録作成</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- セクション2：プロンプト作成の基本 -->
+        <div class="section">
+            <h2 class="section-title">✨ 効果的なプロンプト作成の秘訣</h2>
+            
+            <div class="highlight-box">
+                <h4>🎯 良いプロンプトの4つの要素</h4>
+                <div class="step-flow">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-text">目標<br>Goal</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-text">背景<br>Context</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-text">詳細<br>Details</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-text">期待値<br>Expectation</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dos-donts">
+                <div class="dos">
+                    <h4>✅ 良いプロンプト例</h4>
+                    <p><strong>具体的で明確：</strong></p>
+                    <p>「来週開催する社内勉強会の案内メールを作成してください。目的はCopilot Chatの基本操作習得で、対象は30名のAI初心者です。カジュアルなトーンで、参加メリットを3点含めてください。」</p>
+                </div>
+                <div class="donts">
+                    <h4>❌ 改善が必要なプロンプト例</h4>
+                    <p><strong>曖昧で不明確：</strong></p>
+                    <p>「勉強会のメールを書いて」</p>
+                    <br>
+                    <p>→ 何の勉強会？誰宛？どんなトーン？詳細が不足しています</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- セクション3：実践的な活用例 -->
+        <div class="section">
+            <h2 class="section-title">🚀 今すぐ試せる活用例</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>📝 文章作成・下書き</h3>
+                    <p><strong>プロンプト例：</strong></p>
+                    <p>「顧客A社への提案書の構成案を作成してください。新システム導入のメリットを5つの章で説明し、各章の要点を箇条書きで示してください。」</p>
+                </div>
+                <div class="card">
+                    <h3>🔍 情報収集・調査</h3>
+                    <p><strong>プロンプト例：</strong></p>
+                    <p>「2024年のリモートワーク導入トレンドについて、主要な統計データと企業事例を3つずつ教えてください。」</p>
+                </div>
+                <div class="card">
+                    <h3>🌐 翻訳・多言語対応</h3>
+                    <p><strong>プロンプト例：</strong></p>
+                    <p>「この日本語のプレスリリースを英語に翻訳し、海外顧客向けのビジネス文書として適切な表現に調整してください。」</p>
+                </div>
+                <div class="card">
+                    <h3>💡 アイデア発想</h3>
+                    <p><strong>プロンプト例：</strong></p>
+                    <p>「チームの生産性向上のためのアイデアを10個提案してください。予算は50万円以内、実施期間は3ヶ月です。」</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- クイズセクション -->
+        <div class="quiz-box">
+            <div class="quiz-question">🤔 理解度チェッククイズ</div>
+            <p style="margin-bottom: 20px;">無償版Copilot Chatの主なデータソースは何でしょうか？</p>
+            <div class="quiz-options">
+                <div class="quiz-option" onclick="showAnswer(this, false)">A. 社内のSharePointデータ</div>
+                <div class="quiz-option" onclick="showAnswer(this, true)">B. Web上の公開情報</div>
+                <div class="quiz-option" onclick="showAnswer(this, false)">C. Microsoft 365のメール</div>
+                <div class="quiz-option" onclick="showAnswer(this, false)">D. 組織のTeamsチャット</div>
+            </div>
+            <div id="answer-feedback" style="margin-top: 15px; font-weight: bold;"></div>
+        </div>
+
+        <!-- セクション4：注意点とベストプラクティス -->
+        <div class="section">
+            <h2 class="section-title">⚠️ 安全に使うための重要なポイント</h2>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h3>🔒 セキュリティ</h3>
+                    <p>• 機密情報の入力は避ける</p>
+                    <p>• Microsoft Entra IDでサインイン</p>
+                    <p>• 生成物は必ずファクトチェック</p>
+                </div>
+                <div class="card">
+                    <h3>⚖️ 著作権・コンプライアンス</h3>
+                    <p>• AI生成物も著作権を確認</p>
+                    <p>• 個人情報保護法を遵守</p>
+                    <p>• 社内ガイドラインに従う</p>
+                </div>
+                <div class="card">
+                    <h3>🎯 効果的な利用</h3>
+                    <p>• 対話形式で内容を深掘り</p>
+                    <p>• 不満足な結果は追加指示で改善</p>
+                    <p>• 複数の情報源で検証</p>
+                </div>
+                <div class="card">
+                    <h3>📚 継続学習</h3>
+                    <p>• Microsoft Copilot Academy活用</p>
+                    <p>• 社内での事例共有</p>
+                    <p>• 定期的なスキルアップ</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 未来の機能紹介 -->
+        <div class="future-features">
+            <h3>🔮 Build 2025で発表された最新機能</h3>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h4>🧠 Copilot Memory</h4>
+                    <p>ユーザーの好みや過去の対話を記憶し、よりパーソナライズされた支援を提供</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🔍 Copilot Search</h4>
+                    <p>組織内データ全体を自然言語で検索できる新しいエンタープライズ検索</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🤝 Multi-agent orchestration</h4>
+                    <p>複数のAIエージェントが連携して複雑なタスクを処理</p>
+                </div>
+                <div class="feature-item">
+                    <h4>⚙️ Copilot Tuning</h4>
+                    <p>企業独自データでAIモデルをカスタマイズ（5,000ライセンス以上の組織向け）</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- まとめ -->
+        <div class="section">
+            <h2 class="section-title">🎓 学習のまとめ</h2>
+            <div class="highlight-box">
+                <h4>📋 今日覚えておきたい3つのポイント</h4>
+                <p><strong>1. プロンプトの質が結果の質を決める</strong> - 具体的で明確な指示を心がけましょう</p>
+                <p><strong>2. 無償版と有償版の違いを理解</strong> - 用途に応じて適切に使い分けましょう</p>
+                <p><strong>3. 安全性を常に意識</strong> - ファクトチェックとセキュリティ対策は必須です</p>
+            </div>
+
+            <div class="arrow">⬇️</div>
+            
+            <div style="text-align: center; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+                <h4 style="color: var(--main-color); margin-bottom: 15px;">🚀 次のステップ</h4>
+                <p>今すぐCopilot Chatにアクセスして、学んだプロンプト技術を実際に試してみましょう！</p>
+                <p style="font-size: 14px; color: var(--light-gray); margin-top: 10px;">
+                    アクセス方法：Teams > Copilot または microsoft365.com/copilot
+                </p>
+            </div>
+        </div>
+
+        <!-- フッター -->
+        <div class="footer">
+            <h3>📚 さらに学習を深めるリソース</h3>
+            <p>• Microsoft Copilot Academy（Viva Learning内）</p>
+            <p>• Microsoft Learn - Copilot学習パス</p>
+            <p>• Copilot Prompt Gallery - すぐに使えるプロンプト例</p>
+            <p>• 社内コミュニティでの事例共有</p>
+            <br>
+            <p style="font-size: 14px; opacity: 0.8;">
+                継続的な学習と実践が、AI時代の競争力につながります 🌟
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function showAnswer(element, isCorrect) {
+            const feedback = document.getElementById('answer-feedback');
+            const options = document.querySelectorAll('.quiz-option');
+            
+            // Reset all options
+            options.forEach(option => {
+                option.style.background = 'rgba(255,255,255,0.2)';
+            });
+            
+            if (isCorrect) {
+                element.style.background = 'rgba(52, 168, 83, 0.7)';
+                feedback.innerHTML = '🎉 正解！無償版は主にWeb上の公開情報を参照します。';
+                feedback.style.color = '#34A853';
+            } else {
+                element.style.background = 'rgba(234, 67, 53, 0.7)';
+                feedback.innerHTML = '❌ 残念！正解はB。無償版は社内データにはアクセスできません。';
+                feedback.style.color = '#EA4335';
+            }
+        }
+
+        // Add smooth scroll animation for step flow
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = Math.random() * 0.5 + 's';
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        });
+
+        document.querySelectorAll('.step').forEach((step) => {
+            observer.observe(step);
+        });
+    </script>
+</body>
+</html>
