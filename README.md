@@ -35,7 +35,7 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 ### 生成AI関連書籍
 
 - [抵抗勢力を黙らせた上で信者にする生成AIの社内導入](https://github.com/t2k2pp/AI_Adoption_Book/blob/main/ai-adoption-book-all.pdf)
-  - [sound.fm](https://stand.fm/episodes/682352523a3949c38d6f2437)...2025/05/13 Notebook LM
+  - [stand.fm](https://stand.fm/episodes/682352523a3949c38d6f2437)...2025/05/13 Notebook LM
 - [『それってレガシープロンプト：生成AIとの対話を再考する』](https://github.com/t2k2pp/NewPrompt/blob/main/legacy-prompts-book%20(%E3%81%BE%E3%81%A8%E3%82%81%E7%89%88).md)(一部エラーあり)
 - [生成AIで本を作成するためのクックブック](https://github.com/t2k2pp/BookBuilder/blob/main/ai-book-cookbook.md)
 - [Claudeを活用した書籍制作ワークフロー](https://github.com/t2k2pp/BookBuilder/blob/main/claude-book-creation-workflow.md)
@@ -62,13 +62,14 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [Excel & Power BI データ変換マスターガイド](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/PowerQuery/powerbook.pdf)...2025/04/10 add
 - [金融レガシーシステム再生術](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/financial/01.financial-legacy-ai-guide.pdf)...2025/04/16 add
 - [AI対応！神エクセルからの卒業プロセス](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/Excel/excel-reskilling-book.md)...2025/05/15 Claude3.7
-  - [sound.fm type A](https://stand.fm/episodes/6825211f9ada14f216acecd1)...2025/05/15 Notebook LM
-  - [sound.fm type B](https://stand.fm/episodes/682521b66ac9b6d1d35387bf)...2025/05/15 Notebook LM
+  - [stand.fm type A](https://stand.fm/episodes/6825211f9ada14f216acecd1)...2025/05/15 Notebook LM
+  - [stand.fm type B](https://stand.fm/episodes/682521b66ac9b6d1d35387bf)...2025/05/15 Notebook LM
 
 **CI/CD**
 
 - [いちばんやさしい、CI/CDの社内導入](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/CICD/%E3%81%84%E3%81%A1%E3%81%B0%E3%82%93%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E3%80%81CI_CD%E3%81%AE%E7%A4%BE%E5%86%85%E5%B0%8E%E5%85%A5.md)...2025/06/04 Claude4.0
   - [インフォグラフィック](https://t2k2pp.github.io/BreezyBytesBites/Dev/CICD/cicd_educational_infographic.html)...2025/06/04 Claude4.0
+  - [stand.fm](https://stand.fm/episodes/683f135de9866cfef97e22f3)...2025/06/04 NotebookLM
 - [聖域なきCI/CDの社内導入](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/CICD/%E8%81%96%E5%9F%9F%E3%81%AA%E3%81%8DCI_CD%E3%81%AE%E7%A4%BE%E5%86%85%E5%B0%8E%E5%85%A5.md) [分冊版](https://github.com/t2k2pp/CICDBook)...2025/03/12 Claude3.7
   - インフォグラフィック1:[基本概念と聖域の理解](https://t2k2pp.github.io/BreezyBytesBites/Dev/CICD/ci_cd_infographic_part1.html)...2025/06/04 Claude4.0
   - インフォグラフィック2:[技術的聖域への挑戦](https://t2k2pp.github.io/BreezyBytesBites/Dev/CICD/ci_cd_infographic_part2.html)...2025/06/04 Claude4.0
@@ -130,7 +131,7 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 
 **おすすめ**
 - [強みを生み出すPM入門](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/%E5%BC%B7%E3%81%BF%E3%82%92%E7%94%9F%E3%81%BF%E5%87%BA%E3%81%99/pm-book.pdf),[付録](https://github.com/t2k2pp/BreezyBytesBites/blob/main/PMBook/%E5%BC%B7%E3%81%BF%E3%82%92%E7%94%9F%E3%81%BF%E5%87%BA%E3%81%99/pm-self-assessment-tool.pdf)...2025/04/15 Claude 3.7
-  - [sound.fm](https://stand.fm/episodes/682351b0276568a95689492e)...2025/05/13 Notebook LM
+  - [stand.fm](https://stand.fm/episodes/682351b0276568a95689492e)...2025/05/13 Notebook LM
 
 **マジメ**
 
@@ -176,7 +177,7 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [あなたのファシリテーションは間違っている！](https://github.com/t2k2pp/facilitator_book/blob/main/facilitator-book-1.md)
 - [後悔だらけのファシリテーション](https://github.com/t2k2pp/facilitator_book/blob/main/facilitator-book-3.md)
 - [今日から始めるインフォグラフィック](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/InfoGraphic/infographic-book-outline.pdf)...2025/04/18 Claude 3.7
-  - [sound.fm](https://stand.fm/episodes/682353483a3949c38d6f2446)...2025/05/13 Notebook LM
+  - [stand.fm](https://stand.fm/episodes/682353483a3949c38d6f2446)...2025/05/13 Notebook LM
 
 **その他ファシリテータ本**
 
