@@ -257,3 +257,6 @@ Claude の アーティファクトという機能で作成したものです。
 - [生成AIサービス比較インフォグラフィック](https://t2k2pp.github.io/BreezyBytesBites/Dev/artifact/ai-comparison-infographic.html)...2025/04/24
 - [SIer企業の営業職向けプロンプトライブラリ](https://t2k2pp.github.io/BreezyBytesBites/Dev/artifact/sier-sales-prompt-library.html)...2025/05/09
 - [SIer企業のプロジェクトマネージャー向けプロンプトライブラリ](https://t2k2pp.github.io/BreezyBytesBites/Dev/artifact/sier-pm-prompt-library.html)...2025/05/09
+- [Microsoft 365 Copilot 有償版・無償版 機能比較表](https://t2k2pp.github.io/BreezyBytesBites/Dev/ms365/ms365_copilot_comparison.html)...2025/05/21
+- [Microsoft 365 Copilot 完全ガイド](https://t2k2pp.github.io/BreezyBytesBites/Dev/ms365/m365_copilot_infographic.html)...2025/06/03
+- [Microsoft 365 Copilot 完全比較ガイド](https://t2k2pp.github.io/BreezyBytesBites/Dev/ms365/copilot_comparison_infographic.html)...2025/06/03
