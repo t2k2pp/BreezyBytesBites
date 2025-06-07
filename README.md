@@ -254,7 +254,8 @@ DeepResearchの結果をそのまま転記しています。自己責任で最�
 - [ジブリ風画像生成制限の調査](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/%E3%82%B8%E3%83%96%E3%83%AA%E9%A2%A8%E7%94%BB%E5%83%8F%E7%94%9F%E6%88%90%E5%88%B6%E9%99%90%E3%81%AE%E8%AA%BF%E6%9F%BB_.pdf)...2025/04/25
 - [ビックリマンシール生成AIプロンプト検討](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/%E3%83%93%E3%83%83%E3%82%AF%E3%83%AA%E3%83%9E%E3%83%B3%E3%82%B7%E3%83%BC%E3%83%AB%E7%94%9F%E6%88%90AI%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88%E6%A4%9C%E8%A8%8E_.pdf)...2025/04/25
 - [Microsoft Copilot Studio M365 and Azure](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/Microsoft%20Copilot%20Studio.pdf)...2025/05/15
-
+- [Windows 11 Home 環境における Claude Code 利用完全ガイド](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/Windows%E3%81%A7Claude%20Code%E5%88%A9%E7%94%A8%E6%89%8B%E9%A0%86_.pdf)...2025/06/07
+- 
 ### HTML
 
 Claude の アーティファクトという機能で作成したものです。
@@ -266,4 +267,4 @@ Claude の アーティファクトという機能で作成したものです。
 - [Microsoft 365 Copilot 有償版・無償版 機能比較表](https://t2k2pp.github.io/BreezyBytesBites/Dev/ms365/ms365_copilot_comparison.html)...2025/05/21
 - [Microsoft 365 Copilot 完全ガイド](https://t2k2pp.github.io/BreezyBytesBites/Dev/ms365/m365_copilot_infographic.html)...2025/06/03
 - [Microsoft 365 Copilot 完全比較ガイド](https://t2k2pp.github.io/BreezyBytesBites/Dev/ms365/copilot_comparison_infographic.html)...2025/06/03
-- [Windows 11 Home 環境における Claude Code 利用完全ガイド](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/Windows%E3%81%A7Claude%20Code%E5%88%A9%E7%94%A8%E6%89%8B%E9%A0%86_.pdf)...2025/06/07
+
