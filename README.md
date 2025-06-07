@@ -266,3 +266,4 @@ Claude の アーティファクトという機能で作成したものです。
 - [Microsoft 365 Copilot 有償版・無償版 機能比較表](https://t2k2pp.github.io/BreezyBytesBites/Dev/ms365/ms365_copilot_comparison.html)...2025/05/21
 - [Microsoft 365 Copilot 完全ガイド](https://t2k2pp.github.io/BreezyBytesBites/Dev/ms365/m365_copilot_infographic.html)...2025/06/03
 - [Microsoft 365 Copilot 完全比較ガイド](https://t2k2pp.github.io/BreezyBytesBites/Dev/ms365/copilot_comparison_infographic.html)...2025/06/03
+- [Windows 11 Home 環境における Claude Code 利用完全ガイド](https://github.com/t2k2pp/BreezyBytesBites/blob/main/Dev/DeepResearch/Windows%E3%81%A7Claude%20Code%E5%88%A9%E7%94%A8%E6%89%8B%E9%A0%86_.pdf)...2025/06/07
