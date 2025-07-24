@@ -214,7 +214,7 @@ PDF、リポジトリ混在ですが、将来的には見やすさを配慮しPD
 - [子どもと作る手作り炭酸の世界](https://github.com/t2k2pp/familybooks/blob/main/%E6%89%8B%E4%BD%9C%E3%82%8A%E7%82%AD%E9%85%B8%E9%A3%B2%E6%96%99%E3%81%A8%E3%81%8A%E8%8F%93%E5%AD%90%E3%81%AE%E3%83%AC%E3%82%B7%E3%83%94%E9%9B%86/homemade-carbonated-treats.md)
 - [身長の科学：遺伝と環境の影響についての考察](https://github.com/t2k2pp/familybooks/blob/main/%E8%BA%AB%E9%95%B7%E3%81%AE%E7%A7%91%E5%AD%A6/height-science.md)
 - [エコ茹でパスタをおいしくね♪](https://github.com/t2k2pp/familybooks/blob/main/%E9%A3%B2%E9%A3%9F/eco-pasta-book.md)
-
+- [君の夏はまだ始まったばかり。研究で探求を知ろう！](https://github.com/t2k2pp/familybooks/blob/main/jiyukenkyu_guide.pdf)
 
 ---
 
